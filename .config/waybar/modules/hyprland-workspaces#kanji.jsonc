@@ -1,0 +1,43 @@
+{
+    "hyprland/workspaces#kanji": {
+        "rotate": 0,
+        "class": "",
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "show-special" : true,
+        "disable-scroll": true,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "11": "十一",
+            "12": "十二",
+            "13": "十三",
+            "14": "十四",
+            "15": "十五",
+            "16": "十六",
+            "17": "十七",
+            "18": "十八",
+            "19": "十九",
+            "20": "二十",
+            "notes": "\ue678",
+            "music": "\uf001",
+            "magic": "\uf2d1",
+            "terminal": "\ue795",
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
+        }
+    }
+}

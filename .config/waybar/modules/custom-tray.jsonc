@@ -1,0 +1,7 @@
+{
+    "custom/tray": {
+        "format": "\udb84\ude94",
+        "tooltip": true,
+        "tooltip-format": "Tray"
+    }
+}

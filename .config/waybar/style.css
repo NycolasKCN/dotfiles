@@ -1,0 +1,117 @@
+@import url("colors.css");
+
+* {
+  font-family: 'NotoSans Nerd Font';
+  font-weight: 600;
+  font-size: 12px;
+  min-height: 0;
+  color: @white;
+}
+
+#waybar {
+  border-radius: 2rem;
+  color: @white;
+  /* background-color: @dark-grey; */
+  background-color: transparent;
+}
+
+.modules-left {
+  font-size: 12px;
+  margin: 4px 8px;
+}
+
+/* ========== WORKSPACES ========== */
+
+#workspaces {
+  border-radius: 2rem;
+  background: alpha(@grey, .25);
+}
+
+#workspaces button.active {
+  background-color: @secondary-color;
+}
+
+#workspaces button {
+  background: transparent;
+  border: none;
+  border-radius: 2rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+  font-weight: bold;
+}
+
+/* =========== LEFT =============== */
+
+#system-info {
+  transition: none;
+  padding: 2px 8px;
+  margin: 0px 2px;
+  border-radius: 2rem; 
+  background-color: @secondary-color;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature {
+  margin: 0px 4px;
+}
+
+#temperature.critical {
+  color: red;
+}
+
+/* =========== RIGHT =============== */
+
+.modules-right {
+  font-size: 14px;
+  margin: 4px 8px;
+  border-radius: 2rem;
+}
+
+#pill-right {
+  transition: none;
+  padding: 2px 8px;
+  margin: 0px 2px;
+  border-radius: 2rem;
+  background-color: @secondary-color
+}
+
+#taskbar {
+  border-radius: 2rem;
+  background: alpha(@grey, .25);
+}
+
+#taskbar button{
+  background: transparent; border: none;
+  border-radius: 2rem;
+  padding: 2px 8px;
+  margin: 2px 2px;
+}
+
+#taskbar button.active {
+  background-color: @secondary-color;
+}
+
+#clock,
+#idle_inhibitor,
+#privacy,
+#pulseaudio,
+#network,
+#tray,
+#custom-logout,
+#custom-reboot,
+#custom-tray,
+#custom-shutdown {
+  margin: 0px 4px;
+}
+
+#custom-tray,
+#custom-logout,
+#custom-reboot,
+#custom-shutdown {
+  font-size: 14px
+}
+
+/* =========== CENTER ============== */
+

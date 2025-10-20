@@ -1,0 +1,19 @@
+anchor=top-left
+font=monospace 11
+background-color=#660708F2
+text-color=#F5F3F4FF
+width=300
+height=600
+max-icon-size=64
+max-history=10
+border-size=2
+border-color=#A4161AFF
+border-radius=12
+default-timeout=5000
+group-by=summary
+icons=1
+output=DP-2
+margin=8
+
+[grouped]
+format=<b>%s</b>\n%b

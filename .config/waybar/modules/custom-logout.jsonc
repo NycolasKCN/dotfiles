@@ -1,0 +1,7 @@
+{
+    "custom/logout": {
+        "format": "\udb81\uddfd",
+        "tooltip": false,
+        "on-click-right": "hyprctl dispatch exit"
+    }
+}

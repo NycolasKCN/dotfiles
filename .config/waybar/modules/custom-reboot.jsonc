@@ -1,0 +1,7 @@
+{
+    "custom/reboot": {
+        "format": "\uf0e2",
+        "tooltip": false,
+        "on-click-right": "reboot"
+    }
+}

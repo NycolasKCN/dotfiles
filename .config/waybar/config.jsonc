@@ -1,0 +1,92 @@
+{
+    "name": "top",
+    "layer": "bottom",
+    "output": [
+        "DP-1"
+    ],
+    "height": 12,
+    "exclusive": true,
+    "passthrough": false,
+    "reload_style_on_change": true,
+    "include": [
+        "/home/nyc/.local/share/waybar/modules/idle_inhibitor.jsonc",
+        "/home/nyc/.config/waybar/modules/network.jsonc",
+        "/home/nyc/.config/waybar/modules/wlr-taskbar.jsonc",
+        "/home/nyc/.config/waybar/modules/privacy.jsonc",
+        "/home/nyc/.config/waybar/modules/pulseaudio.jsonc",
+        "/home/nyc/.config/waybar/modules/pulseaudio#microphone.jsonc",
+        "/home/nyc/.config/waybar/modules/hyprland-workspaces#kanji.jsonc",
+        "/home/nyc/.config/waybar/modules/clock.jsonc",
+        "/home/nyc/.config/waybar/modules/cpu.jsonc",
+        "/home/nyc/.config/waybar/modules/memory.jsonc",
+        "/home/nyc/.config/waybar/modules/disk.jsonc",
+        "/home/nyc/.config/waybar/modules/tray.jsonc",
+        "/home/nyc/.config/waybar/modules/mpris.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-logout.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-reboot.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-shutdown.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-tray.jsonc",
+        "/home/nyc/.config/waybar/modules/temperature.jsonc"
+    ],
+    "spacing": 4,
+    "margin": "6, 6, 0, 6",
+    // positions generated based on config.ctl //
+    "modules-left": [
+        "hyprland/workspaces#kanji",
+        "group/system-info"
+    ],
+    "group/system-info": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "memory",
+            "disk",
+            "temperature"
+        ]
+    },
+    "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
+        "privacy",
+        "wlr/taskbar",
+        "clock",
+        "group/pill-right"
+    ],
+    "group/pill-right": {
+        "orientation": "inherit",
+        "modules": [
+            "group/tray",
+            "network",
+            "pulseaudio",
+            "pulseaudio#microphone",
+            "group/power"
+        ]
+    },
+    "group/power": {
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "orientation": "inherit",
+        "modules": [
+            "custom/shutdown",
+            "idle_inhibitor",
+            "custom/reboot",
+            "custom/logout"
+        ]
+    },
+    "group/tray": {
+        "drawer": {
+            "transition-duration": 600,
+            "transition-left-to-right": false
+        },
+        "orientation": "inherit",
+        "modules": [
+            "custom/tray",
+            "tray"
+        ]
+    }
+
+}
