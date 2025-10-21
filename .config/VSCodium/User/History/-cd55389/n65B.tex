@@ -1,0 +1,377 @@
+\documentclass[english]{sbc2025}
+
+\usepackage[misc,geometry]{ifsym} 
+
+\usepackage{aas_macros}
+\usepackage[bottom]{footmisc}
+\usepackage{tabularray}% sugestão: usar o pacote tabularray
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{pifont}
+
+\setcitestyle{square}
+
+\definecolor{engtitle}{rgb}{0.5,0.5,0.5}
+\definecolor{orcidlogo}{rgb}{0.37,0.48,0.13}
+\definecolor{unilogo}{rgb}{0.16, 0.26, 0.58}
+\definecolor{maillogo}{rgb}{0.58, 0.16, 0.26}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.0}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+%\hypersetup{colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue}
+
+%%%%%%% IMPORTANT: We disable hyperlinks by default with this line, to avoid the error "\pdfendlink ended up in different nesting level" while writing.
+%\hypersetup{draft}
+
+\jid{JIS}
+\issn{2763-7719}
+\jtitle{Journal on Interactive Systems, 2026, 17:1}
+\doi{10.5753/jis.2026.XXXX}
+\copyrightstatement{This work is licensed under a Creative Commons Attribution 4.0 International License}
+\jyear{2026}
+
+% TODO: Verificar se a categoria está correta
+\category{Research Paper}
+
+\title{IDEAL Game Service: A Service to Manage IDEAL Board Game Matches}
+
+%THE ORCID IS MANDATORY FOR EACH AUTHOR IN REIC
+\author[Maciel et al. 2026]{
+% TODO: Atualizar ORCID
+\affil{\textbf{Levi Maciel de Souza}~\orcidlink{0000-0002-0339-6624}~\textcolor{blue}~[~{Federal University of Paraíba (UFPB)}~|\href{mailto:levi.maciel@dcx.ufpb.br}{~{\textit{levi.maciel@dcx.ufpb.br}}}~]}
+
+\affil{\textbf{Larissa Juvito}~\orcidlink{0000-0002-0339-6624}~\textcolor{blue}~[~{Federal University of Paraíba (UFPB)}~|\href{mailto:larissa.bastos@dcx.ufpb.br}{~{\textit{larissa.bastos@dcx.ufpb.br}}}~]}
+
+\affil{\textbf{Nycolas Kevin Costa Nascimento}~\orcidlink{0000-0002-0339-6624}~\textcolor{blue}~[~{Federal University of Paraíba (UFPB)}~|\href{mailto:nycolas.nascimento@dcx.ufpb.br}{~{\textit{nycolas.nascimento@dcx.ufpb.br}}}~]}
+
+\affil{\textbf{Ayla Dantas Rebouças}~\orcidlink{0000-0002-0339-6624}~\textcolor{blue}{\faEnvelopeO}~~[~{Federal University of Paraíba (UFPB)}~|\href{mailto:ayla@dcx.ufpb.br}{~{\textit{ayla@dcx.ufpb.br}}}~]}
+
+\affil{\textbf{Laure Berti-Equille}~\orcidlink{0000-0002-0339-6624}~\textcolor{blue}~[~{IRD ESPACE-DEV}~|\href{mailto:laure.berti@ird.fr}{~{\textit{laure.berti@ird.fr}}}~]}
+}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\maketitle
+
+% TODO: Verificar o endereço da instituiçõa
+\begin{mail} 
+Institute of Computing, Universidade Federal Fluminense, Av. Gal. Milton Tavares de Souza, s/n, São Domingos, Niterói, RJ, 24210-590, Brazil.  
+\end{mail}
+
+
+\begin{abstract-en}
+Educational games can be effective in promoting engagement and facilitating the learning process. For instance, some games can be designed to promote ideas like coviability — the sustainable coexistence of humans, animals, and plants. An example of such a game is the print \& play version of the IDEAL Board Game, which has been digitally adapted to expand its reach. In this paper, we present the API that is being developed to support the digital version of the game, named IDEAL Game Service. The idea of this paper is to share our experience, presenting the technologies used, the design patterns adopted, and the technical decisions made during development in order to promote reuse in the development of similar services for digital games. The solution was designed with an emphasis on modularity, reusability, and maintainability, using the Spring framework. Some design decisions seemed to be efficient in order to support the evolution of the service, and sharing them may serve as a reference for similar digital game-based educational projects.
+\end{abstract-en}
+
+%% TODO: Atualizar as keywords
+\begin{keywords}
+Proceedings, Template, SBC OpenLib, Indexing
+\end{keywords}
+
+\begin{dates}
+% This information will be provided by the editor befeore publishing the paper
+%\noindent{\sffamily\textbf{Edited by:}}
+{\sffamily\textbf{Edited by:}}
+Provisório~\orcidlink{1234-1234-1234-1234}
+~~$\mid$~~
+{\sffamily\textbf{Received:}} 00 Month 2025
+~~$\bullet$~~
+{\sffamily\textbf{Accepted:}} 00 Month 2025
+~~$\bullet$~~
+{\sffamily\textbf{Published:}} 00 Month 2025
+\end{dates}
+
+
+%\begin{license}
+%Published under the Creative Commons Attribution 4.0 International Public License (CC BY 4.0)
+%\end{license}
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BODY
+
+\section{Introduction}
+According to \citep{savi2008jogos}, educational digital games can serve as an effective teaching strategy, as they offer multiple benefits to the teaching and learning process—such as increased motivation, enhanced cognitive skill development, improved engagement, and opportunities for social interaction. These games have been applied in diverse areas of knowledge—including mathematics, science, and geography—by fostering learning through engaging, playful, and interactive experiences.
+
+%% Omitted version
+% A topic of growing relevance is sustainability, which can also be taught  in an engaging way through educational games. With this purpose in mind,  the IDEAL Game was created as a part of the initiatives of a [omitted] joint research lab funded by [omitted], in partnership with [omitted]. The game’s central theme is coviability, a concept representing harmony among humans, plants and animals in shared territories, in a way that enables coexistence without mutual harm. 
+
+%TODO: Version do not omitting institutions
+A topic of growing relevance is sustainability, which can also be taught  in an engaging way through educational games. With this purpose in mind,  the IDEAL Game was created as a part of the initiatives of a French-Brazilian joint research lab funded by Institut de Recherche pour le Développement (IRD), in partnership with Universidade Federal da Paraíba (UFPB). The game’s central theme is coviability, a concept representing harmony among humans, plants and animals in shared territories, in a way that enables coexistence without mutual harm. 
+
+Originally, the IDEAL Game was designed as a print \& play board game. However, the team recognized that a digital version, that a group can play with a single computer or tablet without needing to print the elements of the game, could spread its dissemination much more. With that in mind, the digital version of the IDEAL Game was created, being composed by a Web frontend and a backend implemented using the Spring Framework as a REST API. The backend, called IDEAL Game Service, is responsible for handling all match-related operations requested by the frontend, such as creating matches, managing players and moves, and calculating scores. The backend was designed focusing on simplicity, reuse and maintainability. In this paper we share our experience while structuring its components to promote reuse in the process of developing educational digital games. We present the architecture of the web version of IDEAL Game, highlighting its organization into reusable components and also some details about the frontend. 
+
+\section{Background}
+ 
+This section provides the contextual foundation for the project by detailing the key concepts, technologies, design patterns, and tools used in the development of the IDEAL Game's digital version. We also explain the game’s core mechanics and the reasoning behind each technical choice.
+
+\subsection{The IDEAL Game}
+%TODO: UPDATE IN THE FINAL VERSION
+IDEAL Game is an educational board game designed to promote reflection on sustainability and responsible use of natural resources. According to the official project’s website definition, it is ``a board game that aims at conquering a territory with the common goal of maintaining coviability, that is sustainable coexistence and harmony between humans and Nature'' \citep{idealgame_site}.
+
+% Omited Version
+% IDEAL Game is an educational board game designed to promote reflection on sustainability and responsible use of natural resources. According to the official project’s website definition, it is ``a board game that aims at conquering a territory with the common goal of maintaining coviability, that is sustainable coexistence and harmony between humans and Nature''\citep{idealgame_site_omitted}.
+
+The concept of coviability is the core theme of IDEAL Game. This term refers to the harmonious coexistence between humans, animals and plants, enabling them to thrive in the same environment without compromising one another’s integrity. As  \citep{barriere2019coviability} emphasizes, coviability goes beyond the joint viability of ecological and social systems. In fact, the idea parts from the principle that no system is entirely autonomous — each system's survival depends on its relationship with surrounding systems. As the authors affirm, “there is no viability without coviability”, because it's the interdependence of systems that allows for its adaptation, independence and evolution.
+
+When starting an IDEAL Game session (for 2 to 6 players), each player draws an actor card. Each actor can be more prone to nature (represented using cards with green border), or more prone to profit (represented using cards with red border). Also, each actor has on his/her actor card description, the value of the tiles (worth +3 or +1 point) that s/he needs to accumulate and place on the board to reach his/her own personal objective. Besides, each player draws a secret objective card that can give the player 3 additional points for each specific tile that is adjacent to a water tile on the board. In each player’s turn, the dice must be rolled and the corresponding number of tiles should be drawn from a bag and placed on the board in positions that enable the player to move. These tiles may present a red or a green border. Figure \ref{fig_boardGameSession} illustrates a session of the game.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/idealBoardGameMatch.png}
+  \caption{Illustration of an IDEAL Board Game Session}
+  \label{fig_boardGameSession}
+\end{figure}
+
+The coviability aspect of IDEAL Game manifests itself in one of its core rules: by the end of the game, the board must have the same number of sustainable (green border) and non-sustainable pieces (red border). This represents the necessity for humans and nature to coexist without either threatening the other’s existence (equilibrium).  Failing to meet this condition results in defeat for all the players. If coviability is reached, then individual player scores are calculated to identify who won the game. The final score for each player depends on its role, such as “sustainable farmer”, “city dweller”, “industrial farmer” being calculated by counting the tiles on the board: 
+
+\begin{enumerate}
+    \item The tiles that are described in the actor card with their respective amount of points (3 or 1 point);
+    \item The secret objective points.
+\end{enumerate}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/actorCards.png}
+  \caption{Illustration of an IDEAL Board Game Session Actor Cards}
+  \label{fig_actorCards}
+\end{figure}
+
+%TODO: REPLACE IN THE FINAL VERSION
+Figure \ref{fig_actorCards} illustrates the actor cards, which indicate the tiles that give points for each actor. For a complete understanding of the game rules, readers are encouraged to consult the official rulebook and watch short videos available online\footnote{To consult the rulebook, access: UFPB. IDEAL Game. Available at: https://ideal.ufpb.br/jogo-ideal-game/.}.
+
+% Figure \ref{fig_actorCards} illustrates the actor cards, which indicate the tiles that give points for each actor. For a complete understanding of the game rules, readers are encouraged to consult the official rulebook and watch short videos available online\footnote{To consult the rulebook OMITTED}.
+
+\subsection{REST API}
+
+An API (Application Programming Interface) is a fundamental component for integrating different systems. According to \citep{redhat_api}, an API is an application that offers tools, definitions, and protocols in a way that all distinct systems can communicate with each other, without knowing details of the API’s implementation. The API acts as an intermediary between systems: A client makes a request to the API, which processes this request and returns an appropriate response. In the case of the digital version of the IDEAL Game, the API is responsible for creating games, performing game movements and calculating scores.
+
+To define how this communication between client and server should occur in a consistent and standardized way, the IDEAL Game Service adopts the REST architectural style. According to \citep{fielding2000architectural}, REST — short for Representational State Transfer — is an architectural style that defines a set of constraints for building distributed systems. For a system to be considered RESTful, it must adhere to principles such as the client-server model, stateless communication, uniform interface, and so on. 
+
+In the context of the IDEAL Game Service, the client-server constraint is addressed by separating the frontend (IDEAL Game) and the backend (IDEAL Game Service), where the frontend is responsible for the user interface, and the backend handles request processing and business logic. The stateless constraint is respected by requiring each request to include all the necessary information for it to be processed, without relying on any server-side session or context. For example, when a player performs a move, the client must send all relevant data —such as match ID, player ID, and move details— in the request body. Lastly, the system follows the principle of a uniform interface by using standard HTTP methods (GET, POST, PUT, DELETE) to perform operations like creating, updating, and deleting resources, ensuring consistency and interoperability between clients.
+
+\section{Related Work}
+
+To provide a current context for this research, a comprehensive literature review was performed on databases including IEEE Xplore, SbcOpenLib and others. This search aimed to identify and analyze studies discussing serious games, board games, and the adaptation of physical games into digital formats. Although no work was found that is directly related to our project, we did identify several studies with relevant connections to our research that are described below.
+
+% A review of related work is essential to understand previous scientific contributions and to learn from the successes and limitations identified in earlier studies. With this in mind, we conducted a brief literature investigation to gather relevant insights into architectural strategies for software reuse and educational game development.
+
+\subsection{Building Serious Games to Exercise Computational Thinking}
+
+One related work is the article from \citep{Malpartida_Rodrigues_2025}, which discusses the development of serious games aimed at enhancing computational thinking skills among students. The authors present a framework for designing and implementing educational games that effectively teach programming concepts through interactive gameplay. Their approach emphasizes the importance of aligning game mechanics with learning objectives to ensure that players not only enjoy the game but also acquire valuable skills.  
+
+\subsection{Investigating Developer Experience in Software Reuse}
+
+One related work is the article from \citep{sbcars}, which examines factors influencing developers' experience with software reuse practices, emphasizing the importance of structural clarity, documentation, and organizational support for successful implementation. In contrast, our work focuses on implementing a practical and reusable architecture specifically for educational game development.	
+
+\subsection{Reducing Development Overheads with a Generic and Model-Centric Architecture for Online Games}
+Another work is the paper from \citep{apel2018reducing}, that discusses conventional strategies for developing Massively Multiplayer Online Games (MMOGs), including the use of REST APIs as one of the possible communication approaches. Although his work primarily advocates the use of a generic runtime environment called GameEngine, we considered the adoption of a RESTful API more appropriate for the development of the IDEAL Game Service. This choice was motivated by the desire to follow well-established web standards, simplify integration, and ensure maintainability within the context of an educational board game.
+
+\subsection{Towards a service-oriented architecture framework for educational serious games}
+The paper from Carvalho et al. \citep{carvalho2015towards} is also related to this work. It discusses the challenges involved in developing physical games and it proposes a framework for the development of digital educational serious games based on Service-Oriented Architecture (SOA). Their goal is to improve reusability and reduce development overhead by modularizing core components across different types of games. While their proposal emphasizes general-purpose service modularization, the IDEAL Game Service adopts a REST API approach to address similar architectural concerns within the specific context of a turn-based educational board game. Both work share a common focus on modularity, reusability, and scalability. For instance, both share the implementation of a scoring component that can be reused across different parts of the application.
+
+
+\section{Design and Architecture of the IDEAL Game Service}
+
+According to Apel \citep{apel2018reducing}, the development of online games is a more complex task than it appears, as it involves various aspects such as authentication, game state persistence, business logic, artificial intelligence, among others. Given this complexity, the use of a well-structured software architecture is essential to reduce technical difficulties and facilitate the system's evolution. With this objective in mind, the digital version of the IDEAL Game was developed as a system that adopts a three-layer architecture.
+
+According to Valente \citep{valente2020engenharia}, this type of architecture organizes the system into a presentation layer, responsible for the user interface; an intermediate layer, where the business logic resides; and a data access layer, which handles communication with the database. The user interface can be implemented in different ways, one of which is a web-based interface. To handle the requests made by this interface, a service called IDEAL Game Service was built using the Spring Boot framework.
+
+In an API built with Spring Boot, the typical structure includes the components controller, service, and repository. The controller is responsible for receiving and responding to client requests; the service layer concentrates all business logic and validations; and the repository manages data access and the connection to the database, performing CRUD operations (Create, Read, Update and Delete).
+
+In the digital version of the game, there is a web system called IDEAL Game, which communicates with the IDEAL Game Service to delegate the management of business rules, such as creating matches, managing moves, and calculating scores. Additionally, other services make use of the IDEAL Game Service to perform score calculations. 
+
+Figure \ref{fig_matchIDEALGameDigital} illustrates one of the screens of the game interface integrated with the API.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/matchIDEALGameDigital.png}
+  \caption{Picture of one match of the IDEAL Game Digital Version}
+  \label{fig_matchIDEALGameDigital}
+\end{figure}
+
+The components of the IDEAL Game Service aim to emulate the elements in the physical version of the board game. In this way, the digital version of the game brings the physical components into the digital environment by modeling them as Entity classes. The main component is the Game component, which encapsulates all the elements/entities required for the game to function properly, such as the match's Players, the Board, and the Bag, which is a collection of the game's Tiles. The relationship between these elements is illustrated in Figure \ref{fig_idealGameEntities}. 
+
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/idealGameEntities.png}
+  \caption{Relation between entities of the IDEAL Game Service}
+  \label{fig_idealGameEntities}
+\end{figure*}
+
+As illustrated in Figure \ref{fig_idealGameEntities}, two fundamental entities in the application are the Bag and Board entities. The Bag entity represents the set of pieces available for drawing during the match, while Board represents the game board, structured as a 10 × 10 matrix where players place the drawn pieces throughout the game. Both entities maintain collections of the Tile entity, which represents the game pieces. Each Tile has two distinct sides and can be flipped in specific situations, according to the rules of the game.
+
+Other essential entities in the game are Actor and SecretObjective. The Actor represents the character chosen by each player to participate in the match, while the SecretObjective defines the hidden goal that each player must pursue during the game to increase their score. The Player entity represents the player, and the Game entity holds a collection of Players, forming the participants of the match. Finally, the GameAction entity records the actions performed during the game, being instantiated at each turn to store the data related to the move executed.
+
+To obtain the final result of a match, it is necessary to calculate the score. This responsibility is assigned to the ScoreCalculationService, which is capable of calculating the score in two different ways: either by receiving the current state of the board and players, or by using only the identifier of a match registered in the system. This flexibility allows the service to be reused in different contexts. One of these is the case where all game movements and elements are managed by the service. Another context is a case where a specific application simply wants the score calculation and informs the state of the game. For instance, our group has implemented a computer vision app capable of visually recognizing the state of the board and, based on that and in some information about the players and their objectives, calculating the corresponding score using the IDEAL Game Service.
+
+Therefore, the architecture adopted in the IDEAL Game Service is modular and reusable, allowing integration with different types of clients. Potential consumers of the API include the already implemented web version of the game, a future mobile version, and also a computer vision-based service used by an app to calculate game scores. This flexibility highlights the architecture’s potential to support multiple applications without requiring significant restructuring of the backend.
+
+
+\section{IDEAL Game Web}
+
+In this section we present the web frontend that uses the IDEAL Game Service, which is called IDEAL Game Web, in order to better illustrate its use and to support the development of similar digital games.
+
+The primary objective of the development of the digital version of the IDEAL Board Game  was to translate the playful and educational experience of the physical board game into a digital Web system. Based on the IDEAL Game's core premise of sustainability and the pursuit of "coviability", the goal was to create a web version distinguished by its speed and intuitive design, ensuring a seamless transition from the physical board to the screen. The visual design approach is based on minimalism, using a color palette that intentionally contrasts with the original game to prioritize clarity of information and interface usability. 
+
+The project's source code is maintained in a private GitHub repository, but the web version of the prototype is publicly accessible and can be freely experienced at the following address: [OMITTED]
+
+%TODO: UPDATE IN THE FINAL VERSION
+
+%The project's source code is maintained in a private GitHub repository, but the web version of the prototype is publicly accessible and can be freely experienced at the following address: https://idealgame.a4s.dev.br.
+
+The IDEAL Game interface is structured into a navigation flow composed of four distinct, sequential stages. The first stage, Presentation, corresponds to the system's entry screen. The second, Authentication, consists of the Login and Registration screens, which manage secure user access. The third stage, Configuration, encompasses the Menu page and the subsequent match customization screen. Finally, the fourth and last stage, Gameplay, centers the interactive experience on the board screen, followed by the scoring screen at the end of the game.
+
+Starting the navigation flow, the first stage is Presentation, which corresponds to the entry screen and constitutes the user's first point of contact with the system. Its objective is to introduce the project's visual identity and serve as an entry portal. The interface offers two clear actions: the "Login" button for existing users, and "Register" for new players, directing them to the next stage. The entry screen is illustrated in Figure~\ref{fig_idealGameEntryScreen}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/IDEALGameEntryScreen.png}
+  \caption{Entry screen of the "IDEAL Game Web". Source: The Authors.}
+  \label{fig_idealGameEntryScreen}
+\end{figure}
+
+Proceeding through the flow, the second stage is Authentication, which consists of the Login and Registration screens. The former is responsible for validating user access with their credentials (e-mail and password), while the latter allows for the registration of new accounts. Both screens are interlinked by navigation links and feature an essential feedback system that displays clear error messages, such as "User Not Found," to guide the user. Upon completing the process, regardless of the path chosen, the flow converges to a single outcome: access to the game's Main Menu. The Login and Registration screens are shown in Figure~\ref{fig_loginRegistrationScreens}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/loginRegistrationScreens.png}
+  \caption{Login and registration screen of the "IDEAL Game Web". Source: The Authors}
+  \label{fig_loginRegistrationScreens}
+\end{figure}
+
+Upon completing authentication, the user is directed to the third stage of the flow, Configuration, represented by the Main Menu screen. This screen acts as a central hub where the player prepares the session before starting gameplay. Its main components are a language selector in the top-right corner, which allows for interface internationalization, and an action area with two buttons. The first, "Setup," serves to open the modal for customizing match parameters. The second, "Start," is responsible for beginning the session. A key design principle is that the "Start" button is disabled by default, as can be observed in Figure \ref{fig_mainMenuScreen}, forcing the user to go through the setup process and preventing a match from starting with undefined parameters.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/mainMenuScreen.png}
+  \caption{Main menu screen of the "IDEAL Game Web". Source: The Authors}
+  \label{fig_mainMenuScreen}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/gameCustomizationScreen.png}
+  \caption{Game customization screen of the "IDEAL Game Web". Source: The Authors}
+  \label{fig_gameCustomizationScreen}
+\end{figure}
+
+Additionally, the form offers an optional feature to ensure the secrecy of the secret objectives: a checkbox to enable sending this information via e-mail. When this option is activated, an edit icon button appears, which opens a screen for entering each player's email address, as illustrated in Figure \ref{fig_gameCustomizationEmail}. The main form's validation is directly tied to this feature. If the email option is active, the system only allows the configuration to be saved after all email fields have been filled. Otherwise, an informative feedback message is displayed to the user: "Please, enter all e-mails before applying."
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/gameCustomizationEmail.png}
+  \caption{ "IDEAL Game" digital version screens: a) Game customization screen; b) E-mail configuration screen. Source: The Author}
+  \label{fig_gameCustomizationEmail}
+\end{figure}
+
+Once the configuration is successfully filled out and saved, the modal closes, and the system updates the state of the "Start" button on the Main Menu, enabling it to be clicked, as seen in Figure \ref{fig_mainMenuI18N}. The user is then ready to start the match and be redirected to the Game Page.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/mainMenuI18N.png}
+  \caption{ Main menu screen of the "IDEAL Game Web" with the start button enabled. Source: The Authors}
+  \label{fig_mainMenuI18N}
+\end{figure}
+
+The Game Page represents the final stage and the heart of the project, where the complete digitalization of the board game experience occurs. This interface centralizes all elements and mechanics, allowing the match to unfold in a virtual and interactive manner. To ensure the clarity and organization of information and actions, the screen layout has been divided into three distinct functional areas, as can be observed in (Figure \ref{fig_boardGameScreen}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/boardGameScreen.png}
+  \caption{  "IDEAL Game Web" digital board game screen: a) Section 1 - Turn Manager; b) Section 2 - Board; c) Section 3 - Player Control Panel. Source: The Authors}
+  \label{fig_boardGameScreen}
+\end{figure}
+
+On the left side of the screen, a status bar displays essential information about the match's progress, such as the turn counter, and includes a button to leave the game, allowing the user to exit the session. Meanwhile, the central area is entirely dedicated to the board view, functioning as the primary interactive space where players place their pieces and observe the match's progress.
+
+On the right side of the interface is the Player Control Panel, a multifunctional area that groups all individual information and actions. This panel is organized vertically into four distinct sections to facilitate interaction, whose general layout can be seen in Figure \ref{fig_playerControlPanel}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.7]{figures/playerControlPanel.png}
+  \caption{"IDEAL Game Web" digital board game screen: Section 3 - Player Control Panel. Source: The Authors}
+  \label{fig_playerControlPanel}
+\end{figure}
+
+
+The first section, located at the top of the panel, contains the "Tile Bag," which is a component responsible for returning pieces to the supply. Next to it, an identification panel displays the active player's name, his actor's image, and the types of tiles they are allowed to use, as detailed in Figure \ref{fig_playerControlPanelSection1}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/playerControlPanelSection1.png}
+  \caption{  "IDEAL Game Web" digital board game screen: Section 1 of the Player Control Panel. Source: The Authors}
+  \label{fig_playerControlPanelSection1}
+\end{figure}
+
+
+Just below, the second section of the panel is composed of two main elements: the list of other match participants and the strategic cards panel. The layout of both is illustrated in Figure \ref{fig_playerControlPanelSection2}. The interactive focus of this section is on the card panel, which is managed by three bottom buttons. The first two function as navigation tabs, switching the display between the "Actor Card" and the "Secret Objective Card," whose visibility is protected by an "eye" icon. The third button, "Battle," acts as a toggle switch, activating or deactivating combat mode. The details of this navigation are presented in Figure \ref{fig_battle}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/playerControlPanelSection2.png}
+  \caption{  "IDEAL Game Web" digital board game screen: Section 2 of the Player Control Panel. Source: The Authors}
+  \label{fig_playerControlPanelSection2}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/battleButton.png}
+  \caption{  "IDEAL Game Web" digital board game screen: a) Battle button; b) Actor card; c) Hidden secret objective card; d) Displayed secret objective card. Source: The Authors}
+  \label{fig_battle}
+\end{figure}
+
+The third section of the Control Panel groups the primary action buttons for the round, illustrated in Figure \ref{fig_playerControlPanelSection3}: one to roll the die, a second that activates and deactivates the pawn movement mode, and a third to end the turn, passing it to the next player.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/playerControlPanelSection3.png}
+  \caption{   "IDEAL Game Web" digital board game screen: Section 3 of the Player Control Panel. Source: The Authors}
+  \label{fig_playerControlPanelSection3}
+\end{figure}
+
+Finally, in the bottom section, is the "Player Hand" panel, detailed in Figure \ref{fig_playerControlPanelSection4}. This panel has a main space with six slots for immediate-use tiles (such as movement and disaster tiles) drawn from the die roll. Separately, the "Water Treatment Tiles" are accumulated and stored in a secondary storage section. The panel's content view is switched via two navigation buttons on the left side: the first, active by default, displays the six tiles of the main hand, while the bottom button shows the section with the accumulated treatment tiles. Additionally, two fixed action buttons, "Flip" and "Discard," are always available for piece manipulation.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/playerControlPanelSection4.png}
+  \caption{  "IDEAL Game Web" digital board game screen: Section 4 of the Player Control Panel. Source: The Authors}
+  \label{fig_playerControlPanelSection4}
+\end{figure}
+
+When the end-of-match conditions are met, the interface transitions to its final phase. A results screen is overlaid on the board screen, presenting the final score and the outcome of the pursuit for "co-viability." Alongside the score, a "Back to Menu" button is displayed, allowing the user to close the view and return to the Main Menu, thus completing the prototype's gameplay cycle.
+%TODO: INCLUDE AN IMAGE ABOUT THE FINAL SCORE
+%, as shown in Figure 14.
+
+
+\section{Lessons Learned}
+
+Throughout the development of the IDEAL Game Service and of its Web frontend, several lessons were learned from both technical and architectural perspectives. The use of the Spring Boot framework was essential in providing a productive development environment, combined with the application of software engineering best practices, such as the use of the DTO and Factory design patterns. In addition, properly modeling the entities during the initial stages proved to be crucial in avoiding rework and complications in later phases of development, as did the adoption of a layered architecture, which contributed to code organization and reusability.
+
+
+A clear example of this reusability is the ScoreCalculationService, which can be consumed by different clients, such as the IDEAL Game Web, a mobile version of the game or a computer vision-based system to calculate scores, for instance. 
+
+Another important lesson learned was to model each player movement and boardgame elements through a process involving frontend and backend developers.
+
+We have also noticed the importance of the development of automated tests, which require significant effort in maintenance and writing after each structural change in the system. Furthermore, it is important to consider aspects like deployment and documentation from the early stages of the project, so that these elements can evolve alongside the application itself.
+
+\section{Conclusion and Future Work}
+
+This work presented our experience with the design and implementation of a digital version of the IDEAL Board Game, an educational game based on the concept of coviability. The service to support the digital game was built using the Spring Boot framework, adopting a layered structure that promotes modularity, component reusability, and ease of maintenance. Best practices from software engineering were applied, such as the use of DTO and Factory design patterns, along with careful modeling of the game's domain entities and player movements involving frontend and backend developers.
+
+The proposed architecture was effective from both technical and organizational perspectives, offering flexibility for integration with different types of clients and paving the way for future system enhancements. As future works, we highlight: the adoption of a microservices-based approach to improve performance and scalability; the use of WebSockets to support real-time multiplayer matches; the exploration of non-relational databases as an alternative for data persistence; and the development of automated testing strategies tailored to board game applications built with Spring Boot possibly exploring Large Language Model for test generation.
+
+%%% DOCUMENT BODY ENDS HERE
+
+\bibliographystyle{apalike-sol}
+\bibliography{refs}
+
+\end{document}

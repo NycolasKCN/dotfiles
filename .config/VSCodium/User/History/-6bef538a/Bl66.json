@@ -1,0 +1,5 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true
+}

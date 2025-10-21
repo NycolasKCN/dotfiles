@@ -1,0 +1,102 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "11af8aa2efba999e5977c481a6740a3825c5782307ffb7dac92c6f111900fdf2",
+    "telemetry.devDeviceId": "fa7a77b0-cee9-4f3a-848b-8b7c381051d5",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/nyc/shared/obsidianVaults/all-at-once/00%20-%20Projetos/Ideal/Artigos/JIS/Latex"
+            }
+        ],
+        "emptyWindows": [
+            {
+                "backupFolder": "1761068946689"
+            },
+            {
+                "backupFolder": "1761074969572"
+            },
+            {
+                "backupFolder": "1761075065044"
+            },
+            {
+                "backupFolder": "1761075082273"
+            }
+        ]
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/nyc/shared/obsidianVaults/all-at-once/00%20-%20Projetos/Ideal/Artigos/JIS/Latex": "1aa21ab8"
+        },
+        "emptyWindows": {
+            "1761068946689": "1aa21ab8",
+            "1761074969572": "1aa21ab8",
+            "1761075065044": "1aa21ab8",
+            "1761075082273": "1aa21ab8"
+        }
+    },
+    "theme": "vs",
+    "themeBackground": "#fdf6e3",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs",
+        "colorInfo": {
+            "foreground": "#616161",
+            "background": "#fdf6e3",
+            "editorBackground": "#fdf6e3",
+            "titleBarBackground": "#eee8d5",
+            "activityBarBackground": "#ddd6c1",
+            "sideBarBackground": "#eee8d5",
+            "statusBarBackground": "#eee8d5",
+            "statusBarNoFolderBackground": "#eee8d5"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 196,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/nyc/shared/obsidianVaults/all-at-once/00%20-%20Projetos/Ideal/Artigos/JIS/Latex",
+            "backupPath": "/home/nyc/.config/VSCodium/Backups/3519523199d8a41dfa0ef5f529c2c982",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 0,
+                "width": 960,
+                "height": 1040
+            }
+        },
+        "openedWindows": []
+    },
+    "userDataProfiles": [
+        {
+            "location": "1aa21ab8",
+            "name": "Latex",
+            "useDefaultFlags": {
+                "settings": true,
+                "keybindings": true,
+                "extensions": true
+            }
+        }
+    ],
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 196,
+            "auxiliaryBarWidth": 300,
+            "workspaces": {
+                "54c31f4a295aa1c1de9048520a61612a": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}

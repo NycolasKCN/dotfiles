@@ -1,0 +1,14 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+shift+r",
+        "command": "latex-workshop.refresh-viewer"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Latex: Build, Wait, and Action (VSCodium)",
+        "when": "editorLangId =~ /latex/"
+    }
+
+]
