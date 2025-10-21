@@ -7,5 +7,6 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias vim='nvim'
 alias vm='nvim'
+alias btw='fastfetch'
 
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
