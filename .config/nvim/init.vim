@@ -12,7 +12,7 @@ set scrolloff=8
 set sidescrolloff=12
 set sidescroll=1
 
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 set ttyfast
 
