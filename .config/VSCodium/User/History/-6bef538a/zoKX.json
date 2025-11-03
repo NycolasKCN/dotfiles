@@ -1,6 +1,0 @@
-{
-    "workbench.colorTheme": "Solarized Light",
-    "vim.enableNeovim": true,
-    "vim.neovimUseConfigFile": true,
-    "latex-workshop.latex.outDir": "%DIR%/outcompile"
-}

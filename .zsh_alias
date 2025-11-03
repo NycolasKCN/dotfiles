@@ -10,3 +10,5 @@ alias vm='nvim'
 alias btw='fastfetch'
 
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+alias cleartrash="rm -rf ~/.local/share/Trash/*"

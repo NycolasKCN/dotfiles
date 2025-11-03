@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # --- CONFIGURAÇÃO ---
-WALLPAPER_B="$HOME/Imagens/wallpaper/abstract-red.jpg"
-WALLPAPER_A="$HOME/Imagens/wallpaper/with-my-love.png"
+WALLPAPER_A="$HOME/Imagens/wallpaper/wall1.jpg"
+WALLPAPER_B="$HOME/Imagens/wallpaper/wall2.jpg"
 # --------------------
 
 STATE_FILE="/tmp/.wallpaper_toggle_state"

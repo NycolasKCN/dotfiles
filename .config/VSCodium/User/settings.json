@@ -1,7 +1,5 @@
 {
     "workbench.colorTheme": "Solarized Light",
-    "vim.enableNeovim": true,
-    "vim.neovimUseConfigFile": true,
     "files.associations": {
         "*.sty": "latex",
         "*.cls": "latex"
@@ -200,7 +198,31 @@
     ],
     "explorer.confirmDelete": false,
     "vim.camelCaseMotion.enable": true,
-    "vim.neovimConfigPath": "~/.config/nvim/init.vim",
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": false,
     "vim.neovimPath": "/usr/bin/nvim",
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "vim.overrideCopy": false,
+    "vim.useSystemClipboard": true,
+    "vim.foldfix": true,
+    "vim.highlightedyank.enable": true,
+    "vim.scroll": 5,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {"before": ["<S-l>"], "commands": [":bnext"]},
+        {"before": ["<S-h>"], "commands": [":bprevious"]},
+        {"before": ["<S-k>"], "commands": ["editor.action.showHover"]},
+    ],
+    "editor.wordWrap": "on",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "todo-tree.regex.regex": "(%|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "COMMENT"
+    ]
 }
