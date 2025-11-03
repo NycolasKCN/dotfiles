@@ -65,8 +65,3 @@ map ctrl+shift+t new_tab
 map ctrl+shift+l next_tab
 map ctrl+shift+h previous_tab
 map ctrl+shift+q close_tab
-
-# BEGIN_KITTY_THEME
-# Dark Pastel
-include current-theme.conf
-# END_KITTY_THEME
