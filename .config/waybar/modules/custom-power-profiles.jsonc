@@ -1,0 +1,7 @@
+{
+				"custom/power-profiles": {
+						"format": "", // Or any icon/text you prefer
+						"tooltip": "false",
+						"on-click": "~/.config/waybar/scripts/power-profile-menu"
+				}
+}

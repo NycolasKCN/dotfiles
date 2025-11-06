@@ -24,6 +24,7 @@
         "/home/nyc/.config/waybar/modules/custom-shutdown.jsonc",
         "/home/nyc/.config/waybar/modules/custom-suspend.jsonc",
         "/home/nyc/.config/waybar/modules/custom-tray.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-power-profiles.jsonc",
         "/home/nyc/.config/waybar/modules/battery.jsonc",
         "/home/nyc/.config/waybar/modules/temperature.jsonc"
     ],
@@ -60,6 +61,7 @@
             "pulseaudio",
             "pulseaudio#microphone",
 	    "battery",
+			"custom/power-profiles",
             "group/power"
         ]
     },

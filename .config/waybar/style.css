@@ -103,6 +103,7 @@
 #custom-logout,
 #custom-reboot,
 #custom-tray,
+#custom-power-profiles,
 #custom-suspend,
 #custom-shutdown {
   margin: 0px 4px;
@@ -110,6 +111,7 @@
 
 #custom-tray,
 #custom-logout,
+#custom-power-profiles,
 #custom-reboot,
 #custom-suspend,
 #custom-shutdown {

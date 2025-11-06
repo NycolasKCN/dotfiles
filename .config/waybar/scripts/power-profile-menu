@@ -1,0 +1,24 @@
+#!/bin/bash
+
+menu_options="Performance\nBalanced\nPower saver"
+
+# Use wofi to display the menu and capture the selected option
+selected_option=$(echo -e "$menu_options" | rofi -dmenu -p "Select power profile")
+
+# Perform actions based on the selected option
+case "$selected_option" in
+  "Performance")
+    powerprofilesctl set performance && notify-send -t 800 "Power profiles" "Performance mode"
+    ;;
+  "Balanced")
+    # Command for Option 2
+    powerprofilesctl set balanced && notify-send -t 800 "Power profiles" "Balanced mode"
+    ;;
+  "Power saver")
+    # Command for Option 3
+    powerprofilesctl set power-saver && notify-send -t 800 "Power profiles" "Power saver mode"
+    ;;
+  *)
+    # Do nothing if no option is selected or wofi is closed
+    ;;
+esac
