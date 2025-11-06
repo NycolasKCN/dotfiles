@@ -11,7 +11,6 @@
         "on-click-right": "fullscreen",
         "on-click-middle": "close",
         "class": "no-margin-padding",
-				"icon-theme": "Tela red dark",
         "ignore-list": [
             ""
         ],

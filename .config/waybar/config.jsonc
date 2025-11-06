@@ -1,15 +1,12 @@
 {
     "name": "top",
     "layer": "bottom",
-    "output": [
-        "DP-1"
-    ],
     "height": 12,
     "exclusive": true,
     "passthrough": false,
     "reload_style_on_change": true,
     "include": [
-        "/home/nyc/.local/share/waybar/modules/idle_inhibitor.jsonc",
+        "/home/nyc/.config/waybar/modules/idle_inhibitor.jsonc",
         "/home/nyc/.config/waybar/modules/network.jsonc",
         "/home/nyc/.config/waybar/modules/wlr-taskbar.jsonc",
         "/home/nyc/.config/waybar/modules/privacy.jsonc",
@@ -25,11 +22,13 @@
         "/home/nyc/.config/waybar/modules/custom-logout.jsonc",
         "/home/nyc/.config/waybar/modules/custom-reboot.jsonc",
         "/home/nyc/.config/waybar/modules/custom-shutdown.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-suspend.jsonc",
         "/home/nyc/.config/waybar/modules/custom-tray.jsonc",
+        "/home/nyc/.config/waybar/modules/battery.jsonc",
         "/home/nyc/.config/waybar/modules/temperature.jsonc"
     ],
     "spacing": 4,
-    "margin": "6, 6, 0, 6",
+    "margin": "2, 2, 0, 2",
     // positions generated based on config.ctl //
     "modules-left": [
         "hyprland/workspaces#kanji",
@@ -57,15 +56,16 @@
         "orientation": "inherit",
         "modules": [
             "group/tray",
-            "network",
+//            "network",
             "pulseaudio",
             "pulseaudio#microphone",
+	    "battery",
             "group/power"
         ]
     },
     "group/power": {
         "drawer": {
-            "transition-duration": 600,
+            "transition-duration": 800,
             "children-class": "not-power",
             "transition-left-to-right": false
         },
@@ -74,7 +74,8 @@
             "custom/shutdown",
             "idle_inhibitor",
             "custom/reboot",
-            "custom/logout"
+            "custom/logout",
+						"custom/suspend"
         ]
     },
     "group/tray": {

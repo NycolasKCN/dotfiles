@@ -3,8 +3,8 @@
     "format": "{icon}",
     "rotate": 0,
     "format-icons": {
-      "activated": "not idle",
-      "deactivated": "idle"
+      "activated": "\udb80\udd76",
+      "deactivated": "\udb83\udfaa"
     },
     "justify": "center",
     "tooltip": "true",

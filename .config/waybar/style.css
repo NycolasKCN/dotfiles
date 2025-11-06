@@ -99,9 +99,11 @@
 #pulseaudio,
 #network,
 #tray,
+#battery,
 #custom-logout,
 #custom-reboot,
 #custom-tray,
+#custom-suspend,
 #custom-shutdown {
   margin: 0px 4px;
 }
@@ -109,6 +111,7 @@
 #custom-tray,
 #custom-logout,
 #custom-reboot,
+#custom-suspend,
 #custom-shutdown {
   font-size: 14px
 }
