@@ -10,6 +10,7 @@
 set scrolloff=12
 
 set relativenumber
+set NERDTree
 
 " Do incremental searching.
 set incsearch
@@ -37,8 +38,14 @@ map \b <Action>(ToggleLineBreakpoint)
 "=========== my configs
 map L $
 map H ^
+map w [w
+map e ]w
+map b [b
 nmap <C-o> o<esc>
 nmap <C-O> O<esc>
+vmap p "_dP
+nmap x _x
+nmap X _X
 
 set clipboard+=unnamedplus
 
