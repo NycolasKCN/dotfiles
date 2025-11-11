@@ -21,12 +21,13 @@
         "/home/nyc/.config/waybar/modules/memory.jsonc",
         "/home/nyc/.config/waybar/modules/disk.jsonc",
         "/home/nyc/.config/waybar/modules/tray.jsonc",
+        "/home/nyc/.config/waybar/modules/temperature.jsonc",
         "/home/nyc/.config/waybar/modules/mpris.jsonc",
         "/home/nyc/.config/waybar/modules/custom-logout.jsonc",
         "/home/nyc/.config/waybar/modules/custom-reboot.jsonc",
         "/home/nyc/.config/waybar/modules/custom-shutdown.jsonc",
         "/home/nyc/.config/waybar/modules/custom-tray.jsonc",
-        "/home/nyc/.config/waybar/modules/temperature.jsonc"
+        "/home/nyc/.config/waybar/modules/custom-suspend.jsonc"
     ],
     "spacing": 4,
     "margin": "6, 6, 0, 6",
@@ -73,8 +74,9 @@
         "modules": [
             "custom/shutdown",
             "idle_inhibitor",
+            "custom/logout",
             "custom/reboot",
-            "custom/logout"
+						"custom/suspend"
         ]
     },
     "group/tray": {

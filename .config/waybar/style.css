@@ -2,7 +2,7 @@
 
 * {
   font-family: 'NotoSans Nerd Font';
-  font-weight: 600;
+  font-weight: 700;
   font-size: 12px;
   min-height: 0;
   color: @white;
@@ -102,6 +102,7 @@
 #custom-logout,
 #custom-reboot,
 #custom-tray,
+#custom-suspend,
 #custom-shutdown {
   margin: 0px 4px;
 }
@@ -109,6 +110,7 @@
 #custom-tray,
 #custom-logout,
 #custom-reboot,
+#custom-suspend,
 #custom-shutdown {
   font-size: 14px
 }

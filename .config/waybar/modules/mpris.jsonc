@@ -3,6 +3,7 @@
     "format": "{player_icon} - {artist} - {title}",
     "rotate": 0,
     "format-paused": "{status_icon} - <i>{artist} - {title}</i>",
+		"title-len": 64,
     "player-icons": {
       "default": "\u25b6",
       "mpv": "\ud83c\udfb5"

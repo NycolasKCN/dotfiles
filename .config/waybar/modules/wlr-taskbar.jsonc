@@ -15,13 +15,7 @@
         "ignore-list": [
             ""
         ],
-        "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition",
-            "firefoxnightly": "firefox-nightly",
-            "Spotify Free": "Spotify"
-        },
         "rewrite": {
-            "Firefox Web Browser": "Firefox",
             "Foot Server": "Terminal",
             "Spotify Free": "Spotify",
             "org.kde.dolphin": "Dolphin",

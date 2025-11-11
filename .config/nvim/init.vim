@@ -28,13 +28,12 @@ map H ^
 map Y yy
 map Y yy
 
-" Create splitpanes
 "" split horizontal
 nnoremap <A-0> <C-W>s
 "" split vertical
-nnoremap <A--> <C-W>v
+nnoremap <A-=> <C-W>v
 "" close pane
-nnoremap <A-=> <C-W>q
+nnoremap <A--> <C-W>q
 
 " move split panes
 nnoremap <A-h> <C-W>H
