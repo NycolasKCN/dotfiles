@@ -27,7 +27,7 @@
 
 /* ── Base Reset ───────────────────────────────────────────────────── */
 * {
-  font-family: "Inter", "SF Pro Text", sans-serif;
+  font-family: "NotoSans Nerd Font";
   font-size: 17px;
   color: @theme_fg;
   border: none;

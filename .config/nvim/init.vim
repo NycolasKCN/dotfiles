@@ -7,6 +7,7 @@ set showcmd
 set showmode
 
 set number relativenumber
+set expandtab
 set tabstop=2
 set scrolloff=8
 set sidescrolloff=12

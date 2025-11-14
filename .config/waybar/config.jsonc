@@ -23,6 +23,7 @@
         "/home/nyc/.config/waybar/modules/tray.jsonc",
         "/home/nyc/.config/waybar/modules/temperature.jsonc",
         "/home/nyc/.config/waybar/modules/mpris.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-notification.jsonc",
         "/home/nyc/.config/waybar/modules/custom-logout.jsonc",
         "/home/nyc/.config/waybar/modules/custom-reboot.jsonc",
         "/home/nyc/.config/waybar/modules/custom-shutdown.jsonc",
@@ -58,6 +59,7 @@
         "orientation": "inherit",
         "modules": [
             "group/tray",
+            "custom/notification",
             "network",
             "pulseaudio",
             "pulseaudio#microphone",

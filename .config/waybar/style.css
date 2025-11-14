@@ -99,6 +99,7 @@
 #pulseaudio,
 #network,
 #tray,
+#custom-notification,
 #custom-logout,
 #custom-reboot,
 #custom-tray,
@@ -107,6 +108,7 @@
   margin: 0px 4px;
 }
 
+#custom-notification,
 #custom-tray,
 #custom-logout,
 #custom-reboot,
