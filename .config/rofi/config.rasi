@@ -168,4 +168,8 @@ configuration {
 }
 //@theme "/home/nyc/.local/share/rofi/themes/rounded-red-dark.rasi"
 
+//@theme "/home/nyc/.local/share/rofi/themes/carbonized.rasi"
+
+//@theme "/usr/share/rofi/themes/blurry.rasi"
+
 @theme "/home/nyc/.local/share/rofi/themes/carbonized.rasi"
