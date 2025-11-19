@@ -23,6 +23,7 @@
         "/home/nyc/.config/waybar/modules/tray.jsonc",
         "/home/nyc/.config/waybar/modules/temperature.jsonc",
         "/home/nyc/.config/waybar/modules/mpris.jsonc",
+        "/home/nyc/.config/waybar/modules/custom-temperature#gpu.jsonc",
         "/home/nyc/.config/waybar/modules/custom-notification.jsonc",
         "/home/nyc/.config/waybar/modules/custom-logout.jsonc",
         "/home/nyc/.config/waybar/modules/custom-reboot.jsonc",
@@ -43,7 +44,8 @@
             "cpu",
             "memory",
             "disk",
-            "temperature"
+            "temperature",
+            "custom/temperature#gpu"
         ]
     },
     "modules-center": [
