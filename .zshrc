@@ -16,7 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Theme config
-ZSH_THEME="darkblood"
+ZSH_THEME="bureau"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Carefully ordered plugins (syntax highlighting must be last)

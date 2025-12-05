@@ -2,6 +2,6 @@
     "custom/suspend": {
         "format": "\udb82\udd04",
         "tooltip": false,
-        "on-click-right": "systemctl hybrid-sleep"
+        "on-click-right": "sudo systemctl hibernate"
     }
 }

@@ -44,8 +44,8 @@
             "cpu",
             "memory",
             "disk",
-            "temperature",
-            "custom/temperature#gpu"
+            "temperature"
+            // "custom/temperature#gpu"
         ]
     },
     "modules-center": [

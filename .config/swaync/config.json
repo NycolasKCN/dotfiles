@@ -68,7 +68,6 @@
         {
           "label": "󰂛",
           "command": "swaync-client -d",
-          "type": "toggle",
           "tooltip": "DND"
         },
         {
