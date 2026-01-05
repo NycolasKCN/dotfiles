@@ -1,7 +1,8 @@
 {
     "custom/suspend": {
         "format": "\udb82\udd04",
-        "tooltip": false,
-        "on-click-right": "sudo systemctl hibernate"
+        "tooltip": true,
+		"tooltip-format":"Suspend",
+        "on-click-right": "systemctl suspend --now"
     }
 }

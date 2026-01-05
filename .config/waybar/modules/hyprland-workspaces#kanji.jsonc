@@ -31,14 +31,15 @@
             "18": "十八",
             "19": "十九",
             "20": "二十",
-            "notes": "\ue678",
+            "notes": "\udb83\udebf",
             "music": "\uf001",
             "magic": "\uf2d1",
-            "terminal": "\ue795",
-						"whatsapp": "\udb82\udf79",
-            "urgent": " ",
-            "focused": " ",
-            "default": " "
+            "terminal": "\uf489",
+			"hide":"\uf24d",
+			"magic": "\uf044",
+			"magic2":"\uf044",
+            "urgent": "",
+            "default": ""
         }
     }
 }

@@ -1,3 +1,6 @@
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+
 # Performance optimizations
 DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
@@ -16,7 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Theme config
-ZSH_THEME="bureau"
+ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Carefully ordered plugins (syntax highlighting must be last)
@@ -32,3 +35,4 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zsh_alias
+
