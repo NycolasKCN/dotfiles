@@ -80,6 +80,7 @@
 #taskbar {
   border-radius: 2rem;
   background: alpha(@grey, .25);
+  margin: 0px 2px;
 }
 
 #taskbar button{

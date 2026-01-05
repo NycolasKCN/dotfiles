@@ -1,6 +1,10 @@
 {
     "tray": {
         "spacing": 8,
-        "icon-size": 16
-    },
+        "icon-size": 16,
+		"reverse-direction": true,
+		"icons": {
+		  //"CopyQ": "copy"
+		}
+    }
 }

@@ -10,7 +10,6 @@
     "reload_style_on_change": true,
     "include": [
         "/home/nyc/.local/share/waybar/modules/idle_inhibitor.jsonc",
-        "/home/nyc/.config/waybar/modules/network.jsonc",
         "/home/nyc/.config/waybar/modules/wlr-taskbar.jsonc",
         "/home/nyc/.config/waybar/modules/privacy.jsonc",
         "/home/nyc/.config/waybar/modules/pulseaudio.jsonc",
@@ -53,7 +52,6 @@
     ],
     "modules-right": [
         "privacy",
-        "wlr/taskbar",
         "clock",
         "group/pill-right"
     ],
@@ -61,8 +59,8 @@
         "orientation": "inherit",
         "modules": [
             "group/tray",
+            "tray",
             "custom/notification",
-            "network",
             "pulseaudio",
             "pulseaudio#microphone",
             "group/power"
@@ -80,7 +78,7 @@
             "idle_inhibitor",
             "custom/logout",
             "custom/reboot",
-						"custom/suspend"
+			"custom/suspend"
         ]
     },
     "group/tray": {
@@ -91,7 +89,7 @@
         "orientation": "inherit",
         "modules": [
             "custom/tray",
-            "tray"
+			"wlr/taskbar"
         ]
     }
 
