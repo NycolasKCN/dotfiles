@@ -31,6 +31,8 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+(cat ~/.cache/wal/sequences &)
+
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 

@@ -1,6 +1,0 @@
-{
-    "disk": {
-    "format": "{percentage_used}% ",
-    "tooltip": true
-  }
-}

@@ -1,7 +1,0 @@
-{
-    "custom/shutdown": {
-        "format": "\u23fb",
-        "tooltip": false,
-        "on-click-right": "shutdown now"
-    }
-}
