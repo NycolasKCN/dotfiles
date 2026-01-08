@@ -215,7 +215,7 @@
 	"format": "|  {player_icon} - {artist} - {title}",
 	"rotate": 0,
 	"format-paused": "|  {status_icon} - <i>{artist} - {title}</i>",
-	"title-len": 50,
+	"title-len": 24,
 	"player-icons": {
 	  "default": ""
 	},
@@ -223,8 +223,8 @@
 	  "paused": ""
 	},
 	"tooltip-format": "{dynamic}",
-	"max-length": 500,
-	"interval": 10
+	"max-length": 150,
+	"interval": 1 
   },
 
   "pulseaudio": {
