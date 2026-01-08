@@ -20,8 +20,8 @@
     "notification-body-image-height":  180,
     "notification-body-image-width": 180,
 
-    "timeout": 3,
-    "timeout-low": 1,
+    "timeout": 4,
+    "timeout-low": 4,
     "timeout-critical": 8,
 
     "fit-to-screen": true,
