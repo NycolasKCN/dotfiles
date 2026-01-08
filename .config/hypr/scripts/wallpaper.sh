@@ -1,5 +1,5 @@
 #!/bin/bash
-WALLPAPER_DIR="$HOME/Imagens/wallpaper/walls"
+WALLPAPER_DIR="$HOME/Images/wallpaper/walls"
 
 menu() {
     find "${WALLPAPER_DIR}" -type f \( -iname "*.jpg" \) | awk '{print "img:"$0}'
@@ -21,7 +21,7 @@ main() {
     sed -i "s/^gradient_color_1 = .*/gradient_color_1 = '$color1'/" $cava_config
     sed -i "s/^gradient_color_2 = .*/gradient_color_2 = '$color2'/" $cava_config
 
-	cp $selected_wallpaper ~/Imagens/wallpaper/pywallpaper.jpg
+	cp $selected_wallpaper ~/Images/wallpaper/pywallpaper.jpg
     source ~/.cache/wal/colors.sh
 }
 main

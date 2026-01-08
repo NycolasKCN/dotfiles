@@ -110,6 +110,10 @@
                     "label": "",
                     "command": "hyprlock"
                 },
+				{
+				  "label": "󰗽",
+				  "command": "hyprctl dispatch exit"
+				},
                 {
                     "label":"",
                     "command": "reboot"
@@ -118,7 +122,6 @@
                     "label":"",
                     "command": "shutdown now"
                 }
-
             ]
         }
     }
