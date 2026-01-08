@@ -5,7 +5,7 @@
         "reload_style_on_change": true,
         "modules-left": ["hyprland/workspaces", "mpris"],
         "modules-center": ["clock"],
-        "modules-right": ["tray","group/expand","bluetooth","network","battery","custom/notification"],
+        "modules-right": ["tray","group/expand","custom/pacman","bluetooth","network","battery","custom/notification"],
 
         "hyprland/workspaces": {
 			"show-special": true,
@@ -42,17 +42,27 @@
             "escape": true
         },
         "clock": {
-            "format": "{:%I:%M: %p} ",
+            "format": "{:%R  %d%m%y}",
+			"format-alt": "{:%R  %A}",
             "interval": 1,   
             "tooltip-format": "<tt>{calendar}</tt>",
             "calendar": {
+				"mode": "year",
+				"mode-mon-col": 3,
+				"weeks-pos": "",
+				"on-scroll": 1,
                 "format": {
-                    "today": "<span color='#fAfBfC'><b>{}</b></span>"
+					"today": "<span color='#fAfBfC'><b><u>{}</u></b></span>",
+					"months": "<span color='#fAfBfC'><b>{}</b></span>",
+					"days": "<span><b>{}</b></span>",
+					"weeks": "<span color='#fAfBfC'><b>W{}</b></span>",
+					"weekdays": "<span color='#fAfBfC'><b>{}</b></span>",
                 }
             },
             "actions": {
-                "on-click-right": "shift_down",
-                "on-click": "shift_up"
+                "on-click": "mode",
+				"on-scroll-up": "shift_up",
+				"on-scroll-down": "shift_down" 
             }
         },
         "network": {
@@ -121,7 +131,7 @@
                 "transition-to-left": true,
                 "click-to-reveal": true
             },
-            "modules": ["custom/expand","custom/colorpicker","cpu","memory","disk","temperature","custom/pacman","custom/endpoint"],
+            "modules": ["custom/expand","custom/colorpicker","cpu","memory","disk","temperature","custom/endpoint"],
         },
         "custom/colorpicker": {
             "format": "{}",
