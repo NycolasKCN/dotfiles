@@ -13,6 +13,10 @@ alias btw='fastfetch'
 alias fonts='fc-list -f "%{family}\n"'
 alias untar='tar -xf'
 
+alias tasks='btop'
+alias Docs='nautilus $HOME/Documents'
+alias Settings='cd ~/.config/hypr/ && nvim .'
+
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias cleartrash="rm -rf ~/.local/share/Trash/*"

@@ -43,7 +43,11 @@ tooltip {
 #cpu:hover,
 #memory:hover,
 #temperature:hover,
-#disk:hover{
+#disk:hover,
+#pulseaudio#microphone:hover,
+#pulseaudio:hover,
+#keyboard-state:hover
+{
     transition: all .3s ease;
     color:@color9;
 }
@@ -136,6 +140,9 @@ tooltip {
 #temperature,
 #disk,
 #mpris
+#pulseaudio#microphone,
+#pulseaudio,
+#keyboard-state
 {
     padding: 0px 5px;
     transition: all .3s ease; 

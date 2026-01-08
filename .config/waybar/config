@@ -1,195 +1,271 @@
 {
-		"output": ["eDP-1","DP-1"] ,
-        "layer": "top",
-        "position": "top",
-        "reload_style_on_change": true,
-        "modules-left": ["hyprland/workspaces", "mpris"],
-        "modules-center": ["clock"],
-        "modules-right": ["tray","group/expand","custom/pacman","bluetooth","network","battery","custom/notification"],
+  "output": ["eDP-1","DP-1"] ,
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "modules-left": ["hyprland/workspaces", "mpris"],
+  "modules-center": ["clock"],
+  "modules-right": [
+	"tray",
+	"keyboard-state",
+	"group/expand",
+	"custom/pacman",
+	"pulseaudio",
+	"pulseaudio#microphone",
+	"bluetooth",
+	"network",
+	"battery",
+	"custom/notification"
+  ],
 
-        "hyprland/workspaces": {
-			"show-special": true,
-			"all-outputs": true,
-            "format": "{icon}",
-            "format-icons": {
-				"1": "一",
-				"2": "二",
-				"3": "三",
-				"4": "四",
-				"5": "五",
-				"6": "六",
-				"7": "七",
-				"8": "八",
-				"9": "九",
-				"10": "十",
-				"notes": "\udb83\udebf",
-				"music": "\uf001",
-				"magic": "\uf2d1",
-				"terminal": "\uf489",
-				"hide":"\uf24d",
-				"magic": "\uf044",
-				"magic2":"\uf044",
-                "default": "",
-            },
-            "persistent-workspaces": {
-                "*": [ 1, 10 ]
-            }
-        },
-        "custom/notification": {
-            "tooltip": false,
-            "format": "",
-            "on-click": "swaync-client -t -sw",
-            "escape": true
-        },
-        "clock": {
-            "format": "{:%R  %d%m%y}",
-			"format-alt": "{:%R  %A}",
-            "interval": 1,   
-            "tooltip-format": "<tt>{calendar}</tt>",
-            "calendar": {
-				"mode": "year",
-				"mode-mon-col": 3,
-				"weeks-pos": "",
-				"on-scroll": 1,
-                "format": {
-					"today": "<span color='#fAfBfC'><b><u>{}</u></b></span>",
-					"months": "<span color='#fAfBfC'><b>{}</b></span>",
-					"days": "<span><b>{}</b></span>",
-					"weeks": "<span color='#fAfBfC'><b>W{}</b></span>",
-					"weekdays": "<span color='#fAfBfC'><b>{}</b></span>",
-                }
-            },
-            "actions": {
-                "on-click": "mode",
-				"on-scroll-up": "shift_up",
-				"on-scroll-down": "shift_down" 
-            }
-        },
-        "network": {
-            "format-wifi": "",
-            "format-ethernet":" ",
-            "format-disconnected": "",
-            "tooltip-format-disconnected": "Error",
-            "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-            "tooltip-format-ethernet": "{ifname} 🖧 ",
-            "on-click": "kitty nmtui"
-        },
-        "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "󰂲",
-            "format-disabled": "󰂲",
-			"format-no-controller": "",
-            "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
-        }, 
-        "battery": {
-            "interval":30,
-            "states": {
-                "good": 95,
-                "warning": 30,
-                "critical": 20
-            },
-            "format": "{capacity}% {icon}",
-            "format-charging": "{capacity}% 󰂄",
-            "format-plugged": "{capacity}% 󰂄 ",
-            "format-alt": "{time} {icon}",
-            "format-icons": [
-                "󰁻",
-            "󰁼",
-            "󰁾",
-            "󰂀",
-            "󰂂",
-            "󰁹"
-            ],
-        },
-        "custom/pacman": {
-            "format": "󰅢  {}",
-            "interval": 30,   
-            "exec": "checkupdates | wc -l",
-            "exec-if": "exit 0",
-            "on-click": "kitty sh -c 'fastfetch; yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
-            "signal": 8,
-            "tooltip": false,
-        },
-        "custom/expand": {
-            "format": "",
-            "tooltip": false
-        },
-        "custom/endpoint":{
-            "format": " | ",
-            "tooltip": false
-        },
-        "group/expand": {
-            "orientation": "horizontal",
-            "drawer": {
-                "transition-duration": 600,
-                "transition-to-left": true,
-                "click-to-reveal": true
-            },
-            "modules": ["custom/expand","custom/colorpicker","cpu","memory","disk","temperature","custom/endpoint"],
-        },
-        "custom/colorpicker": {
-            "format": "{}",
-            "return-type": "json",
-            "interval": "once",
-            "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
-            "on-click": "~/.config/waybar/scripts/colorpicker.sh",
-            "signal": 1
-        },
-        "cpu": {
-			"format": "󰍛 {usage}% ",
-            "tooltip": true
-        },
-		"memory": {
-		  "states": {
-			"c": 90,
-			"h": 60,
-			"m": 30
-		  },
-		  "interval": 30,
-		  "rotate": 0,
-		  "format": " {percentage}%",
-		  "max-length": 10,
-		  "tooltip": true,
-		  "tooltip-format": "\udb83\udf86 Memory usage: {percentage}%\n\ue266 Used: {used:0.2f}GB / {total:0.2f}GB\n\uf85a Available: {avail:0.2f}GB\n\uf233 Swap used: {swapUsed:0.2f}GB / {swapTotal:0.2f}GB ({swapPercentage}%)"
-		},
-        "temperature": {
-			"thermal-zone": 2,
-			"critical-threshold": 80,
-			"format": "{icon} {temperatureC}°C ",
-			"tooltip": true,
-			"tooltip-format": "cpu: {temperatureC}°C",
-            "format-icons": [""],
-        },
-		"disk": {
-		  "format": " {percentage_used}% ",
-		  "tooltip": true
-		},
-        "tray": {
-            "icon-size": 14,
-            "spacing": 10
-        },
-		"mpris": {
-			"interval": "5",
-			"format": "|  {player_icon} - {artist} - {title}",
-			"rotate": 0,
-			"format-paused": "|  {status_icon} - <i>{artist} - {title}</i>",
-				"title-len": 50,
-			"player-icons": {
-			  "default": ""
-			},
-			"status-icons": {
-			  "paused": ""
-			},
-			"tooltip-format": "{dynamic}",
-			"max-length": 500,
-			"interval": 10
-		  }
+  "hyprland/workspaces": {
+	"show-special": true,
+	"all-outputs": true,
+	"format": "{icon}",
+	"format-icons": {
+	  "1": "一",
+	  "2": "二",
+	  "3": "三",
+	  "4": "四",
+	  "5": "五",
+	  "6": "六",
+	  "7": "七",
+	  "8": "八",
+	  "9": "九",
+	  "10": "十",
+	  "notes": "\udb83\udebf",
+	  "music": "\uf001",
+	  "magic": "\uf2d1",
+	  "terminal": "\uf489",
+	  "hide":"\uf24d",
+	  "magic": "\uf044",
+	  "magic2":"\uf044",
+	  "default": "",
+	},
+	"persistent-workspaces": {
+		"*": [ 1, 10 ]
+	}
+  },
+
+  "custom/notification": {
+	  "tooltip": false,
+	  "format": "",
+	  "on-click": "swaync-client -t -sw",
+	  "escape": true
+  },
+
+  "clock": {
+	"format": "{:%R  %d%m%y}",
+	"format-alt": "{:%R  %A}",
+	"interval": 1,   
+	"tooltip-format": "<tt>{calendar}</tt>",
+	"calendar": {
+	  "mode": "year",
+	  "mode-mon-col": 3,
+	  "weeks-pos": "",
+	  "on-scroll": 1,
+	  "format": {
+		"today": "<span color='#fAfBfC'><b><u>{}</u></b></span>",
+		"months": "<span color='#fAfBfC'><b>{}</b></span>",
+		"days": "<span><b>{}</b></span>",
+		"weeks": "<span color='#fAfBfC'><b>W{}</b></span>",
+		"weekdays": "<span color='#fAfBfC'><b>{}</b></span>",
 	  }
-  } 
+	},
+	"actions": {
+	  "on-click": "mode",
+	  "on-scroll-up": "shift_up",
+	  "on-scroll-down": "shift_down" 
+	}
+  },
 
+  "network": {
+	"format-wifi": "",
+	"format-ethernet":" ",
+	"format-disconnected": "",
+	"tooltip-format-disconnected": "Error",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+	"tooltip-format-ethernet": "{ifname} 🖧 ",
+	"on-click": "kitty nmtui"
+  },
+
+  "bluetooth": {
+	"format-on": "󰂯",
+	"format-off": "󰂲",
+	"format-disabled": "󰂲",
+	"format-no-controller": "",
+	"format-connected-battery": "{device_battery_percentage}% 󰂯",
+	"format-alt": "{device_alias} 󰂯",
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+	"on-click-right": "blueman-manager",
+  }, 
+
+  "battery": {
+	"interval":30,
+	"states": {
+	  "good": 95,
+	  "warning": 30,
+	  "critical": 20
+	},
+	"format": "{capacity}% {icon}",
+	"format-charging": "{capacity}% 󰂄",
+	"format-plugged": "{capacity}% 󰂄 ",
+	"format-alt": "{time} {icon}",
+	"format-icons": [
+	  "󰁻",
+	  "󰁼",
+	  "󰁾",
+	  "󰂀",
+	  "󰂂",
+	  "󰁹"
+	],
+  },
+
+  "custom/pacman": {
+	"format": "󰅢  {}",
+	"interval": 30,   
+	"exec": "checkupdates | wc -l",
+	"exec-if": "exit 0",
+	"on-click": "kitty sh -c 'fastfetch; yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+	"signal": 8,
+	"tooltip": false,
+  },
+
+  "custom/expand": {
+	"format": "",
+	"tooltip": false
+  },
+
+  "custom/endpoint":{
+	"format": " | ",
+	"tooltip": false
+  },
+
+  "group/expand": {
+	"orientation": "horizontal",
+	"drawer": {
+	  "transition-duration": 600,
+	  "transition-to-left": true,
+	  "click-to-reveal": true
+	},
+	"modules": [
+	  "custom/expand",
+	  "custom/colorpicker",
+	  "cpu",
+	  "memory",
+	  "disk",
+	  "temperature",
+	  "custom/endpoint"
+	],
+  },
+
+  "custom/colorpicker": {
+	"format": "{}",
+	"return-type": "json",
+	"interval": "once",
+	"exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+	"on-click": "~/.config/waybar/scripts/colorpicker.sh",
+	"signal": 1
+  },
+
+  "cpu": {
+	"format": "󰍛 {usage}% ",
+	"tooltip": true
+  },
+
+  "memory": {
+	"states": {
+	  "c": 90,
+	  "h": 60,
+	  "m": 30
+	},
+	"interval": 30,
+	"rotate": 0,
+	"format": " {percentage}%",
+	"max-length": 10,
+	"tooltip": true,
+	"tooltip-format": "\udb83\udf86 Memory usage: {percentage}%\n\ue266 Used: {used:0.2f}GB / {total:0.2f}GB\n\uf85a Available: {avail:0.2f}GB\n\uf233 Swap used: {swapUsed:0.2f}GB / {swapTotal:0.2f}GB ({swapPercentage}%)"
+  },
+
+  "temperature": {
+	"thermal-zone": 2,
+	"critical-threshold": 80,
+	"format": "{icon} {temperatureC}°C ",
+	"tooltip": true,
+	"tooltip-format": "cpu: {temperatureC}°C",
+	"format-icons": [""],
+  },
+  
+  "disk": {
+	"format": " {percentage_used}% ",
+	"tooltip": true
+  },
+
+  "tray": {
+	"icon-size": 14,
+	"spacing": 10
+  },
+
+  "mpris": {
+	"interval": "5",
+	"format": "|  {player_icon} - {artist} - {title}",
+	"rotate": 0,
+	"format-paused": "|  {status_icon} - <i>{artist} - {title}</i>",
+	"title-len": 50,
+	"player-icons": {
+	  "default": ""
+	},
+	"status-icons": {
+	  "paused": ""
+	},
+	"tooltip-format": "{dynamic}",
+	"max-length": 500,
+	"interval": 10
+  },
+
+  "pulseaudio": {
+	"format": "{icon} {volume}",
+	"format-muted": "\ueee8 ",
+	"on-click": "pavucontrol -t 3",
+	"on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+	"on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+",
+	"on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%-",
+	"tooltip-format": "{icon} {desc} // {volume}%",
+	"scroll-step": 5,
+	"format-icons": {
+	  "headphone": "\uf025",
+	  "hands-free": "\uf025",
+	  "headset": "\uf025",
+	  "phone": "\uf095",
+	  "portable": "\uf095",
+	  "default": ["\uf026", "\uf027", "\uf028"]
+	},
+  },
+
+  "pulseaudio#microphone": {
+	"format": "{format_source} {source_volume}",
+	"rotate": 0,
+	"format-source": "\uf86b",
+	"format-source-muted": "\uf131",
+	"on-click": "pavucontrol -t 4",
+	"on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+	"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ .05+",
+	"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ .05-",
+	"tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+	"scroll-step": 5
+  },
+
+  "keyboard-state": {
+	"capslock": true,
+	"format": {
+		"capslock": "Caps {icon}"
+	},
+	"format-icons": {
+		"locked": "",
+		"unlocked": ""
+    }
+  }
+}
