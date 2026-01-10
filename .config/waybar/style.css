@@ -46,7 +46,8 @@ tooltip {
 #disk:hover,
 #pulseaudio#microphone:hover,
 #pulseaudio:hover,
-#keyboard-state:hover
+#keyboard-state:hover,
+#idle_inhibitor:hover
 {
     transition: all .3s ease;
     color:@color9;
@@ -142,7 +143,8 @@ tooltip {
 #mpris
 #pulseaudio#microphone,
 #pulseaudio,
-#keyboard-state
+#keyboard-state,
+#idle_inhibitor
 {
     padding: 0px 5px;
     transition: all .3s ease; 

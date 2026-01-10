@@ -130,7 +130,6 @@
 	"interval": 30,   
 	"exec": "checkupdates | wc -l",
 	"exec-if": "exit 0",
-	"on-click": "kitty bash 'fastfetch; yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
 	"signal": 8,
 	"tooltip": false,
   },
@@ -159,6 +158,7 @@
 	  "memory",
 	  "disk",
 	  "temperature",
+	  "idle_inhibitor",	
 	  "custom/endpoint"
 	],
   },
@@ -268,5 +268,17 @@
 		"locked": "",
 		"unlocked": ""
     }
+  },
+  "idle_inhibitor": {
+	"format": "{icon}",
+	"rotate": 0,
+	"format-icons": {
+	  "activated": "󰛊",
+	  "deactivated": "󰾫"
+	},
+	"justify": "center",
+	"tooltip": "true",
+	"tooltip-format-activated": "<span foreground='#98c379'>\udb80\udd76 Caffeine Mode Active</span>\nPrevents system from going to sleep",
+	"tooltip-format-deactivated": "<span foreground='#e06c75'>\udb81\udeca Caffeine Mode Inactive</span>\nSystem will follow normal power settings"
   }
 }
