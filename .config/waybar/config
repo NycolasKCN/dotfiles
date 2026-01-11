@@ -44,7 +44,7 @@
 	  "default": "",
 	},
 	"persistent-workspaces": {
-		"*": [ 1, 10 ]
+		"*": [ 1 ]
 	}
   },
 
