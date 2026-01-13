@@ -241,7 +241,7 @@
 	  "headset": "\uf025",
 	  "phone": "\uf095",
 	  "portable": "\uf095",
-	  "default": ["\uf026", "\uf027", "\uf028"]
+	  "default": ["\uf026", "\uf027", "\uf028 "]
 	},
   },
 

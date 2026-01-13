@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Solarized Light",
     "files.associations": {
         "*.sty": "latex",
         "*.cls": "latex"
@@ -224,5 +223,6 @@
         "[ ]",
         "[x]",
         "COMMENT"
-    ]
+    ],
+    "workbench.colorTheme": "Solarized Light"
 }
