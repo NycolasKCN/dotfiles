@@ -2,5 +2,41 @@
 .config/hypr/monitors.conf
 .config/hypr/workspaces.conf
 
-.config/VSCodium/**
+.config/VSCodium/Backups
+.config/VSCodium/blob_storage
+.config/VSCodium/Cache/**
+.config/VSCodium/cache
+.config/VSCodium/CachedData/
+.config/VSCodium/CachedExtensionVSIXs
+.config/VSCodium/CachedProfilesData/
+.config/VSCodium/Code Cache
+.config/VSCodium/code.lock
+.config/VSCodium/Cookies**
+.config/VSCodium/Crashpad
+.config/VSCodium/Crashpad
+.config/VSCodium/DawnGraphiteCache
+.config/VSCodium/DawnWebGPUCache
+.config/VSCodium/Dictionaries
+.config/VSCodium/DIPS
+.config/VSCodium/DIPS-wal
+.config/VSCodium/GPUCache
+.config/VSCodium/WebStorage
+.config/VSCodium/User/History
+.config/VSCodium/User/globalStorage
+.config/VSCodium/User/workspaceStorage
+.config/VSCodium/Trust Tokens-journal
+.config/VSCodium/Trust Tokens
+.config/VSCodium/TransportSecurity
+.config/VSCodium/SharedStorage-wal
+.config/VSCodium/SharedStorage
+.config/VSCodium/Shared Dictionary
+.config/VSCodium/Session Storage
+.config/VSCodium/Service Worker
+.config/VSCodium/Preferences
+.config/VSCodium/Network Persistent State
+.config/VSCodium/machineid
+.config/VSCodium/Local Storage
+.config/VSCodium/languagepacks.**
+
 \!.config/VSCodium/User/**
+
