@@ -45,6 +45,9 @@ nmap <leader>o <Action>(FileStructurePopup)
 nmap <leader>r <Action>(ReformatCode)
 nmap <leader><ESC> :noh<CR>
 
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
+
 " split panels
 nnoremap <a-0> :action MoveTabDown<CR>
 nnoremap <a-=> :action MoveTabRight<CR>

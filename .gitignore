@@ -22,6 +22,7 @@
 .config/VSCodium/GPUCache
 .config/VSCodium/WebStorage
 .config/VSCodium/User/History
+.config/VSCodium/User/profiles/-**
 .config/VSCodium/User/globalStorage
 .config/VSCodium/User/workspaceStorage
 .config/VSCodium/Trust Tokens-journal
@@ -38,5 +39,5 @@
 .config/VSCodium/Local Storage
 .config/VSCodium/languagepacks.**
 
-\!.config/VSCodium/User/**
 
+.config/nvim/undodir
