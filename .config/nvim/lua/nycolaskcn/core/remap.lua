@@ -6,9 +6,10 @@ vim.keymap.set({"n", "v"}, "L", "$")
 vim.keymap.set({"n", "v"}, "H", "0")
 
 vim.keymap.set({"n", "v"}, "Y", "yy")
-vim.keymap.set("v", "p", "_dP")
+vim.keymap.set("v", "p", "\"_dP")
 
-vim.keymap.set("n", "<leader><esc>", ":noh")
+vim.keymap.set("n", "<leader><esc>", ":noh<CR>")
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
 
 vim.keymap.set("n", "<c-j>", "<c-w>j")
 vim.keymap.set("n", "<c-k>", "<c-w>k")
