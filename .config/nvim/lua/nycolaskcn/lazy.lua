@@ -16,10 +16,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = {
-    { import = "nycolaskcn.plugins" },
-  },
-  install = { colorscheme = { "kanagawa" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+    spec = {
+      { import = "nycolaskcn.plugins" },
+      { import = "nycolaskcn.plugins.lsp" },
+    },
+    install = { colorscheme = { "kanagawa" } },
+    -- automatically check for plugin updates
+    checker = { enabled = true },
+    change_detection = {
+        notify = false,
+    },
 })
