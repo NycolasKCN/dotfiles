@@ -52,12 +52,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.lsp.inlay_hint.enable(true)
+--vim.lsp.inlay_hint.enable(true)
 
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-  signs = {
+    virtual_text = {
+        -- Set the format function to filter diagnostics
+        format = function(diagnostic)
+            -- Check if the diagnostic severity is less than or equal to vim.diagnostic.severity.ERROR
+            -- WARNING is severity 3, ERROR is severity 2. This logic is correct to only show ERRORs
+            if diagnostic.severity <= vim.diagnostic.severity.ERROR then
+                -- You can customize the format here or return the default message
+                return string.format("[%s] %s", diagnostic.source, diagnostic.message)
+            else
+                -- Return nil or an empty string to hide the virtual text for other severities (e.g., Warning, Info, Hint)
+                return nil
+            end
+        end,
+    },  signs = {
     text = {
       [severity.ERROR] = " ",
       [severity.WARN] = " ",

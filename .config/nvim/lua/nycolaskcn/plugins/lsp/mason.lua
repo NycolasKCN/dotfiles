@@ -15,7 +15,9 @@ return {
       "prismals",
       "pyright",
       "eslint",
+      "clangd"
     },
+    automatic_enable = true,
   },
   dependencies = {
     {
