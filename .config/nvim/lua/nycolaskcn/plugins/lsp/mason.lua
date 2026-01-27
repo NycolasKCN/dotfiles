@@ -15,7 +15,8 @@ return {
       "prismals",
       "pyright",
       "eslint",
-      "clangd"
+      "clangd",
+      "clang-format"
     },
     automatic_enable = true,
   },
