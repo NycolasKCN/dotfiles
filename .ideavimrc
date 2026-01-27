@@ -81,6 +81,7 @@ nnoremap ,t :action ActivateRunToolWindow<CR>
 nnoremap ,u :action Rerun<CR>
 
 " popups
+vmap K <Action>(EditorPopupMenu)
 nmap K <Action>(ShowHoverInfo)
 nmap gh <Action>(EditorPopupMenu)
 nmap gf <Action>(Generate)
