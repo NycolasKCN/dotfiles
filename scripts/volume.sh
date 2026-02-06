@@ -29,7 +29,7 @@ notify_user() {
 
 # Increase Volume
 inc_volume() {
-	pamixer --allow-boost --set-limit 150 -i 2 && notify_user
+	pamixer --allow-boost -i 2 && notify_user
 }
 
 # Decrease Volume
