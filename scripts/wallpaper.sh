@@ -9,8 +9,8 @@ main() {
     choice=$(menu | wofi -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
-    wal --backend colorz --cols16 dual --contrast 8 -i "$selected_wallpaper"
-    wal --cols16 dual --contrast 8 -i "$selected_wallpaper"
+    wal --backend dual --cols16 dual --contrast 10 -i "$selected_wallpaper"
+    wal --cols16 darken --saturate 0.2 --contrast 4.5 -i "$selected_wallpaper"
 
     swaync-client --reload-css
 
@@ -22,8 +22,9 @@ main() {
     sed -i "s/^gradient_color_1 = .*/gradient_color_1 = '$color1'/" $cava_config
     sed -i "s/^gradient_color_2 = .*/gradient_color_2 = '$color2'/" $cava_config
 
-	cp $selected_wallpaper ~/Images/wallpaper/pywallpaper.jpg
+	  cp $selected_wallpaper ~/Images/wallpaper/pywallpaper.jpg
     source ~/.cache/wal/colors.sh
 }
+
 main
 
