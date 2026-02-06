@@ -9,7 +9,8 @@ main() {
     choice=$(menu | wofi -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
-    wal --contrast 8 -i "$selected_wallpaper" --cols16
+    wal --backend colorz --cols16 dual --contrast 8 -i "$selected_wallpaper"
+    wal --cols16 dual --contrast 8 -i "$selected_wallpaper"
 
     swaync-client --reload-css
 

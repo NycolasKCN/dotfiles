@@ -47,7 +47,8 @@ tooltip {
 #pulseaudio#microphone:hover,
 #pulseaudio:hover,
 #keyboard-state:hover,
-#idle_inhibitor:hover
+#idle_inhibitor:hover,
+#submap:hover
 {
     transition: all .3s ease;
     color:@color9;
@@ -73,7 +74,7 @@ tooltip {
 }
 #workspaces button {
     all:unset;
-	color: @color9;
+	  color: @color9;
     padding: 0px 5px;
     transition: all .2s ease;
 }
@@ -140,20 +141,18 @@ tooltip {
 #memory,
 #temperature,
 #disk,
-#mpris
+#mpris,
 #pulseaudio#microphone,
 #pulseaudio,
 #keyboard-state,
-#idle_inhibitor
+#idle_inhibitor,
+#submap
 {
     padding: 0px 5px;
     transition: all .3s ease; 
     color:@color7;
 }
 
-#mpris {
-	margin: 0px 2px;
-}
 #custom-endpoint{
     padding: 0px 5px;
     color:alpha(@foreground,.2);
