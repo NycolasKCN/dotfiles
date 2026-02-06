@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DB_CONTAINERS="ale-pessoa-db ale-pessoa-minio"
+DB_CONTAINERS="ale-pessoa-db ale-pessoa-minio ale-pessoa-umami"
 WEBSTORM_BIN="$HOME/.local/bin/webstorm"
 IDEA_BIN="$HOME/.local/bin/idea1"
 
