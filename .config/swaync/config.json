@@ -35,8 +35,6 @@
         "mpris",
         "title",
         "notifications",
-        "volume",
-        "backlight",
         "buttons-grid"
     ],
     "widget-config": {
@@ -53,12 +51,6 @@
         "mpris": {
             "image-size": 80,
             "image-radius": 0
-        },
-        "volume": {
-            "label": "󰕾 "
-        },
-        "backlight": {
-            "label": "󰃟 "
         },
         "buttons-grid": {
             "actions": [
@@ -103,7 +95,7 @@
                 },
                 {
                     "label": "",
-                    "command": "kitty -e tasks"
+                    "command": "kitty tasks"
                 },
                 {
                     "label": "",
