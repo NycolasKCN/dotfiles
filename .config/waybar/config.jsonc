@@ -205,7 +205,7 @@
     "tooltip-format": "cpu: {temperatureC}°C",
     "format-icons": [""]
   },
-  
+
   "disk": {
     "format": " {percentage_used}% ",
     "tooltip": true
