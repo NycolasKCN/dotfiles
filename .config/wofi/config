@@ -10,4 +10,5 @@ print_command=true
 insensitive=true
 columns=1
 no_actions=true
+close_on_focus_loss=true
 

@@ -9,8 +9,17 @@ main() {
     choice=$(menu | wofi -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
-    wal --backend dual --cols16 dual --contrast 10 -i "$selected_wallpaper"
     wal --cols16 darken --saturate 0.2 --contrast 4.5 -i "$selected_wallpaper"
+
+    if [ $? -ne 0 ]; then
+      echo "[INFO] Trying with colorz"
+      wal --backend colorz --cols16 darken --saturate 0.2 --contrast 10 -i "$selected_wallpaper"
+    fi
+
+    if [ $? -ne 0 ]; then
+      echo "[INFO] Trying with fast_colorthief"
+      wal --backend fast_colorthief --cols16 darken --saturate 0.2 --contrast 10 -i "$selected_wallpaper"
+    fi
 
     swaync-client --reload-css
 
