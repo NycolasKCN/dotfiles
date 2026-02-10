@@ -1,5 +1,6 @@
 alias cd='z'
 
+alias altman='tldr'
 alias c='clear'
 alias lg='lazygit'
 alias mkdir='mkdir -p'

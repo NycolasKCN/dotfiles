@@ -19,3 +19,6 @@ vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<C-o>", "o<esc>")
 vim.keymap.set("n", "<C-S-O>", "O<esc>")
 
+vim.keymap.set("n", ",", "'")
+
+vim.keymap.set("n", "m/", "<cmd>MarksListAll<CR>")

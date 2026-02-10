@@ -43,8 +43,10 @@ nmap X "_X
 
 nmap <leader>b <Action>(ToggleLineBreakpoint)
 nmap <leader>o <Action>(FileStructurePopup)
-nmap <leader>r <Action>(ReformatCode)
+nmap <leader>f <Action>(ReformatCode)
 nmap <leader><ESC> :noh<CR>
+nnoremap <leader>r :action ChooseRunConfiguration<CR>
+nnoremap <leader>t :action ActivateRunToolWindow<CR>
 
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
@@ -67,19 +69,14 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+nnoremap , '
+
 " move between tabs
 nnoremap <TAB> :action NextTab<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>
 
 " close tab
 nnoremap <C-q> :action CloseContent<CR>
-
-" run/debug
-nnoremap ,r :action ContextRun<CR>
-nnoremap ,c :action RunClass<CR>
-nnoremap ,f :action ChooseRunConfiguration<CR>
-nnoremap ,t :action ActivateRunToolWindow<CR>
-nnoremap ,u :action Rerun<CR>
 
 " popups
 nmap K <Action>(ShowHoverInfo)
