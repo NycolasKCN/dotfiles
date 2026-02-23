@@ -35,6 +35,7 @@ return {
         "vimdoc",
         "c",
         "java",
+        "kotlin",
         "javascript",
         "typescript",
         "python"

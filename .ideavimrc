@@ -29,6 +29,11 @@ Plug 'tpope/vim-surround'
 let mapleader = " "
 set clipboard+=unnamedplus
 
+"=========== Handlers
+sethandler <C-S-C> n-v:ide
+setHandler <C-p> n-v:ide
+setHandler <C-R> n-v-i:vim
+
 "=========== my configs
 map L $
 map H ^

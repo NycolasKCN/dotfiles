@@ -16,7 +16,9 @@ return {
       "pyright",
       "eslint",
       "clangd",
-      "clang-format"
+      "clang-format",
+      "kotlin_language_server",
+      "kotlin_lsp",
     },
     automatic_enable = true,
   },
