@@ -1,4 +1,5 @@
 alias cd='z'
+alias zt='zerotier-cli'
 
 alias altman='tldr'
 alias c='clear'
