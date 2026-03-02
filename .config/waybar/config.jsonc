@@ -131,15 +131,6 @@
     ]
   },
 
-  "custom/pacman": {
-    "format": "󰅢  {}",
-    "interval": 30,   
-    "exec": "checkupdates | wc -l",
-    "exec-if": "exit 0",
-    "signal": 8,
-    "tooltip": false
-  },
-
   "custom/expand": {
     "format": "",
     "tooltip": false
