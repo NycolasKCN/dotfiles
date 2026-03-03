@@ -8,9 +8,7 @@
   "modules-right": [
     "tray",
     "custom/endpoint",
-    "keyboard-state",
     "group/expand",
-    "custom/pacman",
     "pulseaudio",
     "pulseaudio#microphone",
     "bluetooth",
@@ -189,7 +187,7 @@
   },
 
   "temperature": {
-    "thermal-zone": 2,
+    "hwmon-path": "/home/nyc/.config/waybar/cpu_temp",
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C ",
     "tooltip": true,
@@ -203,8 +201,7 @@
   },
 
   "tray": {
-    "icon-size": 14,
-    "spacing": 10
+    "icon-size": 14, "spacing": 10
   },
 
   "mpris": {
@@ -255,17 +252,6 @@
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ .05-",
     "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
     "scroll-step": 5
-  },
-
-  "keyboard-state": {
-    "capslock": true,
-    "format": {
-      "capslock": "Caps {icon}"
-    },
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-      }
   },
 
   "idle_inhibitor": {
