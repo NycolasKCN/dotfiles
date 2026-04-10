@@ -9,8 +9,9 @@
     "tray",
     "custom/endpoint",
     "group/expand",
-    "pulseaudio",
+    "custom/pacman",
     "pulseaudio#microphone",
+    "pulseaudio",
     "bluetooth",
     "network",
     "battery",
@@ -149,7 +150,6 @@
     },
     "modules": [
       "custom/expand",
-      "custom/colorpicker",
       "cpu",
       "memory",
       "disk",
@@ -243,7 +243,7 @@
   },
 
   "pulseaudio#microphone": {
-    "format": "{format_source} {source_volume}",
+    "format": "{format_source}",
     "rotate": 0,
     "format-source": "",
     "format-source-muted": " ",
@@ -286,5 +286,14 @@
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -d -sw",
     "escape": true
+  },
+
+  "custom/pacman": {
+    "format": "󰅢  {}",
+    "interval": 30,   
+    "exec": "checkupdates | wc -l",
+    "exec-if": "exit 0",
+    "signal": 8,
+    "tooltip": false
   }
 }

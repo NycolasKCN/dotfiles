@@ -38,3 +38,5 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zsh_alias
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mcli

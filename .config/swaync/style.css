@@ -227,16 +227,19 @@
     border-radius: 12px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .65);
 }
+/*
 .widget-mpris .widget-mpris-player button:hover {
     all: unset;
     background: @bg-hover;
     text-shadow: none;
     border-radius: 15px;
     border: none; 
+    transition: all 0.5s ease; 
     padding: 5px; 
     margin: 5px;
-    transition: all 0.5s ease; 
 }
+*/
+
 .widget-mpris .widget-mpris-player button {
     color:@text;
     text-shadow: none;
@@ -250,6 +253,7 @@
     background: transparent;
     border: 2px solid transparent;
 }
+
 .widget-mpris .widget-mpris-player button:hover {
     border: 2px solid transparent;
 }
@@ -271,6 +275,8 @@
 .widget-mpris .widget-mpris-player > box > button:hover {
     background-color: @mpris-button-hover;
 }
+
+/**/
 .widget-buttons-grid {
     font-family:"CodeNewRoman Nerd Font Propo";
     padding-left: 8px;
