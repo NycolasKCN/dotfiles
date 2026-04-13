@@ -49,6 +49,10 @@
         },
 
         "mpris": {
+            "blacklist": ["playerctld"],
+            "autohide": true,
+            "show-album-art": "always",
+            "loop-carousel": true,
             "image-size": 80,
             "image-radius": 0
         },
