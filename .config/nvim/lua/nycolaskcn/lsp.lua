@@ -47,8 +47,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Show documentation for what is under cursor"
     keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-    opts.desc = "Format buffer"
-    keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", opts) -- mapping to restart lsp if necessary
+    -- opts.desc = "Format buffer"
+    -- keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", opts) -- mapping to restart lsp if necessary
 
     opts.desc = "Restart LSP"
     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -60,20 +60,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-    virtual_text = {
-        -- Set the format function to filter diagnostics
-        format = function(diagnostic)
-            -- Check if the diagnostic severity is less than or equal to vim.diagnostic.severity.ERROR
-            -- WARNING is severity 3, ERROR is severity 2. This logic is correct to only show ERRORs
-            if diagnostic.severity <= vim.diagnostic.severity.ERROR then
-                -- You can customize the format here or return the default message
-                return string.format("[%s] %s", diagnostic.source, diagnostic.message)
-            else
-                -- Return nil or an empty string to hide the virtual text for other severities (e.g., Warning, Info, Hint)
-                return nil
-            end
-        end,
-    },  signs = {
+  virtual_text = {
+    -- Set the format function to filter diagnostics
+    format = function(diagnostic)
+      -- Check if the diagnostic severity is less than or equal to vim.diagnostic.severity.ERROR
+      -- WARNING is severity 3, ERROR is severity 2. This logic is correct to only show ERRORs
+      if diagnostic.severity <= vim.diagnostic.severity.ERROR then
+        -- You can customize the format here or return the default message
+        return string.format("[%s] %s", diagnostic.source, diagnostic.message)
+      else
+        -- Return nil or an empty string to hide the virtual text for other severities (e.g., Warning, Info, Hint)
+        return nil
+      end
+    end,
+  },
+  signs = {
     text = {
       [severity.ERROR] = " ",
       [severity.WARN] = " ",
