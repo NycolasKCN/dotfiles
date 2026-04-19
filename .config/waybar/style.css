@@ -1,7 +1,7 @@
 @import url('../../.cache/wal/colors-waybar.css');
 
 * {
-    font-size:1.05rem;
+    font-size:1rem;
     font-family: "NotoSans Nerd Font";
 }
 window#waybar{
