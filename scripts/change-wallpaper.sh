@@ -14,7 +14,7 @@ CURRENT_STATE=$(cat "$STATE_FILE" 2>/dev/null)
 
 if [ "$CURRENT_STATE" == "B" ]; then
   # Muda para A
-  hyprctl hyprpaper wallpaper ",$WALLPAPER_A"
+  hyprctl hyprpaper wallpaper ",$WALLPAPER_A, fill"
   echo "A" > "$STATE_FILE"
 	hyprctl hyprpaper unload ",$WALLPAPER_B"
   
