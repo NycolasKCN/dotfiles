@@ -1,5 +1,7 @@
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+# pywall colors
+(cat ~/.cache/wal/sequences &)
 
 # Performance optimizations
 DISABLE_AUTO_UPDATE="true"
@@ -31,11 +33,8 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
-(cat ~/.cache/wal/sequences &)
-
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
-
 source $HOME/.zsh_alias
 
 autoload -U +X bashcompinit && bashcompinit

@@ -20,7 +20,6 @@ return {
       "kotlin_language_server",
       "kotlin_lsp",
       "prettier",
-      "eslint_d",
     },
     automatic_enable = true,
   },
@@ -42,4 +41,3 @@ return {
     },
   }
 }
-
