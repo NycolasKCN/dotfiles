@@ -2,6 +2,8 @@
   "output": ["eDP-1","DP-1"] ,
   "layer": "top",
   "position": "top",
+  "margin-top": "4",
+  "margin-bottom": "4",
   "reload_style_on_change": true,
   "modules-left": ["hyprland/workspaces", "hyprland/submap", "mpris"],
   "modules-center": ["clock"],

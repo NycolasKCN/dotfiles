@@ -29,9 +29,9 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-CR>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-Tab>"] = cmp.mapping.complete(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -41,10 +41,10 @@ return {
       }),
       formatting = {
         format = lspkind.cmp_format({
-          maxwidth = 50,
+          maxwidth = 48,
           ellipsis_char = "...",
         }),
       },
     })
-  end,
+  end,A
 }
