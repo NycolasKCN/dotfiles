@@ -16,6 +16,11 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
+vim.keymap.set("n", "<A-j>", ":resize -2<CR>", { desc = "Decrease Height" })
+vim.keymap.set("n", "<A-k>", ":resize +2<CR>", { desc = "Increase Height" })
+vim.keymap.set("n", "<A-h>", ":vertical resize -2<CR>", { desc = "Decrease Width" })
+vim.keymap.set("n", "<A-l>", ":vertical resize +2<CR>", { desc = "Increase Width" })
+
 vim.keymap.set("n", "<C-o>", "o<esc>")
 vim.keymap.set("n", "<C-S-O>", "O<esc>")
 

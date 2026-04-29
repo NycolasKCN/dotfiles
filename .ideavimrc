@@ -43,8 +43,8 @@ map H ^
 nmap <C-o> o<esc>
 nmap <C-O> O<esc>
 vmap p "_dP
-nmap s "_s
-nmap S "_S
+nnoremap s "_s
+nnoremap S "_S
 
 nmap <leader>b <Action>(ToggleLineBreakpoint)
 nmap <leader>o <Action>(FileStructurePopup)
