@@ -2,16 +2,11 @@
 
 # Executa o checkupdates e armazena o resultado em uma variável
 updates=$(checkupdates 2>/dev/null)
-exit_status=$?
-
-if [ $exit_status -ne 0 ]; then
-    echo '{"text": "!", "tooltip": "Não foi possível localizar atualizações"}'
-    exit 0
-fi
 # Verifica se há atualizações
 if [ -z "$updates" ]; then
     # Retorna um JSON vazio ou com zero se não houver pacotes
     echo '{"text": "0", "tooltip": "Sistema atualizado"}'
+    exit 1
 else
     # Conta o número de linhas (pacotes)
     count=$(echo "$updates" | wc -l)
