@@ -111,11 +111,11 @@
 				},
                 {
                     "label":"",
-                    "command": "reboot"
+                    "command": "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'"
                 },
                 {
                     "label":"",
-                    "command": "shutdown now"
+                    "command": "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"
                 }
             ]
         }

@@ -22,37 +22,37 @@ case "$SELECTION" in
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing selection (Silent)"
         # Sem a flag --audio
-        wf-recorder -F 60 -g "$(slurp)" -f "$VID" -y 2> /tmp/wf-rec-err.log & disown
+        wf-recorder -r 60 -g "$(slurp)" -f "$VID" -y 2> /tmp/wf-rec-err.log & disown
         ;;
     "record selection (audio)")
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing selection (Audio)"
         # Com a flag --audio
-        wf-recorder --audio -F 60 -g "$(slurp)" -f "$VID" -y 2> /tmp/wf-rec-err.log & disown
+        wf-recorder --audio -r 60 -g "$(slurp)" -f "$VID" -y 2> /tmp/wf-rec-err.log & disown
         ;;
 
     # --- RECORD DP-1 ---
     "record DP-1 (silent)")
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing DP-1 (Silent)"
-        wf-recorder -F 60 -o DP-1 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
+        wf-recorder -r 60 -o DP-1 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
         ;;
     "record DP-1 (audio)")
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing DP-1 (Audio)"
-        wf-recorder --audio -F 60 -o DP-1 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
+        wf-recorder --audio -r 60 -o DP-1 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
         ;;
 
     # --- RECORD DP-2 ---
     "record DP-2 (silent)")
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing DP-2 (Silent)"
-        wf-recorder -F 60 -o DP-2 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
+        wf-recorder -r 60 -o DP-2 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
         ;;
     "record DP-2 (audio)")
         echo "$VID" > /tmp/recording.txt
         notify-send -u low "Capture" "Starting capturing DP-2 (Audio)"
-        wf-recorder --audio -F 60 -o DP-2 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
+        wf-recorder --audio -r 60 -o DP-2 -f "$VID" -y 2> /tmp/wf-rec-err.log  & disown
         ;;
     # --- SCREESHOTS (Mantidos iguais) ---
     "screenshot selection")
