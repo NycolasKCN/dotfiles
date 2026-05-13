@@ -3,23 +3,26 @@ return {
   opts = {
     -- list of servers for mason to install
     ensure_installed = {
-      "ast_grep",
-      "ts_ls",
+      "prettier",
       "html",
+      "ts_ls",
       "cssls",
       "tailwindcss",
-      "svelte",
-      "lua_ls",
       "graphql",
-      "emmet_ls",
-      "prismals",
-      "pyright",
       "eslint",
+
+      "roslyn",
+      "ast_grep",
+      
+      "lua_ls",
+      
+      "pyright",
+
       "clangd",
       "clang-format",
+
       "kotlin_language_server",
       "kotlin_lsp",
-      "prettier",
     },
     automatic_enable = true,
   },
@@ -34,6 +37,10 @@ return {
             package_uninstalled = "✗",
           },
         },
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:Crashdummyy/mason-registry"
+        }
       },
     },
     {

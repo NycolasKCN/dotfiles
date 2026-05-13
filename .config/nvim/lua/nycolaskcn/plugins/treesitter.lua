@@ -21,11 +21,8 @@ return {
         "yaml",
         "html",
         "css",
-        "prisma",
         "markdown",
         "markdown_inline",
-        "svelte",
-        "graphql",
         "bash",
         "lua",
         "vim",
@@ -36,8 +33,6 @@ return {
         "c",
         "java",
         "kotlin",
-        "javascript",
-        "typescript",
         "python"
       },
       incremental_selection = {

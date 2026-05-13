@@ -1,5 +1,6 @@
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+
 # pywall colors
 (cat ~/.cache/wal/sequences &)
 
@@ -36,6 +37,8 @@ plugins=(
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_alias
+
+eval "$(dotnet completions script zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/mcli mcli

@@ -48,10 +48,10 @@ nnoremap S "_S
 
 nmap <leader>b <Action>(ToggleLineBreakpoint)
 nmap <leader>o <Action>(FileStructurePopup)
-nmap <leader>f <Action>(ReformatCode)
 nmap <leader><ESC> :noh<CR>
 nnoremap <leader>r :action ChooseRunConfiguration<CR>
 nnoremap <leader>t :action ActivateRunToolWindow<CR>
+nmap <leader>f <Action>(ReformatCode)
 
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
@@ -87,8 +87,9 @@ nnoremap <C-q> :action CloseContent<CR>
 nmap K <Action>(ShowHoverInfo)
 nmap gh <Action>(EditorPopupMenu)
 vmap gh <Action>(EditorPopupMenu)
-nmap gf <Action>(Generate)
+nmap gn <Action>(Generate)
 nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(FindUsages)
 nmap gr <Action>(RenameElement)
 
 " error navigation

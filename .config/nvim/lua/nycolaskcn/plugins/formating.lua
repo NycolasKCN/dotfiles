@@ -26,15 +26,6 @@ return {
       -- },
     })
 
-    -- sobrescreve o gf para usar conform
-    vim.keymap.set("n", "gf", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format buffer (conform)" })
-
     vim.keymap.set("n", "<leader>f", function()
       conform.format({
         lsp_fallback = true,
