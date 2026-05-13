@@ -23,7 +23,7 @@ end
 hl.window_rule({ match = { title = "^(Spotify)$" }, tag = "+music" })
 hl.window_rule({ match = { class = "org.fooyin.fooyin" }, tag = "+music" })
 hl.window_rule({ match = { class = "tidal-hifi" }, tag = "+music" })
-hl.window_rule({ match = { class = "obsidian" }, tag = "+note" })
+hl.window_rule({ match = { class = "obsidian" }, tag = "+notes" })
 
 -- ------------------------------------------------
 -- WINDOW RULES
@@ -36,14 +36,14 @@ hl.window_rule({
   name = "Open on note",
   match = { tag = "note" },
 
-  workspace = "special:note"
+  workspace = "special:notes"
 })
 
 hl.window_rule({
   name = "Open on music",
   match = { tag = "music" },
 
-  workspace = "special:note"
+  workspace = "special:music"
 })
 
 hl.window_rule({
@@ -111,7 +111,7 @@ hl.layer_rule({
 
   animation = "slide right",
   blur = true,
-  ignore_alpha = 0.4,
+  ignore_alpha = 0.1,
 })
 
 hl.layer_rule({
@@ -119,7 +119,7 @@ hl.layer_rule({
   match = { namespace = [[swaync-notification-window]] },
 
   blur = true,
-  ignore_alpha = 0.4,
+  ignore_alpha = 0.1,
 })
 
 hl.layer_rule({
