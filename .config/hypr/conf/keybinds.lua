@@ -58,7 +58,14 @@ bindm("SEMICOLON", function()
 end)
 
 -- LAUNCH WORKSPACES
+bindm("PERIOD", hl.dsp.submap("Launch Workspace"))
+hl.define_submap("Launch Workspace", function()
+  local workspace = "$HOME/Dotfiles/scripts/workspace-alepessoa.sh"
+  hl.bind("A", hl.dsp.exec_cmd(workspace .. " --start"))
+  hl.bind("CONTROL+A", hl.dsp.exec_cmd(workspace .. " --stop"))
 
+  hl.bind("ESCAPE", hl.dsp.submap("reset"))
+end)
 
 -- MOTIONS
 bindm("H", hl.dsp.focus({ direction = "l" }))

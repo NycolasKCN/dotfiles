@@ -9,8 +9,11 @@ start_workspace() {
 
     docker start $DB_CONTAINERS
 
-    hyprctl dispatch exec "[monitor DP-1;workspace 2 silent]" "$WEBSTORM_BIN" ~/projects/ayty/alePessoa/front-end
-    hyprctl dispatch exec "[monitor DP-1;workspace 3 silent]" "$IDEA_BIN" ~/projects/ayty/alePessoa/back-end
+    webstorm="hl.dsp.exec_cmd(\"$WEBSTORM_BIN ~/projects/ayty/alePessoa/front-end\", { monitor = \"DP-1\", workspace = 2 })"
+    hyprctl dispatch $webstorm
+
+    intellij="hl.dsp.exec_cmd(\"$IDEA_BIN ~/projects/ayty/alePessoa/back-end\", { monitor = \"DP-1\", workspace = 3 })"
+    hyprctl dispatch $intellij
 
     notify-send -u low "Workspaces" "Open 'Ale pessoa' dev workspace concluded."
 }
