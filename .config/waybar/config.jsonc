@@ -45,6 +45,9 @@
       "magic2":"\uf044",
       "default": ""
     },
+    "window-rewrite": {
+      "class<discord> title<.*Discord.*>": " "
+    },
     "persistent-workspaces": {
       "*": [ 1 ]
     }

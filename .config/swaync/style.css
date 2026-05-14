@@ -68,11 +68,11 @@ trough {
 /* ── notifications ────────────────────────────────────────────── */
 .notification-background {
   box-shadow:
-    1px 1px 5px rgba(0, 0, 0, 0.3),
+    1px 1px 1px rgba(0, 0, 0, 0.3),
     inset 0 0 0 1px @border-color;
   border-radius: 12.6px;
   margin: 4px;
-  background: @mycolor-70;
+  background: @mycolor-30;
   color: @text;
   padding: 0;
 }
@@ -204,13 +204,13 @@ trough {
 
 /* ── control center ───────────────────────────────────────────── */
 .control-center {
-  box-shadow:
-    1px 1px 5px rgba(0, 0, 0, 0.65),
-    inset 0 0 0 1px @border-color;
   border-radius: 12.6px;
+  padding: 14px;
+  box-shadow:
+  1px 1px 1px rgba(0, 0, 0, 0.65),
+  inset 0 0 0 1px @border-color;
   background-color: @bg;
   color: @text;
-  padding: 14px;
 }
 
 .notification-group-headers {
@@ -226,24 +226,23 @@ trough {
   background-color: unset;
 }
 
-.control-center > .notification-background {
+.control-center .notification-background {
   border-radius: 7px;
   box-shadow: inset 0 0 0 1px @border-color;
   margin: 4px 10px;
-  background: @mycolor-darker;
+  background-color: shade(@mycolor, 0.4);
 }
 
-.control-center > .notification-row {
+.control-center .notification-row {
   opacity: 1;
 }
 
-.control-center > .notification-background .notification {
+.control-center .notification-background .notification {
   border-radius: 7px;
   margin-top: 0.15rem;
-  background: @mycolor-darker;
 }
 
-.control-center > .notification-background .notification.low {
+.control-center .notification-background .notification.low {
   opacity: 1;
   padding-right: 2px;
   padding-left: 2px;
@@ -259,27 +258,27 @@ trough {
   padding-top: 8px;
 }
 
-.control-center > .notification-group {
+.control-center .notification-group {
   margin-top: 10px;
   background-color: unset;
 }
 
-.control-center > .notification-group:focus {
+.control-center .notification-group:focus {
   background-color: unset;
 }
 
-.control-center > .notification-group:focus .notification-background {
-  background-color: @mycolor-20;
+.control-center .notification-group:focus .notification-background {
+  background-color: shade(@mycolor, 0.4);
 }
 
-.control-center > .widget-title > label {
+.control-center .widget-title > label {
   color: @text;
   font-size: 1.3rem;
   padding-left: 20px;
   padding-top: 20px;
 }
 
-.control-center > .widget-title button {
+.control-center .widget-title button {
   border-radius: 12px;
   color: @text;
   background-color: alpha(@color1, 0.3);
@@ -292,17 +291,17 @@ trough {
   text-shadow: none;
 }
 
-.control-center > .widget-title button:hover {
+.control-center .widget-title button:hover {
   background-color: @bg-hover;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.65);
   transition: all 0.7s ease;
 }
 
-.control-center > .widget-title button:active {
+.control-center .widget-title button:active {
   background-color: @mycolor-30;
 }
 
-.control-center > .widget-label > label {
+.control-center .widget-label > label {
   color: @text;
   font-size: 2rem;
   margin: 8px;

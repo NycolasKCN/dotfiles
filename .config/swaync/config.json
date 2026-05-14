@@ -5,24 +5,27 @@
 
   "layer": "overlay",
 
-  "control-center-layer": "top",
   "layer-shell": true,
   "cssPriority": "user",
+
+  "control-center-layer": "top",
   "control-center-width": 350,
   "control-center-margin-top": 8,
   "control-center-margin-bottom": 8,
   "control-center-margin-right": 8,
   "control-center-margin-left": 8,
+
   "notification-2fa-action": false,
   "notification-inline-replies": true,
   "notification-window-width": 350,
+  "notification-window-height": 300,
   "notification-icon-size": 60,
   "notification-body-image-height": 180,
   "notification-body-image-width": 180,
 
-  "timeout": 8,
-  "timeout-low": 8,
-  "timeout-critical": 8,
+  "timeout": 6,
+  "timeout-low": 3,
+  "timeout-critical": 16,
 
   "fit-to-screen": true,
   "keyboard-shortcuts": true,
@@ -31,6 +34,7 @@
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
+
   "widgets": ["mpris", "title", "notifications", "buttons-grid"],
   "widget-config": {
     "title": {

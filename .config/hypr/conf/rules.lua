@@ -23,14 +23,15 @@ end
 hl.window_rule({ match = { title = "^(Spotify)$" }, tag = "+music" })
 hl.window_rule({ match = { class = "org.fooyin.fooyin" }, tag = "+music" })
 hl.window_rule({ match = { class = "tidal-hifi" }, tag = "+music" })
+hl.window_rule({ match = { class = "kopuz" }, tag = "+music" })
 hl.window_rule({ match = { class = "obsidian" }, tag = "+notes" })
 
 -- ------------------------------------------------
 -- WINDOW RULES
 -- ------------------------------------------------
 
-hl.window_rule({ match = { title = [[(.*)([Y|y]outube(.*)]] }, opacity = "1 override" })
-hl.window_rule({ match = { title = [[(.*)([N|n]etflix(.*)]] }, opacity = "1 override" })
+hl.window_rule({ match = { title = [[(.*)YouTube(.*)]] }, opacity = "1 override" })
+hl.window_rule({ match = { title = [[(.*)Netflix(.*)]] }, opacity = "1 override" })
 
 hl.window_rule({
   name = "Open on note",
@@ -157,4 +158,3 @@ hl.workspace_rule({
 hl.workspace_rule({
   workspace = "special:notes", on_created_empty = "obsidian",
 })
-
