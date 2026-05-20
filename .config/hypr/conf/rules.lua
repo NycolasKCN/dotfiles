@@ -3,6 +3,9 @@
 -- ------------------------------------------------
 
 -- Float, resize, and center some app
+---@param ruleName string
+---@param matcher string
+---@param size string
 function floatCenterWindow(ruleName, matcher, size)
   size = size or "900 600"
 
@@ -85,6 +88,16 @@ hl.window_rule({
 
   opacity = "1 override",
 })
+hl.window_rule({
+  name = "Open on workspace 2",
+  match = { class = [[jetbrains-webstorm]] },
+  workspace = "2 silent",
+})
+hl.window_rule({
+  name = "Open on workspace 3",
+  match = { class = [[jetbrains-idea]] },
+  workspace = "3 silent",
+})
 
 floatCenterWindow("Network Manager Connection Editor", { class = [[nm-connection-editor]] })
 floatCenterWindow("Gnome Displays", { class = [[org.gnome.NetworkDisplays]] })
@@ -100,6 +113,13 @@ hl.window_rule({
   border_size = 0,
   float = true,
   size = "650 600"
+})
+
+hl.window_rule({
+  name = "wofi",
+  match = { class = [[wofi]] },
+
+  border_size = 0,
 })
 
 -- ------------------------------------------------
@@ -139,6 +159,14 @@ hl.layer_rule({
   ignore_alpha = 0.5,
 })
 
+hl.layer_rule({
+  name = "wlogout",
+  match = { namespace = [[logout_dialog]] },
+
+  blur = true,
+  ignore_alpha = 0.2,
+})
+
 local namespaces_for_no_anim = { "hyprpicker", "selection", "hyprshot" }
 for _, value in ipairs(namespaces_for_no_anim) do
   hl.layer_rule({
@@ -155,6 +183,6 @@ hl.workspace_rule({
   workspace = "special:terminal", on_created_empty = "kitty",
 })
 
-hl.workspace_rule({
-  workspace = "special:notes", on_created_empty = "obsidian",
-})
+-- hl.workspace_rule({
+--   workspace = "special:notes", on_created_empty = "obsidian",
+-- })

@@ -203,6 +203,7 @@
 
   "disk": {
     "format": " {percentage_used}% ",
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)\n{free} GB available.",
     "tooltip": true
   },
 

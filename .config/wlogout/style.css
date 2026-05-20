@@ -1,0 +1,68 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+* {
+  background-image: none;
+  box-shadow: none;
+}
+
+window {
+  background-color: rgba(12, 12, 12, 0.7);
+}
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  background-color: alpha(@color2, 0.2);
+  margin: 5px;
+  animation: gradient_f 10s ease-in infinite;
+  transition:
+    all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682),
+    box-shadow 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+  border-radius: 32px;
+  border: 24px;
+  outline-style: none;
+}
+
+button:hover {
+  background-color: transparent;
+  background-color: alpha(@color3, 0.5);
+  background-size: 30%;
+}
+
+#lock {
+  background-image:
+    image(url("./icons/lock_white.png")),
+    image(
+      url("/usr/share/wlogout/icons/lock.png"),
+      url("/usr/local/share/wlogout/icons/lock.png")
+    );
+}
+
+#logout {
+  background-image:
+    image(url("./icons/logout_white.png")),
+    image(
+      url("/usr/share/wlogout/icons/logout.png"),
+      url("/usr/local/share/wlogout/icons/logout.png")
+    );
+}
+
+#shutdown {
+  background-image:
+    image(url("./icons/shutdown_white.png")),
+    image(
+      url("/usr/share/wlogout/icons/shutdown.png"),
+      url("/usr/local/share/wlogout/icons/shutdown.png")
+    );
+}
+
+#reboot {
+  background-image:
+    image(url("./icons/reboot_white.png")),
+    image(
+      url("/usr/share/wlogout/icons/reboot.png"),
+      url("/usr/local/share/wlogout/icons/reboot.png")
+    );
+}

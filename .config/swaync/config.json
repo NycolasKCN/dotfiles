@@ -18,10 +18,9 @@
   "notification-2fa-action": false,
   "notification-inline-replies": true,
   "notification-window-width": 350,
-  "notification-window-height": 300,
-  "notification-icon-size": 60,
-  "notification-body-image-height": 180,
-  "notification-body-image-width": 180,
+  "notification-icon-size": 40,
+  "notification-body-image-height": 120,
+  "notification-body-image-width": 120,
 
   "timeout": 6,
   "timeout-low": 3,
@@ -34,6 +33,21 @@
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
+
+  "scripts": {
+    "graceful_shutdown": {
+      "exec": "sleep 1 && hyprshutdown -t 'Shuting down...' --post-cmd 'systemctl poweroff'",
+      "run-on": "action"
+    },
+    "graceful_reboot": {
+      "exec": "sleep 1 && hyprshutdown -t 'Rebooting...' --post-cmd 'reboot'",
+      "run-on": "action"
+    },
+    "graceful_logout": {
+      "exec": "sleep  q && hyprshutdown -t 'Logging out...'",
+      "run-on": "action"
+    }
+  },
 
   "widgets": ["mpris", "title", "notifications", "buttons-grid"],
   "widget-config": {
@@ -67,11 +81,6 @@
           "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
           "type": "toggle"
         },
-
-        {
-          "label": "",
-          "command": "kitty nmtui"
-        },
         {
           "label": "",
           "command": "blueman-manager"
@@ -86,34 +95,9 @@
           "label": "󰀟",
           "command": "gnome-network-displays"
         },
-
-        {
-          "label": "󰈙",
-          "command": "kitty --hold -e Docs"
-        },
-        {
-          "label": "",
-          "command": "kitty --hold -e Settings"
-        },
-        {
-          "label": "",
-          "command": "kitty tasks"
-        },
-        {
-          "label": "",
-          "command": "hyprlock"
-        },
-        {
-          "label": "󰗽",
-          "command": "sh -c '/usr/bin/hyprshutdown -t \"Logging out...\"'"
-        },
-        {
-          "label": "",
-          "command": "sh -c '/usr/bin/hyprshutdown -t \"Restarting...\" --post-cmd \"systemctl reboot\"'"
-        },
         {
           "label": "",
-          "command": "sh -c '/usr/bin/hyprshutdown -t \"Shutting down...\" --post-cmd \"systemctl poweroff\"'"
+          "command": "wlogout -b 4"
         }
       ]
     }

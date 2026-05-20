@@ -1,3 +1,5 @@
+local ale = require("conf.launch.ale-pessoa-wp")
+
 local mainMod = "SUPER"
 local screenshotOut = "$HOME/Images/Screenshots"
 
@@ -60,9 +62,12 @@ end)
 -- LAUNCH WORKSPACES
 bindm("PERIOD", hl.dsp.submap("Launch Workspace"))
 hl.define_submap("Launch Workspace", function()
-  local workspace = "$HOME/Dotfiles/scripts/workspace-alepessoa.sh"
-  hl.bind("A", hl.dsp.exec_cmd(workspace .. " --start"))
-  hl.bind("CONTROL+A", hl.dsp.exec_cmd(workspace .. " --stop"))
+  hl.bind("A", function()
+    ale.start()
+  end)
+  hl.bind("CONTROL+A", function()
+    ale.stop()
+  end)
 
   hl.bind("ESCAPE", hl.dsp.submap("reset"))
 end)
@@ -114,9 +119,14 @@ bindm("G", hl.dsp.workspace.toggle_special("magic"))
 bindm("D", hl.dsp.workspace.toggle_special("magic2"))
 
 -- MOVE | RESIZE | TOGGLE FLOATING WINDOWS
+hl.config({
+  binds = {
+    drag_threshold = 10  -- Fire a drag event only after dragging for more than 10px
+  }
+})
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
-bindm("mouse:272", hl.dsp.window.float(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
+bindm("mouse:274", hl.dsp.window.float(), { mouse = true })
 
 -- OUTPUT VOLUME CONTROL
 bind_exec("XF86AudioLowerVolume", volume .. " --dec", { repeating = true })

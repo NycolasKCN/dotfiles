@@ -1,3 +1,9 @@
+local colors = require("conf.colors")
+local util = require("conf.utils.color-opacity")
+
+local activeBorderColor = util.colorWithOpacity(colors.color9, 0.4)
+local inactiveBorderColor = util.colorWithOpacity(colors.background, 0.4)
+--
 -- Look and feel
 hl.config({
   general = {
@@ -5,11 +11,11 @@ hl.config({
 
     gaps_in = 3,
     gaps_out = 4,
-    border_size = 1,
+    border_size = 2,
 
     col = {
-      active_border = "rgba(22222250)",
-      inactive_border = "rgba(22222250)",
+      active_border = activeBorderColor,
+      inactive_border = inactiveBorderColor,
     }
   },
   decoration = {

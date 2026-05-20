@@ -33,11 +33,12 @@ return {
         ["<C-Tab>"] = cmp.mapping.complete(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
+      sorting = { priority_weight = 2 },
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        { name = "nvim_lsp", priority = 100, group_index = 1 },
+        { name = "luasnip",  priority = 50,  group_index = 2 },
+        { name = "buffer",   priority = 40,  group_index = 2 },
+        { name = "path",     priority = 30,  group_index = 1 },
       }),
       formatting = {
         format = lspkind.cmp_format({
@@ -46,5 +47,22 @@ return {
         }),
       },
     })
-  end,A
+
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false }
+    })
+  end,
 }
