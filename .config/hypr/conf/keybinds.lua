@@ -12,19 +12,20 @@ local menu = "wofi -n"
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
 local volume = "$HOME/Dotfiles/scripts/volume.sh"
 local recordScreen = "$HOME/Dotfiles/scripts/recordscreen.sh"
+local backlight = "$HOME/Dotfiles/scripts/backlight.sh"
 
 -- AUXILLIARY FUNCIONS
 
-function bindm(keys, dispatcher, flags)
+local function bindm(keys, dispatcher, flags)
   keys = mainMod .. "+" .. keys
   hl.bind(keys, dispatcher, flags)
 end
 
-function bindm_exec(keys, command, flags)
+local function bindm_exec(keys, command, flags)
   bindm(keys, hl.dsp.exec_cmd(command), flags)
 end
 
-function bind_exec(keys, command, flags)
+local function bind_exec(keys, command, flags)
   hl.bind(keys, hl.dsp.exec_cmd(command), flags)
 end
 
@@ -148,8 +149,8 @@ bind_exec("XF86AudioPrev", "playerctl -p fooyin,%any,chromium,firefox previous",
 bind_exec("XF86AudioNext", "playerctl -p fooyin,%any,chromium,firefox next", { locked = true })
 
 -- DISPLAY BACKLIGHT
-bind_exec("XF86MonBrightnessUp", "$backlight --inc")
-bind_exec("XF86MonBrightnessDown", "$backlight --dec")
+bind_exec("XF86MonBrightnessUp", backlight .. " --inc")
+bind_exec("XF86MonBrightnessDown", backlight .." --dec")
 
 -- ZOOM IN AND OUT
 
