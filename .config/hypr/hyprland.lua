@@ -1,5 +1,3 @@
-local host = os.getenv("HOST")
-
 -- Enviroment variables
 hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
@@ -33,7 +31,8 @@ hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 -- -- Nvidia
-if host == "nyc-desktop" then
+local host = require("conf.utils.host")
+if host.isDesktop() then
   hl.env("LIBVA_DRIVER_NAME", "nvidia")
   hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 end
