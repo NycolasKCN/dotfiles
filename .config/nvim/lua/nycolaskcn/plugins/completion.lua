@@ -64,5 +64,7 @@ return {
       }),
       matching = { disallow_symbol_nonprefix_matching = false }
     })
+    vim.keymap.set({ "i", "s" }, "<C-l>", function() luasnip.jump(1) end, { silent = true })
+    vim.keymap.set({ "i", "s" }, "<C-h>", function() luasnip.jump(-1) end, { silent = true })
   end,
 }

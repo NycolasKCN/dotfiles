@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maploacalleader = ","
+vim.g.maploacalleader = "\\"
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
