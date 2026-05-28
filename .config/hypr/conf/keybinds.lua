@@ -8,6 +8,7 @@ local terminal = "kitty"
 local fileManager = "nautilus"
 local browser = "zen-browser"
 local menu = "wofi -n"
+local logout = "wlogout -b 4"
 
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
 local volume = "$HOME/Dotfiles/scripts/volume.sh"
@@ -41,6 +42,7 @@ bindm_exec("T", terminal)
 bindm_exec("B", browser)
 bindm_exec("N", "swaync-client -t -sw")
 bindm_exec("R", recordScreen)
+bindm_exec("ALT+SLASH", logout)
 
 -- Control APPS
 bindm("C", hl.dsp.window.close())

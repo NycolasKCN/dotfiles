@@ -4,9 +4,9 @@
 
 -- Float, resize, and center some app
 ---@param ruleName string
----@param matcher string
+---@param matcher table
 ---@param size string
-function floatCenterWindow(ruleName, matcher, size)
+local function floatCenterWindow(ruleName, matcher, size)
   size = size or "900 600"
 
   hl.window_rule({
@@ -38,7 +38,7 @@ hl.window_rule({ match = { title = [[(.*)Netflix(.*)]] }, opacity = "1 override"
 
 hl.window_rule({
   name = "Open on note",
-  match = { tag = "note" },
+  match = { tag = "notes" },
 
   workspace = "special:notes"
 })
@@ -48,6 +48,11 @@ hl.window_rule({
   match = { tag = "music" },
 
   workspace = "special:music"
+})
+
+hl.window_rule({
+  match = { float = false },
+  no_shadow = true,
 })
 
 hl.window_rule({
@@ -186,3 +191,13 @@ hl.workspace_rule({
 -- hl.workspace_rule({
 --   workspace = "special:notes", on_created_empty = "obsidian",
 -- })
+
+-- No border when alone in screen
+hl.window_rule({
+  match = { float = false, workspace = "w[tv1]" },
+  border_size = 1
+})
+hl.window_rule({
+  match = { float = false, workspace = "f[1]" },
+  border_size = 1
+})

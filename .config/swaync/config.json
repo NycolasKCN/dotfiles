@@ -34,21 +34,6 @@
   "hide-on-action": true,
   "script-fail-notify": true,
 
-  "scripts": {
-    "graceful_shutdown": {
-      "exec": "sleep 1 && hyprshutdown -t 'Shuting down...' --post-cmd 'systemctl poweroff'",
-      "run-on": "action"
-    },
-    "graceful_reboot": {
-      "exec": "sleep 1 && hyprshutdown -t 'Rebooting...' --post-cmd 'reboot'",
-      "run-on": "action"
-    },
-    "graceful_logout": {
-      "exec": "sleep  q && hyprshutdown -t 'Logging out...'",
-      "run-on": "action"
-    }
-  },
-
   "widgets": ["mpris", "title", "notifications", "buttons-grid"],
   "widget-config": {
     "title": {
