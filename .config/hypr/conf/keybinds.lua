@@ -132,18 +132,18 @@ bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
 bindm("mouse:274", hl.dsp.window.float(), { mouse = true })
 
 -- OUTPUT VOLUME CONTROL
-bind_exec("XF86AudioLowerVolume", volume .. " --dec", { repeating = true })
-bind_exec("XF86AudioRaiseVolume", volume .. " --inc", { repeating = true })
+bind_exec("XF86AudioLowerVolume", volume .. " --dec --notify", { repeating = true })
+bind_exec("XF86AudioRaiseVolume", volume .. " --inc --notify", { repeating = true })
 
 -- INPUT VOLUME CONTROL
-bind_exec("SHIFT+XF86AudioLowerVolume", volume .. " --mic-dec", { repeating = true })
-bind_exec("SHIFT+XF86AudioRaiseVolume", volume .. " --mic-inc", { repeating = true })
+bind_exec("SHIFT+XF86AudioLowerVolume", volume .. " --dec-mic --notify", { repeating = true })
+bind_exec("SHIFT+XF86AudioRaiseVolume", volume .. " --inc-mic --notify", { repeating = true })
 
 -- TOGGLE AUDIO
-bindm_exec("z", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true })
-bindm_exec("x", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true })
-bind_exec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true })
-bind_exec("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true })
+bindm_exec("x", volume .. " --toggle", { locked = true })
+bindm_exec("z", volume .. " --toggle-mic", { locked = true })
+bind_exec("XF86AudioMute", volume .. " --toggle", { locked = true })
+bind_exec("XF86AudioMicMute", volume .. " --toggle-mic", { locked = true })
 
 -- MEDIA CONTROL
 bind_exec("XF86AudioPlay", "playerctl -p fooyin,%any,chromium,firefox play-pause", { locked = true })

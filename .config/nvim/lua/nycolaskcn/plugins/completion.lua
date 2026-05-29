@@ -9,6 +9,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
+    "micangl/cmp-vimtex",
   },
   config = function()
     local cmp = require("cmp")
@@ -37,6 +38,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp", priority = 100, group_index = 1 },
         { name = "luasnip",  priority = 50,  group_index = 2 },
+        { name = "vimtex",  priority = 42,  group_index = 1 },
         { name = "buffer",   priority = 40,  group_index = 2 },
         { name = "path",     priority = 30,  group_index = 1 },
       }),
