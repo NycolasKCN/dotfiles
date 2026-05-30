@@ -8,8 +8,7 @@
   "modules-left": ["hyprland/workspaces", "hyprland/submap", "mpris"],
   "modules-center": ["clock"],
   "modules-right": [
-    "tray",
-    "custom/endpoint",
+    "group/expand#tray",
     "group/expand",
     "custom/pacman",
     "pulseaudio#microphone",
@@ -204,6 +203,25 @@
     "format": " {percentage_used}% ",
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)\n{free} GB available.",
     "tooltip": true
+  },
+
+  "custom/tray": {
+    "format": " 󱊔 ",
+    "tooltip": false
+  },
+
+  "group/expand#tray": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "transition-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/tray",
+      "tray",
+      "custom/endpoint"
+    ]
   },
 
   "tray": {
