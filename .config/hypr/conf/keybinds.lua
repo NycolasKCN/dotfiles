@@ -122,14 +122,9 @@ bindm("G", hl.dsp.workspace.toggle_special("magic"))
 bindm("D", hl.dsp.workspace.toggle_special("magic2"))
 
 -- MOVE | RESIZE | TOGGLE FLOATING WINDOWS
-hl.config({
-  binds = {
-    drag_threshold = 10  -- Fire a drag event only after dragging for more than 10px
-  }
-})
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
-bindm("mouse:274", hl.dsp.window.float(), { mouse = true })
+bindm("mouse:273", hl.dsp.window.float(), { mouse = true, click = true })
 
 -- OUTPUT VOLUME CONTROL
 bind_exec("XF86AudioLowerVolume", volume .. " --dec --notify", { repeating = true })

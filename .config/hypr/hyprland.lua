@@ -53,6 +53,9 @@ hl.config({
   xwayland = {
     force_zero_scaling = true
   },
+  binds = {
+    drag_threshold = 16,
+  },
 })
 
 -- Configs
