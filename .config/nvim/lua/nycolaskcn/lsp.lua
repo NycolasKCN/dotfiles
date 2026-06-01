@@ -11,11 +11,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Show LSP references"
     keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-    opts.desc = "Go to declaration"
-    keymap.set("n", "gd", vim.lsp.buf.declaration, opts) -- go to declaration
+    opts.desc = "Go to definition"
+    keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- go to declaration
 
-    opts.desc = "Show LSP definition"
-    keymap.set("n", "gD", vim.lsp.buf.definition, opts) -- show lsp definition
+    opts.desc = "Show LSP declaration"
+    keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- show lsp definition
 
     opts.desc = "Show LSP implementations"
     keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -32,8 +32,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Show buffer diagnostics"
     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
-    opts.desc = "Show line diagnostics"
+    opts.desc = "show line diagnostics"
     keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+    opts.desc = "show line diagnostics"
+    keymap.set("n", "<C-K>", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+    opts.desc = "Show documentation for what is under cursor"
+    keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
     opts.desc = "Go to previous diagnostic"
     keymap.set("n", "gE", function()
@@ -45,11 +51,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.diagnostic.jump({ count = 1, float = true })
     end, opts) -- jump to next diagnostic in buffer
 
-    opts.desc = "Show documentation for what is under cursor"
-    keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
-    -- opts.desc = "Format buffer"
-    -- keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", opts) -- mapping to restart lsp if necessary
+    opts.desc = "Format buffer"
+    keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", opts) -- mapping to restart lsp if necessary
 
     opts.desc = "Restart LSP"
     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
