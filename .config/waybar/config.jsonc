@@ -10,7 +10,6 @@
   "modules-right": [
     "group/expand#tray",
     "group/expand",
-    "custom/pacman",
     "pulseaudio#microphone",
     "pulseaudio",
     "bluetooth",
@@ -158,6 +157,7 @@
       "disk",
       "temperature",
       "idle_inhibitor",	
+      "custom/pacman",
       "custom/endpoint"
     ]
   },

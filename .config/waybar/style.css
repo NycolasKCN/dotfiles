@@ -1,40 +1,40 @@
-@import url('../../.cache/wal/colors-waybar.css');
+@import url("../../.cache/wal/colors-waybar.css");
 
 * {
-    font-size:1rem;
-    font-family: "NotoSans Nerd Font";
+  font-size: 1rem;
+  font-family: "NotoSans Nerd Font";
 }
-window#waybar{
-    all:unset;
+window#waybar {
+  all: unset;
 }
 .modules-left {
-    margin:7 0 5 8;
-    padding:7px;
-    border-radius:10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
-    background: alpha(@background,.6);
+  margin: 7 0 5 8;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  background: alpha(@background, 0.6);
 }
 .modules-center {
-    padding:7px;
-    margin:8 0 5 0;
-    border-radius:10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
-    background: alpha(@background,.6);
+  padding: 7px;
+  margin: 8 0 5 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  background: alpha(@background, 0.6);
 }
 .modules-right {
-    padding:7px;
-    margin: 8 8 5 0;
-    border-radius:10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .6);
-    background: alpha(@background,.6);
+  padding: 7px;
+  margin: 8 8 5 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  background: alpha(@background, 0.6);
 }
 
 tooltip {
-    background:@background;
-    color: @color7;
+  background: @background;
+  color: @color7;
 }
 
-#clock:hover, 
+#clock:hover,
 #custom-pacman:hover,
 #custom-notification:hover,
 #custom-notification-center:hover,
@@ -49,105 +49,98 @@ tooltip {
 #pulseaudio:hover,
 #keyboard-state:hover,
 #idle_inhibitor:hover,
-#submap:hover
-{
-    transition: all .3s ease;
-    color:@color9;
+#submap:hover {
+  transition: all 0.3s ease;
+  color: @color9;
 }
 
 #custom-notification-center,
 #custom-notification {
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @color7;
 }
-#clock{
-    padding: 0px 5px;
-    color:@color7;
-    transition: all .3s ease;
-}
-#custom-pacman{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
-
+#clock {
+  padding: 0px 5px;
+  color: @color7;
+  transition: all 0.3s ease;
 }
 #workspaces {
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 #workspaces button {
-    all:unset;
-	  color: @color9;
-    padding: 0px 5px;
-    transition: all .2s ease;
+  all: unset;
+  color: @color9;
+  padding: 0px 5px;
+  transition: all 0.2s ease;
 }
 #workspaces button:hover {
-    color: alpha(@color9, 0.6);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all .2s ease;
+  color: alpha(@color9, 0.6);
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
 }
 #workspaces button.active {
-    color: @color7;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  color: @color7;
+  border: none;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
-#bluetooth{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
+#bluetooth {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @color7;
 }
-#network{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
+#network {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @color7;
 }
-#battery{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@color7;
+#battery {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @color7;
 }
 #battery.charging {
-    color: #26A65B;
+  color: #26a65b;
 }
 
 #battery.warning:not(.charging) {
-    color: #ffbe61;
+  color: #ffbe61;
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 #group-expand,
-#group-expand#tray{
-    padding: 5px 5px;
-    transition: all .3s ease; 
+#group-expand#tray {
+  padding: 5px 5px;
+  transition: all 0.3s ease;
 }
-#group-expand#tray{
+#group-expand#tray {
   font-weight: 900;
 }
 
 #custom-expand,
-#custom-tray{
-    padding: 0px 5px;
-    color:alpha(@foreground,.4);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
-    transition: all .3s ease; 
+#custom-tray {
+  padding: 0px 5px;
+  color: alpha(@foreground, 0.4);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
 }
 
 #custom-expand:hover,
-#custom-tray:hover{
-    color:rgba(255,255,255,.2);
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
+#custom-tray:hover {
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
 }
 
-#custom-colorpicker{
-    padding: 0px 5px;
+#custom-colorpicker {
+  padding: 0px 5px;
 }
 
 #cpu,
@@ -159,33 +152,33 @@ tooltip {
 #pulseaudio,
 #keyboard-state,
 #idle_inhibitor,
-#submap
-{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-    color:@color7;
+#custom-pacman,
+#submap {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @color7;
 }
 
-#custom-endpoint{
-    padding: 0px 5px;
-    color:alpha(@foreground,.2);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
-    transition: all .3s ease; 
+#custom-endpoint {
+  padding: 0px 5px;
+  color: alpha(@foreground, 0.2);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
 }
-#custom-endpoint:hover{
-    color:rgba(255,255,255,.2);
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
+#custom-endpoint:hover {
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
 }
-#tray{
-    padding: 0px 5px;
-    transition: all .3s ease; 
+#tray {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
 }
 #tray menu * {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+  padding: 0px 5px;
+  transition: all 0.3s ease;
 }
 
 #tray menu separator {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+  padding: 0px 5px;
+  transition: all 0.3s ease;
 }

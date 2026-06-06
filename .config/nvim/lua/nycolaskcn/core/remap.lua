@@ -32,7 +32,11 @@ vim.keymap.set("n", "<TAB>", ":tabn<CR>", { desc = "Next Tab" })
 vim.keymap.set("n", "<S-TAB>", ":tabp<CR>", { desc = "Previous Tab" })
 vim.keymap.set("n", "<leader>tn", ':tabnew<CR>', { desc = 'New Tab' })
 vim.keymap.set("n", "<leader>tc", ':tabclose<CR>', { desc = 'Close Tab' })
-vim.keymap.set("n", "<leader>tm", ':tabmove ', { desc = 'Move Tab' })
+vim.keymap.set("n", "<leader>tmf", ':tabmove +<CR>', { desc = 'Move Tab foward' })
+vim.keymap.set("n", "<leader>tmb", ':tabmove -<CR>', { desc = 'Move Tab backwards' })
+
+vim.keymap.set("n", "<C-S-Q>", ':qa<CR>', { desc = 'Close all editors' })
+vim.keymap.set("n", "<C-S-W>", ':wa<CR>', { desc = 'Save all editors' })
 
 vim.keymap.set("n", ",", "'", { desc = "Jump to mark" })
 

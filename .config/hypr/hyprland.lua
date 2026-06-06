@@ -65,6 +65,7 @@ require("conf.inputs")
 require("conf.look-and-feel")
 require("conf.rules")
 require("conf.keybinds")
+require("conf.layouts")
 
 -- Nwg displays
 require("monitors")

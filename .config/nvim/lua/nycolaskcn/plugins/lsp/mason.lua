@@ -13,9 +13,9 @@ return {
 
       "roslyn",
       "ast_grep",
-      
+
       "lua_ls",
-      
+
       "pyright",
 
       "clangd",

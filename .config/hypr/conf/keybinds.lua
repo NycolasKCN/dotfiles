@@ -121,6 +121,9 @@ bindm("Q", hl.dsp.workspace.toggle_special("terminal"))
 bindm("G", hl.dsp.workspace.toggle_special("magic"))
 bindm("D", hl.dsp.workspace.toggle_special("magic2"))
 
+-- Layouts
+bindm("P", hl.dsp.layout("togglesplit"))
+
 -- MOVE | RESIZE | TOGGLE FLOATING WINDOWS
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
