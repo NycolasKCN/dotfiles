@@ -1,5 +1,3 @@
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
 
 # pywall colors
 (cat ~/.cache/wal/sequences &)
@@ -28,7 +26,15 @@ export PATH="$PATH:/home/nyc/.lmstudio/bin"
 ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# fzf
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+export FZF_DEFAULT_OPT
 # Carefully ordered plugins (syntax highlighting must be last)
+
 plugins=(
   git
 	nvm
@@ -37,11 +43,13 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mcli
+
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_alias
 
 eval "$(dotnet completions script zsh)"
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/mcli mcli
+eval "$(zoxide init zsh)"
+eval "$(fzf --zsh)"

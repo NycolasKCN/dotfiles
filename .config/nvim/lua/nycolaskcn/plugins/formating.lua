@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
-  event = { "BufWritePre" },
+  event = { "BufWritePre", "BufNewFile" },
+  lazy = false,
   cmd = { "ConformInfo" },
   config = function()
     local conform = require("conform")
