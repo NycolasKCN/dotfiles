@@ -21,6 +21,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/nyc/.lmstudio/bin"
 # End of LM Studio CLI section
+export EDITOR="nvim"
 
 # Theme config
 ZSH_THEME="robbyrussell"

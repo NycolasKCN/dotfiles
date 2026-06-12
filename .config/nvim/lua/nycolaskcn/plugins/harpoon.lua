@@ -9,7 +9,7 @@ return {
     harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 
     -- basic telescope configuration
-    local conf = require("telescope.config").values
+    local telescopeConf = require("telescope.config").values
     local function toggle_telescope(harpoon_files)
       local file_paths = {}
       for _, item in ipairs(harpoon_files.items) do
@@ -21,16 +21,16 @@ return {
         finder = require("telescope.finders").new_table({
           results = file_paths,
         }),
-        previewer = conf.file_previewer({}),
-        sorter = conf.generic_sorter({}),
+        previewer = telescopeConf.file_previewer({}),
+        sorter = telescopeConf.generic_sorter({}),
       }):find()
     end
 
     vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
-      { desc = "Open harpoon window" })
+      { desc = "Open harpoon window (telescope)" })
     vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add to list (harpoon)" })
-    -- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
-    --   { desc = "Open harpoon window" })
+    vim.keymap.set("n", "<C-A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+      { desc = "Open harpoon window" })
 
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "<M-P>", function() harpoon:list():prev() end, { desc = "Goto next buffer" })
