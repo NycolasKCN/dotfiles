@@ -12,9 +12,9 @@
     "group/expand",
     "pulseaudio#microphone",
     "pulseaudio",
+    "battery",
     "bluetooth",
     "network",
-    "battery",
     "custom/notification",
     "custom/notification-center"
   ],
@@ -104,7 +104,8 @@
     "format-off": "󰂲",
     "format-disabled": "󰂲",
     "format-no-controller": "",
-    "format-connected-battery": "{device_battery_percentage}% 󰂯",
+    "format-connected": "󰂯 {num_connections} connected",
+    "format-connected-battery": "󰂯 {device_battery_percentage}%",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
@@ -119,10 +120,10 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂄",
-    "format-plugged": "{capacity}% 󰂄 ",
-    "format-alt": "{time} {icon}",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}% ",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
     "format-icons": [
       "󰁻",
       "󰁼",
@@ -248,7 +249,7 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}",
-    "format-muted": "\ueee8 ",
+    "format-muted": "\ueee8  {volume}",
     "on-click": "pavucontrol -t 3",
     "on-click-middle": "$HOME/Dotfiles/scripts/volume.sh --toggle",
     "on-scroll-up": "$HOME/Dotfiles/scripts/volume.sh --inc",
