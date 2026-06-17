@@ -78,7 +78,7 @@ trough {
 }
 
 .notification-background .notification {
-  padding: 7px;
+  padding: 8px;
   border-radius: 12.6px;
 }
 
@@ -139,13 +139,49 @@ trough {
   background-color: @mycolor;
 }
 
-.notification .notification-action {
-  border-radius: 7px;
-  color: @text;
+/*  */
+.notification-background .inline-reply {
+  margin: 6px 12px;
+  border-radius: 8px;
+  font-size: .7rem;
   box-shadow: inset 0 0 0 1px @border-color;
-  margin: 4px;
-  padding: 8px;
-  font-size: 0.2rem;
+  color: @text;
+}
+
+.notification-background .inline-reply-entry {
+  margin: 2px;
+  padding: 4px;
+  font-size: .9rem;
+}
+
+.notification-background .inline-reply-button {
+  margin: 2px;
+  padding: 2px;
+  border-radius: 8px;
+}
+
+.notification-background .inline-reply-button:hover {
+  background-color: @bg;
+}
+
+/* Container horizontal que contem as ações */
+.notification .notification-alt-actions {
+  margin: 10px 12px 6px;
+}
+
+/* Botões da notificatificação */
+.notification .notification-action {
+  border-radius: 8px;
+  margin: 2px;
+  padding: 2px 4px;
+  font-size: .4rem;
+  box-shadow: inset 0 0 0 1px @border-color;
+  color: @text;
+}
+
+.notification .notification-action label {
+  font-size: 1rem;
+  padding: 4px;
 }
 
 .notification .notification-action {
@@ -207,8 +243,8 @@ trough {
   border-radius: 12.6px;
   padding: 14px;
   box-shadow:
-  1px 1px 1px rgba(0, 0, 0, 0.65),
-  inset 0 0 0 1px @border-color;
+    1px 1px 1px rgba(0, 0, 0, 0.65),
+    inset 0 0 0 1px @border-color;
   background-color: @bg;
   color: @text;
 }

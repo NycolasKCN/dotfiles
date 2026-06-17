@@ -15,11 +15,13 @@ hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+-- hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
 
--- -- GDK
+-- -- GDK an GTK
 hl.env("GDK_SCALE", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("CLUTTER_BACKEND", "wayland")
+-- hl.env("GTK_THEME", "Adwaita:dark")
 
 -- -- Mozilla
 hl.env("MOZ_ENABLE_WAYLAND", "1")
