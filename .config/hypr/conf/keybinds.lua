@@ -150,16 +150,34 @@ bind_exec("XF86AudioNext", "playerctl -p fooyin,%any,chromium,firefox next", { l
 
 -- DISPLAY BACKLIGHT
 bind_exec("XF86MonBrightnessUp", backlight .. " --inc")
-bind_exec("XF86MonBrightnessDown", backlight .." --dec")
+bind_exec("XF86MonBrightnessDown", backlight .. " --dec")
 
 -- ZOOM IN AND OUT
+local MAX_ZOOM = 3.5
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
 
-local zoomIn =
-"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
-local zoomOut = "hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
+---@param offset number
+---@return nil
+local function zoom(offset)
+  local current = hl.get_config("cursor.zoom_factor")
+  if offset ~= nil then
+    current = current + offset
+  elseif current ~= MIN_ZOOM then
+    current = MIN_ZOOM
+  else
+    current = ZOOM_TOGGLE_FACTOR
+  end
+  current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+  hl.config({ cursor = { zoom_factor = current } })
+end
 
-bindm_exec("mouse_down", zoomIn)
-bindm_exec("mouse_down", zoomOut)
+bindm("mouse_up", function()
+  zoom(-0.25)
+end, { mouse = true })
+bindm("mouse_down", function()
+  zoom(0.25)
+end, { mouse = true })
 
 -- SCREENSHOT
 bindm_exec("SHIFT+s", "hyprshot -z -m region -o " .. screenshotOut)

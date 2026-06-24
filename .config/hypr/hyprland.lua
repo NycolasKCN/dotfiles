@@ -55,6 +55,8 @@ hl.config({
   },
   binds = {
     drag_threshold = 16,
+    pass_mouse_when_bound = false,
+    scroll_event_delay = 10,
   },
 })
 

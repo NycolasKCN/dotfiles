@@ -1,6 +1,6 @@
 [config]
 allow_images=false
-width=500
+width=600
 prompt=Choose an option
 height=400
 term=kitty

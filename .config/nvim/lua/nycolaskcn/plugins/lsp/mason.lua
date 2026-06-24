@@ -19,7 +19,6 @@ return {
       "pyright",
 
       "clangd",
-      "clang-format",
 
       "kotlin_language_server",
       "kotlin_lsp",

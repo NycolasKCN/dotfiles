@@ -1,4 +1,4 @@
-@import url('/home/eli/.cache/wal/colors-waybar.css');
+@import url('/home/nyc/.cache/wal/colors-waybar.css');
 
 @define-color mauve  @color9;
 @define-color red  @color9;
@@ -14,8 +14,8 @@
 
 * {
     all:unset;
-    font-family: 'CodeNewRoman Nerd Font Mono', monospace;
-    font-size: 18px;
+    font-family: 'NotoSans Nerd Font Mono', monospace;
+    font-size: 16px;
     outline: none;
     border: none;
     text-shadow:none;
@@ -26,7 +26,7 @@ window {
     all:unset;
     padding: 20px;
     border-radius: 0px;
-    background-color: alpha(@background,.5);
+    background-color: alpha(@background,.6);
 }
 
 #inner-box {

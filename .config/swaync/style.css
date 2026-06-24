@@ -1,15 +1,16 @@
 @import url("../../.cache/wal/colors-waybar.css");
 
 /* ── variáveis derivadas do pywal ─────────────────────────────── */
-@define-color text         @color15;
-@define-color mycolor      @color9;
+@define-color text         @foreground;
+@define-color mycolor      @color8;
 @define-color bg           alpha(@background, 0.5);
 @define-color bg-hover     alpha(@background, 0.8);
 @define-color bg-mpris     alpha(@background, 0.55);
 @define-color border-color alpha(@mycolor, 0.15);
-@define-color mycolor-darker color-mix(in rgb, @mycolor, black 50%);
+@define-color mycolor-darker color-mix(in rgb, @mycolor, black 20%);
 @define-color mycolor-90   alpha(@mycolor, 0.9);
 @define-color mycolor-70   alpha(@mycolor, 0.7);
+@define-color mycolor-50   alpha(@mycolor, 0.5);
 @define-color mycolor-30   alpha(@mycolor, 0.3);
 @define-color mycolor-20   alpha(@mycolor, 0.2);
 @define-color mycolor-08   alpha(@mycolor, 0.8);
@@ -72,7 +73,7 @@ trough {
     inset 0 0 0 1px @border-color;
   border-radius: 12.6px;
   margin: 4px;
-  background: @mycolor-30;
+  background: @mycolor-50;
   color: @text;
   padding: 0;
 }
