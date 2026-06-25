@@ -59,11 +59,13 @@
         {
           "label": "󰝟",
           "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+          "update-command": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -qE '\[MUTED\]' && echo 'true' || echo 'false'",
           "type": "toggle"
         },
         {
           "label": "󰍭",
           "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+          "update-command": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -qE '\[MUTED\]' && echo 'true' || echo 'false'",
           "type": "toggle"
         },
         {

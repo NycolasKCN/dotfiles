@@ -6,6 +6,8 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = false
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 
@@ -25,5 +27,5 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.termguicolors = false
 vim.opt.background = "dark"
-vim.opt.guifont = "JetBrainsMono NFM:h17" -- You can adjust the size (h14) as needed
+vim.opt.guifont = "JetBrainsMono NFM:h16"
 
