@@ -128,6 +128,10 @@ bindm("P", hl.dsp.layout("togglesplit"))
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.float(), { mouse = true, click = true })
+bindm("ALT+H", hl.dsp.window.resize({ x = 12, y = 0, relative = true }), { repeating = true })
+bindm("ALT+J", hl.dsp.window.resize({ x = 0, y = -12, relative = true }), { repeating = true })
+bindm("ALT+K", hl.dsp.window.resize({ x = 0, y = 12, relative = true }), { repeating = true })
+bindm("ALT+L", hl.dsp.window.resize({ x = -12, y = 0, relative = true }), { repeating = true })
 
 -- OUTPUT VOLUME CONTROL
 bind_exec("XF86AudioLowerVolume", volume .. " --dec --notify", { repeating = true })
