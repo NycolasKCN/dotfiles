@@ -34,7 +34,7 @@ end
 bindm_exec("SUPER_L", "pkill wofi ||" .. menu)
 bindm_exec("ALT+SPACE", menu)
 bindm_exec("SHIFT+B", "bitwarden-desktop")
-bindm_exec("CONTROL+V", "pavucontrol -t 3")
+bindm_exec("CONTROL+V", "pkill pavucontrol || pavucontrol -t 3")
 bindm_exec("SHIFT+V", "copyq toggle")
 bindm_exec("SHIFT+C", "hyprpicker -a -f hex")
 bindm_exec("COMMA", changeWallpaper)

@@ -57,6 +57,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  match = { title = "Blender File View" },
+
+  center = true,
+  min_size = "800 800",
+})
+
+hl.window_rule({
   name = "Float min size",
   match = { float = true },
 
