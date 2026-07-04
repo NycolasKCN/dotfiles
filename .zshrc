@@ -51,6 +51,8 @@ complete -o nospace -C /usr/bin/mcli mcli
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_alias
 
-eval "$(dotnet completions script zsh)"
+if [[ $HOST == "nyc-desktop" ]]; then
+  eval "$(dotnet completions script zsh)"
+fi
 eval "$(zoxide init zsh)"
 eval "$(fzf --zsh)"

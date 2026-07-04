@@ -1,4 +1,4 @@
-@import url("../../.cache/wal/colors-waybar.css");
+@import url("/home/nyc/.cache/wal/colors-waybar.css");
 
 * {
   font-size: 1rem;
@@ -6,27 +6,28 @@
 }
 window#waybar {
   all: unset;
+  /* background: alpha(@foreground, 0.5); */
 }
 .modules-left {
-  margin: 7 5 5 8;
   padding: 7px;
+  margin: 5px 6px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.6);
+  background: alpha(@background, 0.7);
 }
 .modules-center {
   padding: 7px;
-  margin: 8 5 5 5;
+  margin: 5px 6px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.6);
+  background: alpha(@background, 0.7);
 }
 .modules-right {
   padding: 7px;
-  margin: 8 8 5 5;
+  margin: 5px 6px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.6);
+  background: alpha(@background, 0.7);
 }
 
 tooltip {

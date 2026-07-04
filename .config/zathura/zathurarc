@@ -35,11 +35,11 @@ set notification-error-fg "#151515" #00
 set notification-warning-bg "#AC4142" #08
 set notification-warning-fg "#151515" #00
 
-set highlight-color "#F4BF75" #0A
-set highlight-active-color "#6A9FB5" #0D
+set highlight-color "rgba(98, 184, 238, 0.45)" #0A
+set highlight-active-color "rgba(21, 155, 240, 0.5)" #0D
 
-set completion-highlight-fg "#151515" #02
-set completion-highlight-bg "#90A959" #0C
+set completion-highlight-fg "rgb(21, 21, 21)" #02
+set completion-highlight-bg "rgba(144, 169, 89, 0.4)" #0C
 
 set completion-bg "#303030" #02
 set completion-fg "#E0E0E0" #0C
