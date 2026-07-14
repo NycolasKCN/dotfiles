@@ -58,6 +58,16 @@ button:hover {
     );
 }
 
+#hibernate {
+  background-image:
+    image(url("./icons/hibernate_white.png"));
+}
+
+#suspend {
+  background-image:
+    image(url("./icons/suspend_white.png"));
+}
+
 #reboot {
   background-image:
     image(url("./icons/reboot_white.png")),
