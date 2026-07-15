@@ -2,36 +2,71 @@
 
 * {
   font-size: 1rem;
-  font-family: "NotoSans Nerd Font";
+  font-family: "NotoSansM NFP";
+  /* color: @color7; */
 }
+
 window#waybar {
   all: unset;
-  /* background: alpha(@foreground, 0.5); */
-}
-.modules-left {
-  padding: 7px;
-  margin: 5px 6px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.7);
-}
-.modules-center {
-  padding: 7px;
-  margin: 5px 6px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.7);
-}
-.modules-right {
-  padding: 7px;
-  margin: 5px 6px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  background: alpha(@background, 0.7);
 }
 
 tooltip {
-  background: @background;
+  background: alpha(@background, 0.9);
+}
+
+/* ===== waybar ===== */
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 6px;
+  background: alpha(@background, 0.8);
+}
+
+.modules-left {
+  margin-left: 12rem;
+  padding-left: 1.4rem;
+  border-bottom-left-radius: 18px;
+}
+
+.modules-center {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.modules-right {
+  margin-right: 12rem;
+  padding-right: 1.4rem;
+  border-bottom-right-radius: 18px;
+}
+/* ===== waybar end ===== */
+
+/* ===== modules ===== */
+#cpu,
+#memory,
+#temperature,
+#idle_inhibitor,
+#disk,
+#custom-pacman {
+  padding: 0px 6px;
+  color: @color7;
+}
+
+#mpris,
+#tray,
+#clock,
+#pulseaudio,
+#pulseaudio#microphone,
+#network,
+#battery,
+#bluetooth,
+#keyboard-state,
+#custom-notification,
+#custom-notification-center,
+#custom-ycal,
+#privacy,
+#submap {
+  padding: 0px 6px;
+  transition: all 0.3s ease;
   color: @color7;
 }
 
@@ -39,6 +74,7 @@ tooltip {
 #custom-pacman:hover,
 #custom-notification:hover,
 #custom-notification-center:hover,
+#custom-ycal:hover,
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
@@ -50,65 +86,52 @@ tooltip {
 #pulseaudio:hover,
 #keyboard-state:hover,
 #idle_inhibitor:hover,
+#privacy:hover,
 #submap:hover {
   transition: all 0.3s ease;
   color: @color9;
 }
 
-#custom-notification-center,
-#custom-notification {
-  padding: 0px 5px;
-  transition: all 0.3s ease;
-  color: @color7;
-}
-#clock {
-  padding: 0px 5px;
-  color: @color7;
+/* ===== groups and expand ===== */
+#group-expand,
+#group-expand#tray {
+  padding: 0px 6px;
   transition: all 0.3s ease;
 }
-#workspaces {
-  padding: 0px 5px;
-}
-#workspaces button {
-  all: unset;
-  color: @color9;
-  padding: 0px 5px;
-  transition: all 0.2s ease;
-}
-#workspaces button:hover {
-  color: alpha(@color9, 0.6);
-  border: none;
-  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
-}
-#workspaces button.active {
-  color: @color7;
-  border: none;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-}
-#bluetooth {
-  padding: 0px 5px;
+#custom-expand,
+#custom-tray {
+  padding: 0px 8px;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease;
-  color: @color7;
+  color: alpha(@foreground, 0.4);
 }
-#network {
-  padding: 0px 5px;
+#custom-endpoint {
+  padding: 0px 8px;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease;
-  color: @color7;
+  color: alpha(@foreground, 0.2);
 }
-#battery {
-  padding: 0px 5px;
+/* ===== groups and expand ===== */
+
+/* ===== tray ===== */
+#tray menu * {
+  font-family: "NotoSans NF";
+  transition: all 0.5s ease-in;
+}
+
+#tray menu separator {
+  padding: 4px;
   transition: all 0.3s ease;
-  color: @color7;
 }
+/* ===== tray ===== */
+
+/* ===== battery ===== */
 #battery.charging {
   color: #26a65b;
 }
-
 #battery.warning:not(.charging) {
   color: #ffbe61;
 }
-
 #battery.critical:not(.charging) {
   color: #f53c3c;
   animation-name: blink;
@@ -117,69 +140,27 @@ tooltip {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
-#group-expand,
-#group-expand#tray {
-  padding: 5px 5px;
-  transition: all 0.3s ease;
+/* ===== battery ===== */
+
+/* ===== workspaces ===== */
+#workspaces {
+  padding: 0px 6px;
 }
-#group-expand#tray {
+#workspaces button {
+  all: unset;
+  padding: 0px 4px;
+  transition: all 0.2s ease-in;
+  color: @color6;
+}
+#workspaces button:hover {
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+  color: alpha(@color9, 0.6);
+}
+#workspaces button.active {
+  border: none;
   font-weight: 900;
-}
-
-#custom-expand,
-#custom-tray {
-  padding: 0px 5px;
-  color: alpha(@foreground, 0.4);
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
-}
-
-#custom-expand:hover,
-#custom-tray:hover {
-  color: rgba(255, 255, 255, 0.2);
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
-}
-
-#custom-colorpicker {
-  padding: 0px 5px;
-}
-
-#cpu,
-#memory,
-#temperature,
-#disk,
-#mpris,
-#pulseaudio#microphone,
-#pulseaudio,
-#keyboard-state,
-#idle_inhibitor,
-#custom-pacman,
-#submap {
-  padding: 0px 5px;
-  transition: all 0.3s ease;
   color: @color7;
-}
-
-#custom-endpoint {
-  padding: 0px 5px;
-  color: alpha(@foreground, 0.2);
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
-}
-#custom-endpoint:hover {
-  color: rgba(255, 255, 255, 0.2);
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
-}
-#tray {
-  padding: 0px 5px;
-  transition: all 0.3s ease;
-}
-#tray menu * {
-  padding: 0px 5px;
-  transition: all 0.3s ease;
-}
-
-#tray menu separator {
-  padding: 0px 5px;
-  transition: all 0.3s ease;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
