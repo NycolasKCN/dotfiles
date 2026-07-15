@@ -42,7 +42,6 @@ changeHyprColor() {
 
 # --- NOVA FUNÇÃO PARA O OMARCHY ---
 changeOmarchyColor() {
-  source ~/.cache/wal/colors.sh
 
   OMARCHY_CONF="$HOME/.config/omarchy/current/theme/colors.toml"
 
@@ -88,7 +87,7 @@ main() {
     choice=$(menu | wofi -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
-    wal --cols16 darken --saturate 0.3 --contrast 4 -i "$selected_wallpaper"
+    wal --cols16 darken --saturate 0.2 --contrast 5 -i "$selected_wallpaper"
 
     if [ $? -ne 0 ]; then
       echo "[INFO] Trying with colorz"
@@ -100,16 +99,16 @@ main() {
       wal --backend fast_colorthief --cols16 darken --saturate 0.2 --contrast 4 -i "$selected_wallpaper"
     fi
 
+    swaync-client --reload-css
+    source ~/.cache/wal/colors.sh
+
     changeKittyColor
     changeCavaColor
     changeHyprColor
     changeOmarchyColor
 
-    swaync-client --reload-css
     systemctl --user restart waybar-ycal.service
-
     cp "$selected_wallpaper" ~/Images/wallpaper/pywallpaper.jpg
-    source ~/.cache/wal/colors.sh
 }
 
 main

@@ -188,6 +188,14 @@ hl.layer_rule({
   ignore_alpha = 0.2,
 })
 
+hl.layer_rule({
+  name = "wob",
+  match = { namespace = [[wob]] },
+
+  blur = true,
+  ignore_alpha = 0.2,
+})
+
 local namespaces_for_no_anim = { "hyprpicker", "selection", "hyprshot" }
 for _, value in ipairs(namespaces_for_no_anim) do
   hl.layer_rule({

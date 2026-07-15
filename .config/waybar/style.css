@@ -20,6 +20,7 @@ tooltip {
 .modules-right {
   padding: 6px;
   background: alpha(@background, 0.8);
+  border-bottom: 1px solid alpha(@color9, 0.9);
 }
 
 .modules-left {

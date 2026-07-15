@@ -11,9 +11,11 @@ get_volume() {
 notify_user() {
     if [[ "$NOTIFY_OPTION" == "--notify" ]]; then
         if [ "$(pamixer --get-mute)" == "true" ]; then
-            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "  Volume Switched OFF"
+            # notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "  Volume Switched OFF"
+            echo "$(get_volume)" mut > $XDG_RUNTIME_DIR/wob.sock
         else
-            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "  Volume $(get_volume) %"
+            # notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "  Volume $(get_volume) %"
+            echo "$(get_volume)" > $XDG_RUNTIME_DIR/wob.sock
         fi
     fi
 }
@@ -48,14 +50,20 @@ toggle_mic() {
     fi
 }
 
+get_mic_volume() {
+  pamixer --default-source --get-volume
+}
+
 # Notify Mic
 notify_mic_user() {
     if [[ "$NOTIFY_OPTION" == "--notify" ]]; then
 
         if [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low " Mic Muted"
+            # notify-send -h string:x-canonical-private-synchronous:sys-notify -u low " Mic Muted"
+            echo "$(get_mic_volume)" mic-mut > $XDG_RUNTIME_DIR/wob.sock
         else
-            notify-send -h string:x-canonical-private-synchronous:sys-notify -u low " Mic Level : $(pamixer --default-source --get-volume) %"
+            # notify-send -h string:x-canonical-private-synchronous:sys-notify -u low " Mic Level : $(get_mic_volume) %"
+            echo "$(get_mic_volume)" mic > $XDG_RUNTIME_DIR/wob.sock
         fi
     fi
 }

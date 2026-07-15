@@ -13,7 +13,7 @@ local logout = "wlogout -b 4"
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
 local volume = "$HOME/Dotfiles/scripts/volume.sh"
 local recordScreen = "$HOME/Dotfiles/scripts/recordscreen.sh"
-local backlight = "$HOME/Dotfiles/scripts/backlight.sh"
+local brightness = "$HOME/Dotfiles/scripts/brightness.sh"
 
 -- AUXILLIARY FUNCIONS
 
@@ -153,8 +153,8 @@ bind_exec("XF86AudioPrev", "playerctl -p fooyin,%any,chromium,firefox previous",
 bind_exec("XF86AudioNext", "playerctl -p fooyin,%any,chromium,firefox next", { locked = true })
 
 -- DISPLAY BACKLIGHT
-bind_exec("XF86MonBrightnessUp", backlight .. " --inc")
-bind_exec("XF86MonBrightnessDown", backlight .. " --dec")
+bind_exec("XF86MonBrightnessUp", brightness .. " up")
+bind_exec("XF86MonBrightnessDown", brightness .. " down")
 
 -- ZOOM IN AND OUT
 local MAX_ZOOM = 3.5
