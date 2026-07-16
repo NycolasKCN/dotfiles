@@ -5,7 +5,7 @@
 -- Float, resize, and center some app
 ---@param ruleName string
 ---@param matcher table
----@param size string
+---@param size string?
 local function floatCenterWindow(ruleName, matcher, size)
   size = size or "900 600"
 
@@ -154,6 +154,7 @@ hl.layer_rule({
 
   blur = true,
   ignore_alpha = 0.1,
+  animation = "slide right"
 })
 
 hl.layer_rule({
@@ -170,6 +171,7 @@ hl.layer_rule({
 
   blur = true,
   ignore_alpha = 0.4,
+  animation = "slide top"
 })
 
 hl.layer_rule({
@@ -186,6 +188,7 @@ hl.layer_rule({
 
   blur = true,
   ignore_alpha = 0.2,
+  animation = "slide top"
 })
 
 hl.layer_rule({
@@ -194,6 +197,7 @@ hl.layer_rule({
 
   blur = true,
   ignore_alpha = 0.2,
+  animation = "slide bottom"
 })
 
 local namespaces_for_no_anim = { "hyprpicker", "selection", "hyprshot" }
