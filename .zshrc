@@ -26,6 +26,10 @@ export EDITOR="nvim"
 # Theme config
 ZSH_THEME="robbyrussell"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# Configuration
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION="true"
 
 # fzf
 # CTRL-Y to copy the command into clipboard using pbcopy

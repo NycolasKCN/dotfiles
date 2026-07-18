@@ -42,3 +42,4 @@
 
 .config/nvim/undodir
 /.config/waybar/cpu_temp
+**/colors.toml
