@@ -1,113 +1,95 @@
-@import url('/home/nyc/.cache/wal/colors-waybar.css');
-
-@define-color mauve  @color9;
-@define-color red  @color9;
-@define-color lavender  @color7;
-@define-color text  @color7;
-
-@keyframes fadeIn {
-    0% {
-    }
-    100% {
-    }
-}
-
+@import url("/home/nyc/.cache/wal/colors-waybar.css");
 * {
-    all:unset;
-    font-family: 'NotoSans Nerd Font Mono', monospace;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    text-shadow:none;
-    background-color:transparent;
+  font-family: "NotoMono NFP", monospace;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  text-shadow: none;
+  background-color: transparent;
 }
 
 window {
-    all:unset;
-    padding: 20px;
-    border-radius: 0px;
-    background-color: alpha(@background,.6);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid alpha(@color9, 0.1);
+  background-color: alpha(@background, 0.4);
 }
 
 #inner-box {
-    margin: 2px;
-    padding: 5px
-    border: none;
+  margin: 2px;
+  padding: 5px;
+  border: none;
 }
 
-#outer-box {    
-    border: none;
+#outer-box {
+  border: none;
 }
 
 #scroll {
-    margin: 0px;
-    padding: 30px;
-    border: none;
+  margin: 0px;
+  padding: 30px;
+  border: none;
 }
 
 #input {
-    all:unset;
-    margin-left:20px;
-    margin-right:20px;
-    margin-top:20px;
-    padding: 20px;
-    border: none;
-    outline: none;
-    color: @text;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
-    border-radius:10;
-    background-color: alpha(@background,.2);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: @foreground;
+  background-color: alpha(@background, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 #input image {
-    border: none;
-    color: @red;
-    padding-right:10px;
+  border: none;
+  /* Pywal normalmente não gera @red, @color1 geralmente é a cor vermelha no esquema */
+  color: @color1;
+  padding-right: 10px;
 }
 
 #input * {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 #input:focus {
-    outline: none;
-    border: none;
-    border-radius:10;
+  outline: none;
+  border: none;
+  border-radius: 10px;
 }
 
 #text {
-    margin: 5px;
-    width: 400px;
-    max-width: 95%;
-    border: none;
-    color: @text;
-    outline: none;
+  margin: 5px;
+  border: none;
+  color: @foreground;
+  outline: none;
 }
 
 #entry {
-    border: none;
-    max-width: 95%;
-    margin: 5px;
-    padding: 10px;
+  border: none;
+  margin: 5px;
+  padding: 10px;
 }
 
 #entry arrow {
-    border: none;
-    color: @lavender;
+  border: none;
+  color: @color7;
 }
 
 #entry:selected {
-    box-shadow: 1px 1px 5px rgba(0,0,0, .8);
-    max-width: 95%;
-    border-radius: 20px;
-    background-color:transparent;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: transparent;
 }
 
 #entry:selected #text {
-    color: @mauve;
+  color: @color9;
 }
 
 #entry:drop(active) {
-    background-color: @lavender !important;
+  background-color: @color9;
 }

@@ -7,7 +7,7 @@ local screenshotOut = "$HOME/Images/Screenshots"
 local terminal = "kitty"
 local fileManager = "nautilus"
 local browser = "zen-browser"
-local menu = "wofi -n"
+local menu = "wofi"
 local logout = "wlogout -b 4"
 
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"

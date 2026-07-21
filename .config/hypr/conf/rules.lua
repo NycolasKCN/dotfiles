@@ -133,6 +133,7 @@ hl.window_rule({
   match = { class = [[wofi]] },
 
   border_size = 0,
+  animation = "slide bottom"
 })
 
 -- ------------------------------------------------

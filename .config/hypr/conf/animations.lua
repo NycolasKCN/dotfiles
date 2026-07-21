@@ -1,4 +1,4 @@
--- Curves
+--- Curves ---
 hl.curve("fluid", {
   type = "bezier",
   points = {
@@ -15,13 +15,31 @@ hl.curve("snappy", {
   }
 })
 
+hl.curve("overshot", {
+  type = "bezier",
+  points = {
+    { 0.13, 0.99 },
+    { 0.29, 1.05}
+  }
+})
+
+--- Animations ---
 hl.animation({
   enabled = true,
   leaf = "windows",
-  speed = 3,
-  bezier = "fluid",
+  speed = 4,
+  bezier = "snappy",
   style = "popin 5%"
 })
+
+hl.animation({
+  enabled = true,
+  leaf = "windowsMove",
+  speed = 4,
+  bezier = "overshot",
+  style = "popin 5%"
+})
+
 
 hl.animation({
   enabled = true,
@@ -40,31 +58,47 @@ hl.animation({
 hl.animation({
   enabled = true,
   leaf = "workspaces",
-  speed = 1.7,
-  bezier = "snappy",
+  speed = 4,
+  bezier = "overshot",
   style = "slide"
+})
+
+hl.animation({
+  enabled = true,
+  leaf = "workspacesOut",
+  speed = 4,
+  bezier = "snappy",
+  style = "slidefade"
 })
 
 hl.animation({
   enabled = true,
   leaf = "specialWorkspaceIn",
   speed = 4,
-  bezier = "fluid",
+  bezier = "overshot",
   style = "slidefade bottom"
 })
 
 hl.animation({
   enabled = true,
   leaf = "specialWorkspaceOut",
-  speed = 4,
-  bezier = "fluid",
-  style = "slidefade top"
+  speed = 2,
+  bezier = "snappy",
+  style = "slide top"
 })
 
 hl.animation({
   enabled = true,
-  leaf = "layers",
-  speed = 1,
+  leaf = "layersIn",
+  speed = 1.6,
   bezier = "snappy",
-  style = "popin 70%"
+  style = "slide bottom 70%"
+})
+
+hl.animation({
+  enabled = true,
+  leaf = "layersOut",
+  speed = 0.8,
+  bezier = "snappy",
+  style = "fade"
 })
