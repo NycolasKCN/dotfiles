@@ -114,22 +114,34 @@ tooltip {
 #custom-endpoint:hover,
 #custom-expand:hover,
 #custom-tray:hover {
-  color: @color7
-
+  color: @color7;
 }
 
 /* ===== groups and expand ===== */
 
 /* ===== tray ===== */
-#tray menu * {
+
+#tray menu {
+  color: @foreground;
+  background: @background;
+}
+
+#tray menuitem {
   font-family: "NotoSans NF";
-  transition: all 0.5s ease-in;
+  font-size: 1.3rem;
+  margin: 6px;
+  color: @foreground;
+}
+
+#tray menuitem:hover {
+  background: alpha(@background, 0.9);
 }
 
 #tray menu separator {
-  padding: 4px;
-  transition: all 0.3s ease;
+  margin: 2px;
+  background: @foreground
 }
+
 /* ===== tray ===== */
 
 /* ===== battery ===== */
