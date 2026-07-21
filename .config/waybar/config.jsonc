@@ -77,7 +77,7 @@
     "escape":true
   },
   "custom/ycal":{
-    "format": "{text} ",
+    "format": "{text}",
     "exec":"/usr/share/waybar-ycal/bar.py",
     "on-click":"/usr/share/waybar-ycal/toggle.sh",
     "interval":60,
@@ -137,7 +137,7 @@
     },
     "format":"{icon} {capacity}%",
     "format-charging":"󰂄 {capacity}%",
-    "format-plugged":" {capacity}%",
+    "format-not-charging":" {capacity}%",
     "format-alt":"{icon} {time}",
     "format-icons":[
       "󰁻",
