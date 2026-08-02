@@ -167,6 +167,14 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
+  name = "vicinae",
+  match = { namespace = [[vicinae]] },
+
+  blur = true,
+  ignore_alpha = 0.1,
+})
+
+hl.layer_rule({
   name = "waybar",
   match = { namespace = [[waybar]] },
 

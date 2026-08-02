@@ -11,19 +11,19 @@ hl.on("hyprland.start", function()
   -- })
 
   hl.exec_cmd("systemctl --user start hyprland-session.target")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
   hl.exec_cmd("wal - R")
   hl.exec_cmd("sleep 2 & waybar")
-  hl.exec_cmd("nm-applet & copyq --start-server")
+  hl.exec_cmd("vicinae server")
+
+  hl.exec_cmd("nm-applet")
   if host.isLaptop() then
     hl.exec_cmd("blueman-applet")
   end
 
   hl.exec_cmd("udiskie")
   hl.exec_cmd("swaync & swaync-client -df")
-  hl.exec_cmd("swayosd-server")
-  hl.exec_cmd("udiskie")
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("kdeconnectd & kdeconnect-indicator")
   hl.exec_cmd("hyprpaper & hypridle")
 end)

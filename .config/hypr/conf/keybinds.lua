@@ -7,7 +7,7 @@ local screenshotOut = "$HOME/Images/Screenshots"
 local terminal = "kitty"
 local fileManager = "nautilus"
 local browser = "zen-browser"
-local menu = "wofi"
+local menu = "vicinae toggle"
 local logout = "wlogout -b 4"
 
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
@@ -31,11 +31,12 @@ local function bind_exec(keys, command, flags)
 end
 
 -- LAUNCH APPS
-bindm_exec("SUPER_L", "pkill wofi ||" .. menu)
+bindm_exec("SUPER_L", menu)
+bind_exec("ALT+TAB", "vicinae vicinae://launch/wm/switch-windows")
 bindm_exec("ALT+SPACE", menu)
 bindm_exec("SHIFT+B", "bitwarden-desktop")
 bindm_exec("CONTROL+V", "pkill pavucontrol || pavucontrol -t 3")
-bindm_exec("SHIFT+V", "copyq toggle")
+bindm_exec("SHIFT+V", "vicinae vicinae://launch/clipboard/history")
 bindm_exec("SHIFT+C", "hyprpicker -a -f hex")
 bindm_exec("COMMA", changeWallpaper)
 bindm_exec("E", fileManager)

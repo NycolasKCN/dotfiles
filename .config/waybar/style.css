@@ -183,3 +183,10 @@ tooltip {
   color: @color7;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
+
+
+/* ===== ycal ===== */
+#custom-ycal .has-events {
+  padding: 0px 6px;
+}
+
