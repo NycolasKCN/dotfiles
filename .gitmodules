@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:NycolasKCN/nvim-config.git
+[submodule ".config/waybar/scripts/ycal"]
+	path = .config/waybar/scripts/ycal
+	url = git@github.com:/NycolasKCN/waybar-ycal

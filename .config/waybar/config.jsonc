@@ -78,10 +78,12 @@
   },
   "custom/ycal":{
     "format": "{text}",
-    "exec":"/usr/share/waybar-ycal/bar.py",
-    "on-click":"/usr/share/waybar-ycal/toggle.sh",
-    "interval":60,
-    "return-type":"json"
+    "format-alt": "{alt}",
+    "return-type":"json",
+    "tooltip": true,
+    "exec":"$HOME/.config/waybar/scripts/ycal/bar.py",
+    "on-click-right":"$HOME/.config/waybar/scripts/ycal/toggle.sh",
+    "interval":60
   },
   "clock":{
     "format":"{:%R  %d%m%y} ",

@@ -40,12 +40,11 @@ changeHyprColor() {
   hyprctl reload
 }
 
-# --- NOVA FUNÇÃO PARA O OMARCHY ---
-changeOmarchyColor() {
+changeYcalColors() {
 
-  OMARCHY_CONF="$HOME/.config/omarchy/current/theme/colors.toml"
+  COLORS_CONF="$HOME/.config/waybar-ycal/colors.toml"
 
-  cat <<EOF > "$OMARCHY_CONF"
+  cat <<EOF > "$COLORS_CONF"
 accent = "$color4"
 active_border_color = "$color15"
 active_tab_background = "$color4"
@@ -105,7 +104,7 @@ main() {
     changeKittyColor
     changeCavaColor
     changeHyprColor
-    changeOmarchyColor
+    changeYcalColors 
 
     systemctl --user restart waybar-ycal.service
     cp "$selected_wallpaper" ~/Images/wallpaper/pywallpaper.jpg
