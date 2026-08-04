@@ -3,15 +3,10 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=12
 set hlsearch
 " set relativenumber
-set NERDTree
 
 " Do incremental searching.
 set incsearch
@@ -25,14 +20,12 @@ Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
 
 let mapleader = " "
 set clipboard+=unnamedplus
 
 "=========== Handlers
-sethandler <C-S-C> n-v:ide
-setHandler <C-p> n-v:ide
-setHandler <C-R> n-v-i:vim
 
 "=========== my configs
 map L $
@@ -40,21 +33,29 @@ map H ^
 "map w [w
 "map e ]w
 "map b [b
-nmap <C-o> o<esc>
-nmap <C-O> O<esc>
+nnoremap <C-o> o<esc>
+nnoremap <C-O> O<esc>
 vmap p "_dP
 nnoremap s "_s
 nnoremap S "_S
 
-nmap <leader>b <Action>(ToggleLineBreakpoint)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
 nmap <leader>o <Action>(FileStructurePopup)
 nmap <leader><ESC> :noh<CR>
 nnoremap <leader>r :action ChooseRunConfiguration<CR>
 nnoremap <leader>t :action ActivateRunToolWindow<CR>
-nmap <leader>f <Action>(ReformatCode)
+nmap <leader>l <Action>(ReformatCode)
 
-vmap J :m '>+1<CR>gv=gv
-vmap K :m '<-2<CR>gv=gv
+nmap <M-j> <Action>(MoveStatementDown)
+nmap <M-k> <Action>(MoveStatementUp)
+nmap <M-h> <<
+nmap <M-l> >>
+
+" Mover seleção (Visual mode)
+vmap <M-j> :m '>+1<CR>gv=gv
+vmap <M-k> :m '<-2<CR>gv=gv
+vmap <M-h> <gv
+vmap <M-l> >gv
 
 " split panels
 nnoremap <a-0> :action MoveTabDown<CR>
@@ -63,10 +64,10 @@ nnoremap <a--> :action Unsplit<CR>
 nnoremap <a-m> :action MoveEditorToOppositeTabGroup<CR>
 
 " resize panels
-nnoremap <c-s-k> :action ResizeToolWindowUp<CR>
-nnoremap <c-s-j> :action ResizeToolWindowDown<CR>
-nnoremap <c-s-h> :action ResizeToolWindowLeft<CR>
-nnoremap <c-s-l> :action ResizeToolWindowRight<CR>
+nnoremap <A-C-S-k> :action ResizeToolWindowUp<CR>
+nnoremap <A-C-S-j> :action ResizeToolWindowDown<CR>
+nnoremap <A-C-S-h> :action ResizeToolWindowLeft<CR>
+nnoremap <A-C-S-l> :action ResizeToolWindowRight<CR>
 
 " move between panels
 nnoremap <c-j> <c-w>j
@@ -81,7 +82,7 @@ nnoremap <TAB> :action NextTab<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>
 
 " close tab
-nnoremap <C-q> :action CloseContent<CR>
+nnoremap <leader>bq :action CloseContent<CR>
 
 " popups
 nmap K <Action>(ShowHoverInfo)
@@ -90,6 +91,7 @@ vmap gh <Action>(EditorPopupMenu)
 nmap gn <Action>(Generate)
 nmap gi <Action>(GotoImplementation)
 nmap gu <Action>(FindUsages)
+nmap gR <Action>(FindUsages)
 nmap gr <Action>(RenameElement)
 
 " error navigation
@@ -97,3 +99,36 @@ nmap ge <Action>(GotoNextError)
 nmap gE <Action>(GotoPreviousError)
 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+" Salvar / fechar tudo
+nmap <leader>w :action SaveDocument<CR>
+nmap <leader>q :action CloseContent<CR>
+nnoremap <C-S-Q> :action CloseAllEditors<CR>
+nnoremap <C-S-W> :action SaveAll<CR>
+
+" Yank da linha inteira
+nnoremap Y yy
+vnoremap Y yy
+
+" Ir para definição / tipo (gi e gu já existiam; adicionando o que faltava)
+nmap gd <Action>(GotoDeclaration)
+nmap gt <Action>(GotoTypeDeclaration)
+
+" Code actions / organizar imports
+nmap <leader>ca <Action>(ShowIntentionActions)
+xmap <leader>ca <Action>(ShowIntentionActions)
+nmap <leader>ci <Action>(OptimizeImports)
+
+" Ver diagnósticos do projeto/arquivo
+nmap <leader>D <Action>(ActivateProblemsViewToolWindow)
+
+" Diagnóstico da linha sob o cursor
+nmap <A-C-k> <Action>(ShowErrorDescription)
+
+" NERDTree
+nnoremap <leader>ee :NERDTreeToggle<CR>
+nnoremap <leader>ef :NERDTreeFocus<CR>
+
+" 'telescope'
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fb :action Switcher<CR>
