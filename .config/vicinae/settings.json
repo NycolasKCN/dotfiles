@@ -31,12 +31,13 @@
       "system_info": false
    },
    "launcher_window": {
-      "opacity": 0.75,
+      "rounding": 12,
+      "opacity": 0.7,
       "compact_mode": {
          "enabled": true
       },
       "layer_shell": {
-         "enabled": false
+         "enabled": true
       }
    },
    "providers": {
@@ -88,6 +89,28 @@
             },
             "sponsor": {
                "enabled": false
+            }
+         }
+      },
+      "files": {
+         "preferences": {
+            "autoIndexing": true,
+            "excludedIndexingPaths": [],
+            "indexingPaths": [
+               "/home/nyc",
+               "/home/nyc/shared/obsidianVaults/all-at-once"
+            ]
+         },
+         "entrypoints": {
+            "search": {
+               "alias": "files"
+            }
+         }
+      },
+      "wm": {
+         "entrypoints": {
+            "switch-windows": {
+               "alias": "w"
             }
          }
       }
