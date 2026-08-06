@@ -92,10 +92,20 @@
             }
          }
       },
+      "developer": {
+         "enabled": false,
+         "entrypoints": {
+            "create": {
+               "enabled": false
+            }
+         }
+      },
       "files": {
          "preferences": {
             "autoIndexing": true,
-            "excludedIndexingPaths": [],
+            "excludedIndexingPaths": [
+               "/home/nyc/node_modules"
+            ],
             "indexingPaths": [
                "/home/nyc",
                "/home/nyc/shared/obsidianVaults/all-at-once"
@@ -103,9 +113,35 @@
          },
          "entrypoints": {
             "search": {
-               "alias": "files"
+               "alias": "e"
             }
          }
+      },
+      "power": {
+         "enabled": false
+      },
+      "snippets": {
+         "enabled": false
+      },
+      "system": {
+         "enabled": false,
+         "entrypoints": {
+            "volume-100": {
+               "enabled": false
+            },
+            "volume-75": {
+               "enabled": false
+            },
+            "volume-down": {
+               "enabled": false
+            },
+            "volume-up": {
+               "enabled": false
+            }
+         }
+      },
+      "theme": {
+         "enabled": false
       },
       "wm": {
          "entrypoints": {

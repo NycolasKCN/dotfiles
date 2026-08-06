@@ -27,7 +27,7 @@ hl.window_rule({ match = { title = "^(Spotify)$" }, tag = "+music" })
 hl.window_rule({ match = { class = "org.fooyin.fooyin" }, tag = "+music" })
 hl.window_rule({ match = { class = "tidal-hifi" }, tag = "+music" })
 hl.window_rule({ match = { class = "kopuz" }, tag = "+music" })
-hl.window_rule({ match = { class = "obsidian" }, tag = "+notes" })
+hl.window_rule({ match = { class = "md.Obsidian" }, tag = "+notes" })
 hl.window_rule({ match = { class = "ZenNotes" }, tag = "+notes" })
 
 -- ------------------------------------------------
