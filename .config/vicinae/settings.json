@@ -67,6 +67,9 @@
          "entrypoints": {
             "ferdium": {
                "alias": "whatsapp"
+            },
+            "org.prismlauncher.PrismLauncher": {
+               "alias": "Minecraft"
             }
          }
       },
