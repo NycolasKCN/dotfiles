@@ -4,11 +4,9 @@ os:
   editAtLineAndWait: "nvim --block --line={{line}} {{filename}}"
   editInTerminal: true
   openDirInEditor: "nvim {{dir}}"
-
 # If true, exit Lazygit when the user presses escape in a context where there is
 # nothing to cancel/close
 quitOnTopLevelReturn: true
-
 gui:
   theme:
     activeBorderColor:
@@ -36,6 +34,5 @@ gui:
       - "#f38ba8"
     defaultFgColor:
       - "#cdd6f4"
-
-  authorColors:
-    "*": "#b4befe"
+    authorColors:
+      "*": "#b4befe"

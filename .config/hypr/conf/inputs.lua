@@ -34,7 +34,7 @@ hl.device({
 
 hl.device({
   name = "by-tech-gaming-keyboard",
-  kb_options = "altwin:swap_alt_win,caps:menu,shift:both_capslock_cancel",
+  kb_options = "caps:menu,shift:both_capslock_cancel",
 })
 
 hl.device({

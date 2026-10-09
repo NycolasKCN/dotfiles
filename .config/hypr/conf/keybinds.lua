@@ -8,10 +8,12 @@ local terminal = "kitty"
 local fileManager = "nautilus"
 local browser = "zen-browser"
 local menu = "vicinae toggle"
+local menuBack = "pkill wofi || wofi drun"
 local logout = "wlogout -b 4"
 
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
 local volume = "$HOME/Dotfiles/scripts/volume.sh"
+local toggleAudio = "$HOME/Dotfiles/scripts/toggle-desktop-source.sh toggle"
 local recordScreen = "$HOME/Dotfiles/scripts/recordscreen.sh"
 local brightness = "$HOME/Dotfiles/scripts/brightness.sh"
 
@@ -32,6 +34,7 @@ end
 
 -- LAUNCH APPS
 bindm_exec("SUPER_L", menu)
+bindm_exec("SHIFT+SUPER_L", menuBack)
 bind_exec("ALT+TAB", "vicinae vicinae://launch/wm/switch-windows")
 bindm_exec("ALT+SPACE", menu)
 bindm_exec("SHIFT+B", "bitwarden-desktop")
@@ -147,6 +150,9 @@ bindm_exec("x", volume .. " --toggle", { locked = true })
 bindm_exec("z", volume .. " --toggle-mic", { locked = true })
 bind_exec("XF86AudioMute", volume .. " --toggle", { locked = true })
 bind_exec("XF86AudioMicMute", volume .. " --toggle-mic", { locked = true })
+
+-- TOGGLE AUDIO SOURCE AND SINK
+bindm_exec("SHIFT+z", toggleAudio)
 
 -- MEDIA CONTROL
 bind_exec("XF86AudioPlay", "playerctl -p fooyin,%any,chromium,firefox play-pause", { locked = true })

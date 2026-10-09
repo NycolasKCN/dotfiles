@@ -12,8 +12,12 @@
    "$schema": "https://vicinae.com/schemas/config.json",
    "close_on_focus_loss": false,
    "pop_to_root_on_close": true,
+   "activate_on_single_click": true,
    "escape_key_behavior": "close_window",
    "keybinding": "vim",
+   "tray": {
+      "enabled": false
+   },
    "global_shortcuts": {
       "toggle": ""
    },
@@ -24,7 +28,7 @@
    },
    "theme": {
       "dark": {
-         "name": "vicinae-dark"
+         "name": "zenwritten-dark"
       }
    },
    "telemetry": {
@@ -42,9 +46,10 @@
    },
    "providers": {
       "@jomifepe/store.raycast.bitwarden": {
+         "enabled": true,
          "preferences": {
             "cliPath": "/usr/bin/bw",
-            "fetchFavicons": true,
+            "fetchFavicons": false,
             "repromptIgnoreDuration": "28800000",
             "serverUrl": "",
             "shouldCacheVaultItems": true,
@@ -64,6 +69,10 @@
          }
       },
       "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "paths": []
+         },
          "entrypoints": {
             "ferdium": {
                "alias": "whatsapp"

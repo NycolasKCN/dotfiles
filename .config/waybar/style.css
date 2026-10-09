@@ -1,5 +1,7 @@
 @import url("/home/nyc/.cache/wal/colors-waybar.css");
 
+@define-color background #070808;
+
 * {
   font-size: 1rem;
   font-family: "NotoSansM NFP";
@@ -22,7 +24,8 @@ tooltip {
 .modules-center,
 .modules-right {
   padding: 6px;
-  background: alpha(@background, 0.8);
+  /* background: alpha(@background, 0.8); */
+  background: @background;
   border-bottom: 1px solid alpha(@color9, 0.9);
 }
 
