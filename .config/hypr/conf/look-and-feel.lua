@@ -29,10 +29,13 @@ hl.config({
       enabled = true,
       size = 4,
       passes = 4,
+      -- variant = "gc",
 
       new_optimizations = true,
       ignore_opacity = true,
       special = false,
+      popups = false,
+      popups_ignorealpha = 0.1,
     },
 
     shadow = {

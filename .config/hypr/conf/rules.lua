@@ -181,7 +181,7 @@ hl.layer_rule({
 
 	animation = "slide right",
 	blur = true,
-	ignore_alpha = 0.1,
+	ignore_alpha = 0.2,
 })
 
 hl.layer_rule({
@@ -228,7 +228,7 @@ hl.layer_rule({
 
 hl.layer_rule({
 	name = "ycal",
-	match = { namespace = [[gtk4-layer-shell]] },
+	match = { namespace = "^ycal$" },
 
 	blur = true,
 	ignore_alpha = 0.2,
