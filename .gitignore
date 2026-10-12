@@ -44,3 +44,4 @@
 /.config/waybar/cpu_temp
 **/colors.toml
 /.config/qt6ct
+/.config/quickshell/.qmlls.ini
