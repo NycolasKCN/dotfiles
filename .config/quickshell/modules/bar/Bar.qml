@@ -2,9 +2,9 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
-import "../time"
-import "./workspaces"
 import "../theme"
+import "./time"
+import "./workspaces"
 
 Variants {
     model: Quickshell.screens.filter(screen => ["eDP-1", "DP-1"].includes(screen.name))
@@ -14,7 +14,7 @@ Variants {
         screen: modelData
         WlrLayershell.namespace: "bar"
 
-        implicitHeight: 30
+        implicitHeight: 32
         anchors {
             top: true
             left: true
@@ -50,17 +50,12 @@ Variants {
                 }
 
                 Item {
-                    // spacer
                     Layout.fillWidth: true
                 }
 
                 ClockWidget {
                     Layout.alignment: Qt.AlignCenter
                     Layout.rightMargin: 16
-
-                    color: Colors.foreground
-                    font.weight: Fonts.mediumWeight
-                    font.family: Fonts.primary
                 }
             }
         }

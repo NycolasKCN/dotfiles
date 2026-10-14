@@ -1,7 +1,7 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
+import "../../theme/components"
 
 RowLayout {
     id: workspacesRow
@@ -16,18 +16,16 @@ RowLayout {
         }
     }
 
-    ToolSeparator {
-        padding: 0
-        spacing: 0
+    LineSeparator {
+        Layout.alignment: Qt.AlignVCenter
         visible: appName.visible
     }
 
     FocusedAppWidget {
         id: appName
-        visible: true
 
         Layout.alignment: Qt.AlignVCenter
-        Layout.maximumWidth: 300
+        Layout.maximumWidth: 160
         Layout.leftMargin: 4
     }
 }

@@ -17,6 +17,7 @@ Text {
     elide: Text.ElideRight
     color: Colors.foreground
     font.family: Fonts.primary
-    font.pixelSize: Fonts.normal
-    font.weight: Fonts.mediumWeight
+    font.pointSize: Fonts.size.small
+    font.weight: Fonts.weight.medium
+    font.capitalization: Font.AllLowercase
 }

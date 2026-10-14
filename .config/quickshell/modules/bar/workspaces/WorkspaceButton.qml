@@ -36,11 +36,11 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         text: Icons.workspace(root.workspace.name, root.workspace.id)
-        color: isActive ? Colors.background : Colors.primary
+        color: root.isActive ? Colors.background : Colors.primary
 
         font.family: Fonts.primary
-        font.pointSize: Fonts.small
-        font.weight: Fonts.mediumWeight
+        font.pointSize: Fonts.size.small
+        font.weight: Fonts.weight.medium
 
         Behavior on color {
             ColorAnimation {
