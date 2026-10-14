@@ -184,10 +184,10 @@ local function zoom(offset)
 end
 
 bindm("mouse_up", function()
-  zoom(-0.25)
+  zoom(0.25)
 end, { mouse = true })
 bindm("mouse_down", function()
-  zoom(0.25)
+  zoom(-0.25)
 end, { mouse = true })
 
 -- SCREENSHOT

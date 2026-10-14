@@ -14,13 +14,14 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
   hl.exec_cmd("wal - R")
-  hl.exec_cmd("sleep 2 & waybar")
+  -- hl.exec_cmd("sleep 2 & waybar")
+  hl.exec_cmd("quickshell")
   hl.exec_cmd("vicinae server")
 
-  hl.exec_cmd("nm-applet")
-  if host.isLaptop() then
-    hl.exec_cmd("blueman-applet")
-  end
+  -- hl.exec_cmd("nm-applet")
+  -- if host.isLaptop() then
+  --   hl.exec_cmd("blueman-applet")
+  -- end
 
   hl.exec_cmd("udiskie")
   hl.exec_cmd("swaync & swaync-client -df")

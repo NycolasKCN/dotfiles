@@ -25,7 +25,7 @@ Rectangle {
     readonly property bool isActive: workspace.focused || activeSpecial === workspace.name
     implicitWidth: 26
     implicitHeight: 20
-    radius: 6
+    radius: 16
     color: isActive ? Colors.primary : Colors.background
     Behavior on color {
         ColorAnimation {

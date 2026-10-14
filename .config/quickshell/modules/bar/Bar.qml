@@ -42,7 +42,7 @@ Variants {
 
             RowLayout {
                 anchors.fill: parent
-                spacing: 2
+                spacing: 4
 
                 Workspaces {
                     Layout.alignment: Qt.AlignCenter

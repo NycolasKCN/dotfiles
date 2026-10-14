@@ -219,6 +219,15 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
+	name = "waybar",
+	match = { namespace = [[bar]] },
+
+	blur = true,
+	ignore_alpha = 0.4,
+	animation = "slide top",
+})
+
+hl.layer_rule({
 	name = "wlogout",
 	match = { namespace = [[logout_dialog]] },
 
