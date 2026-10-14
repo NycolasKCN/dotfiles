@@ -14,7 +14,8 @@ Variants {
         screen: modelData
         WlrLayershell.namespace: "bar"
 
-        implicitHeight: 32
+        implicitHeight: Sizes.bar.height
+        color: Colors.background
         anchors {
             top: true
             left: true
@@ -26,37 +27,34 @@ Variants {
             right: 0
         }
 
+        // Bottom border
         Rectangle {
-            anchors.fill: parent
-            color: Colors.background
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+            height: 1
+            color: Colors.primary
+        }
 
-            Rectangle {
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    bottom: parent.bottom
-                }
-                height: 1
-                color: Colors.primary
+        // Bar Widgets
+        RowLayout {
+            anchors.fill: parent
+            spacing: Sizes.margin.small
+
+            Workspaces {
+                Layout.alignment: Qt.AlignCenter
+                Layout.leftMargin: Sizes.margin.big
             }
 
-            RowLayout {
-                anchors.fill: parent
-                spacing: 4
+            Item {
+                Layout.fillWidth: true
+            }
 
-                Workspaces {
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.leftMargin: 16
-                }
-
-                Item {
-                    Layout.fillWidth: true
-                }
-
-                ClockWidget {
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.rightMargin: 16
-                }
+            ClockWidget {
+                Layout.alignment: Qt.AlignCenter
+                Layout.rightMargin: Sizes.margin.big
             }
         }
     }

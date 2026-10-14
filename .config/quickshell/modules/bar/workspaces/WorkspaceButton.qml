@@ -23,10 +23,11 @@ Rectangle {
     }
 
     readonly property bool isActive: workspace.focused || activeSpecial === workspace.name
-    implicitWidth: 26
+    implicitWidth: 24
     implicitHeight: 20
-    radius: 16
+    radius: Sizes.radius.normal
     color: isActive ? Colors.primary : Colors.background
+
     Behavior on color {
         ColorAnimation {
             duration: 120
@@ -48,6 +49,7 @@ Rectangle {
             }
         }
     }
+
     MouseArea {
         anchors.fill: parent
         onClicked: root.workspace.activate()

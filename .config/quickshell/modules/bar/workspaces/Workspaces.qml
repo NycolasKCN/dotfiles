@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
+import "../../theme"
 import "../../theme/components"
 
 RowLayout {
@@ -23,9 +24,10 @@ RowLayout {
 
     FocusedAppWidget {
         id: appName
+        visible: false
 
         Layout.alignment: Qt.AlignVCenter
         Layout.maximumWidth: 160
-        Layout.leftMargin: 4
+        Layout.leftMargin: Sizes.margin.small
     }
 }

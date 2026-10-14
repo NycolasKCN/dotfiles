@@ -5,8 +5,8 @@ QtObject {
     component Sizes: QtObject {
         readonly property int verySmall: 9
         readonly property int small: 10
-        readonly property int normal: 12
-        readonly property int big: 14
+        readonly property int normal: 11
+        readonly property int big: 13
     }
 
     component Weights: QtObject {
