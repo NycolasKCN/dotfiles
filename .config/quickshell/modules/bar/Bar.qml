@@ -1,10 +1,7 @@
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
-import QtQuick.Layouts
-import "../theme"
-import "./time"
-import "./workspaces"
+import "../../config.js" as Config
 
 Variants {
     model: Quickshell.screens.filter(screen => ["eDP-1", "DP-1"].includes(screen.name))
@@ -14,17 +11,12 @@ Variants {
         screen: modelData
         WlrLayershell.namespace: "bar"
 
-        implicitHeight: Sizes.bar.height
-        color: Colors.background
+        implicitHeight: Config.sizes.bar.height
+        color: Config.colors.background
         anchors {
             top: true
             left: true
             right: true
-        }
-        margins {
-            top: 0
-            left: 0
-            right: 0
         }
 
         // Bottom border
@@ -35,26 +27,33 @@ Variants {
                 bottom: parent.bottom
             }
             height: 1
-            color: Colors.primary
+            color: Config.colors.primary
         }
 
         // Bar Widgets
-        RowLayout {
-            anchors.fill: parent
-            spacing: Sizes.margin.small
-
-            Workspaces {
-                Layout.alignment: Qt.AlignCenter
-                Layout.leftMargin: Sizes.margin.big
+        Item {
+            anchors {
+                fill: parent
+                leftMargin: Config.sizes.margin.big
+                rightMargin: Config.sizes.margin.big
             }
 
-            Item {
-                Layout.fillWidth: true
+            LeftModules {
+                anchors {
+                    left: parent.left
+                    verticalCenter: parent.verticalCenter
+                }
             }
-
-            ClockWidget {
-                Layout.alignment: Qt.AlignCenter
-                Layout.rightMargin: Sizes.margin.big
+            CenterModules {
+                anchors {
+                    centerIn: parent
+                }
+            }
+            RightModules {
+                anchors {
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter
+                }
             }
         }
     }

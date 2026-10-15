@@ -6,7 +6,7 @@
 }
 {
     "label" : "logout",
-    "action" : "sleep 0.5 && hyprshutdown -t 'Logging out...'",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Logging out...'",
     "text" : "Logout",
     "keybind" : "e"
 }
@@ -18,13 +18,13 @@
 }
 {
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Rebooting now...' --post-cmd 'systemctl reboot'",
     "text" : "Reboot",
     "keybind" : "r"
 }
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl shutdown'",
     "text" : "Shutdown",
     "keybind" : "s"
 }

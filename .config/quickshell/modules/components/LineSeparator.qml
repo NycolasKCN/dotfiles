@@ -1,9 +1,9 @@
 import QtQuick
-import "../"
+import "../../config.js" as Config
 
 Rectangle {
     implicitWidth: 2
     implicitHeight: 12
-    color: Colors.secondary
+    color: Config.colors.secondary
     opacity: 0.4
 }

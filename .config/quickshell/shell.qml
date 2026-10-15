@@ -1,4 +1,3 @@
-// shell.qml
 import QtQuick
 import Quickshell
 import "./modules/bar"
@@ -6,9 +5,9 @@ import "./modules/bar"
 ShellRoot {
   id: shellRoot
 
+  // Status Bar
   Loader {
     active: true
-    
     sourceComponent: Bar {}
   }
   

@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
-import "../../theme"
+import "../../../../config.js" as Config
 
 Rectangle {
     id: root
@@ -25,8 +25,8 @@ Rectangle {
     readonly property bool isActive: workspace.focused || activeSpecial === workspace.name
     implicitWidth: 24
     implicitHeight: 20
-    radius: Sizes.radius.normal
-    color: isActive ? Colors.primary : Colors.background
+    radius: Config.sizes.radius.normal
+    color: isActive ? Config.colors.primary : Config.colors.background
 
     Behavior on color {
         ColorAnimation {
@@ -36,12 +36,12 @@ Rectangle {
 
     Text {
         anchors.centerIn: parent
-        text: Icons.workspace(root.workspace.name, root.workspace.id)
-        color: root.isActive ? Colors.background : Colors.primary
+        text: Config.icons.workspace(root.workspace.name, root.workspace.id)
+        color: root.isActive ? Config.colors.background : Config.colors.primary
 
-        font.family: Fonts.primary
-        font.pointSize: Fonts.size.small
-        font.weight: Fonts.weight.medium
+        font.family: Config.fonts.primary
+        font.pointSize: Config.fonts.size.small
+        font.weight: Config.fonts.weight.medium
 
         Behavior on color {
             ColorAnimation {

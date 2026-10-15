@@ -41,3 +41,5 @@ alias ua-update-mirrors='export TMPFILE="$(mktemp)"; \
       && sudo mv $TMPFILE /etc/pacman.d/mirrorlist'
 
 alias i='sudo pacman -S'
+
+alias tman="tldr"
