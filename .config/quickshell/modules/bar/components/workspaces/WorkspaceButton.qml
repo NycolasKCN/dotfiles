@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
-import "../../../../config.js" as Config
+import qs.config
 
 Rectangle {
     id: root

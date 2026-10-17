@@ -1,11 +1,12 @@
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
-import "../../config.js" as Config
+import qs.config
+import qs.modules.components
 
 Variants {
     model: Quickshell.screens.filter(screen => ["eDP-1", "DP-1"].includes(screen.name))
-
+    // Bar
     PanelWindow {
         required property var modelData
         screen: modelData
@@ -20,22 +21,22 @@ Variants {
         }
 
         // Bottom border
-        Rectangle {
-            anchors {
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-            }
-            height: 1
-            color: Config.colors.primary
-        }
+        // Rectangle {
+        //     anchors {
+        //         left: parent.left
+        //         right: parent.right
+        //         bottom: parent.bottom
+        //     }
+        //     height: 1
+        //     color: Config.colors.primary
+        // }
 
         // Bar Widgets
         Item {
             anchors {
                 fill: parent
-                leftMargin: Config.sizes.margin.big
-                rightMargin: Config.sizes.margin.big
+                leftMargin: Config.sizes.bar.leftMargin
+                rightMargin: Config.sizes.bar.rightMargin
             }
 
             LeftModules {
@@ -56,5 +57,8 @@ Variants {
                 }
             }
         }
+
+        // Corner decorations
+        ScreenCorners {}
     }
 }

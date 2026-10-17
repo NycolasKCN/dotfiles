@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
-import "../../../../config.js" as Config
+import qs.config
 
 RowLayout {
     id: workspacesRow
