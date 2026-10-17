@@ -9,7 +9,7 @@ local fileManager = "nautilus"
 local browser = "zen-browser"
 local menu = "vicinae toggle"
 local menuBack = "pkill wofi || wofi drun"
-local logout = "wlogout -b 4"
+local logout = "wlogout -b 5"
 
 local changeWallpaper = "$HOME/Dotfiles/scripts/wallpaper.sh"
 local volume = "$HOME/Dotfiles/scripts/volume.sh"
@@ -47,7 +47,7 @@ bindm_exec("T", terminal)
 bindm_exec("B", browser)
 bindm_exec("N", "swaync-client -t -sw")
 bindm_exec("R", recordScreen)
-bindm_exec("ALT+SLASH", logout)
+bindm_exec("SEMICOLON", logout)
 
 -- Control APPS
 bindm("C", hl.dsp.window.close())

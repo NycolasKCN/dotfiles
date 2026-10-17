@@ -10,7 +10,7 @@ hl.config({
     layout = "dwindle",
 
     gaps_in = 3,
-    gaps_out = 6,
+    gaps_out = 8,
     border_size = 2,
 
     col = {
@@ -19,7 +19,7 @@ hl.config({
     }
   },
   decoration = {
-    rounding = 12,
+    rounding = 16,
     active_opacity = 1.0,
     inactive_opacity = 0.9,
     fullscreen_opacity = 1.0,

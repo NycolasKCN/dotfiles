@@ -156,11 +156,11 @@ setFloatWindow("Extension: (Bitwarden Password Manager) - Bitwarden — Zen Brow
 
 hl.window_rule({
 	name = "xdg-portals",
-	match = { class = [[xdg-desktop-portal.*]] },
-
+	match = { class = "xdg-desktop-portal.*" },
 	border_size = 0,
 	float = true,
 	size = "650 600",
+  opacity = "1 override",
 })
 
 hl.window_rule({
