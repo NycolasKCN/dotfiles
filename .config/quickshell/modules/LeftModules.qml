@@ -2,8 +2,8 @@ import QtQuick
 import QtQuick.Layouts
 import qs.config
 import qs.modules.components
-import qs.modules.bar.components.workspaces
-import qs.modules.bar.components.focusedApp
+import qs.modules.components.workspaces
+import qs.modules.components.focusedApp
 
 RowLayout {
     spacing: Config.sizes.margin.normal

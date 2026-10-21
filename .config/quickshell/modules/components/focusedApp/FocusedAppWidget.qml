@@ -6,24 +6,26 @@ import qs.config
 Text {
     id: root
 
-    property string appClass: ""
-
+    property string appId: ""
+    readonly property string appName: appId !== ""
+        ? (DesktopEntries.heuristicLookup(appId)?.name ?? appId)
+        : ""
     Connections {
         target: Hyprland
 
         function onRawEvent(event) {
             if (event.name === "activewindow")
-                root.appClass = event.parse(2)[0]
+                root.appId = event.parse(2)[0];
         }
     }
 
     Component.onCompleted: {
-        const top = Hyprland.activeToplevel
-        appClass = top?.wayland?.appId ?? top?.lastIpcObject?.class ?? ""
+        const top = Hyprland.activeToplevel;
+        appId = top?.wayland?.appId ?? top?.lastIpcObject?.class ?? "";
     }
 
-    visible: appClass !== ""
-    text: appClass
+    visible: appId !== ""
+    text: appName
     elide: Text.ElideRight
     verticalAlignment: Text.AlignVCenter
 

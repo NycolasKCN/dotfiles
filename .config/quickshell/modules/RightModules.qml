@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.config
+import qs.modules
 import qs.modules.components
-import qs.modules.bar.components.clock
-import qs.modules.bar.components.pipewire
+import qs.modules.components.clock
+import qs.modules.components.pipewire
 
 RowLayout {
     spacing: Config.sizes.margin.large

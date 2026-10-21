@@ -29,12 +29,6 @@ QtObject {
     }
 
     readonly property QtObject sizes: QtObject {
-        readonly property QtObject bar: QtObject {
-            readonly property int height: 28
-            readonly property int width: 1000
-            readonly property int leftMargin: 24
-            readonly property int rightMargin: 24
-        }
         readonly property QtObject radius: QtObject {
             readonly property int small: 4
             readonly property int medium: 6
@@ -127,6 +121,18 @@ QtObject {
         readonly property QtObject commands: QtObject {
             readonly property string openSinkControl: "pavucontrol -t 3"
             readonly property string openSourceControl: "pavucontrol -t 4"
+        }
+    }
+
+    readonly property QtObject bar: QtObject {
+        readonly property int height: 28
+        readonly property int width: 1000
+        readonly property int leftMargin: 24
+        readonly property int rightMargin: 24
+
+        readonly property QtObject corners: QtObject {
+            readonly property bool top: true
+            readonly property bool bottom: false
         }
     }
 }

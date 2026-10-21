@@ -2,15 +2,14 @@
 
 import QtQuick
 import Quickshell
-import "./modules/bar"
+import qs.modules
 
 ShellRoot {
-  id: shellRoot
+    id: shellRoot
 
-  // Status Bar
-  Loader {
-    active: true
-    sourceComponent: Bar {}
-  }
-  
+    // Status Bar
+    Loader {
+        active: true
+        sourceComponent: Bar {}
+    }
 }
