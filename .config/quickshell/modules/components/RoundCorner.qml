@@ -7,7 +7,7 @@ Item {
     
     property int corner: 0
     property int radius: 24
-    property color color: Config.colors.background
+    property color color: Config.colors.bg
 
     implicitWidth: radius
     implicitHeight: radius

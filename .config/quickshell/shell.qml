@@ -3,6 +3,7 @@
 import QtQuick
 import Quickshell
 import qs.modules
+import qs.modules.components.notifications
 
 ShellRoot {
     id: shellRoot
@@ -11,5 +12,10 @@ ShellRoot {
     Loader {
         active: true
         sourceComponent: Bar {}
+    }
+
+    Loader {
+        active: true
+        sourceComponent: NotificationManager {}
     }
 }

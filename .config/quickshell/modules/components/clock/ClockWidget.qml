@@ -6,7 +6,7 @@ import qs.config
 
 RowLayout {
     id: root
-    spacing: Config.sizes.margin.small
+    spacing: Config.sizes.margins.small
 
     readonly property var time: {
         Qt.formatDateTime(clock.date, "hh:mm");
@@ -38,7 +38,7 @@ RowLayout {
         Layout.alignment: Qt.AlignCenter
         Layout.leftMargin: 1
 
-        color: Config.colors.foreground
+        color: Config.colors.fg
         font.weight: Config.fonts.weight.medium
         font.family: Config.fonts.primary
         font.pointSize: Config.fonts.size.normal

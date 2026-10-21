@@ -6,7 +6,7 @@ import qs.modules.components.workspaces
 import qs.modules.components.focusedApp
 
 RowLayout {
-    spacing: Config.sizes.margin.normal
+    spacing: Config.sizes.margins.normal
     layoutDirection: Qt.LeftToRight
 
     Workspaces {}
@@ -21,6 +21,6 @@ RowLayout {
 
         Layout.alignment: Qt.AlignVCenter
         Layout.maximumWidth: 160
-        Layout.leftMargin: Config.sizes.margin.small
+        Layout.leftMargin: Config.sizes.margins.small
     }
 }

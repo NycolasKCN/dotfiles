@@ -26,7 +26,7 @@ Rectangle {
     implicitWidth: 24
     implicitHeight: 20
     radius: Config.sizes.radius.normal
-    color: isActive ? Config.colors.primary : Config.colors.background
+    color: isActive ? Config.colors.primary : Config.colors.bg
 
     Behavior on color {
         ColorAnimation {
@@ -37,7 +37,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         text: Config.icons.workspace(root.workspace.name, root.workspace.id)
-        color: root.isActive ? Config.colors.background : Config.colors.primary
+        color: root.isActive ? Config.colors.bg : Config.colors.primary
 
         font.family: Config.fonts.primary
         font.pointSize: Config.fonts.size.small

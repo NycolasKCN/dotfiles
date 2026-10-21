@@ -5,7 +5,7 @@ import qs.config
 
 RowLayout {
     id: workspacesRow
-    spacing: Config.sizes.margin.normal
+    spacing: Config.sizes.margins.normal
 
     Repeater {
         model: Hyprland.workspaces

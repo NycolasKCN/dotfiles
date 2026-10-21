@@ -1,5 +1,6 @@
 module qs.modules.components
 DotSeparator 1.0 DotSeparator.qml
 LineSeparator 1.0 LineSeparator.qml
+HLineSeparator 1.0 HLineSeparator.qml
 RoundCorner 1.0 RoundCorner.qml
 ScreenCorners 1.0 ScreenCorners.qml

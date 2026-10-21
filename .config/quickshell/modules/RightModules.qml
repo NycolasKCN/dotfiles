@@ -7,7 +7,7 @@ import qs.modules.components.clock
 import qs.modules.components.pipewire
 
 RowLayout {
-    spacing: Config.sizes.margin.large
+    spacing: Config.sizes.margins.large
     layoutDirection: Qt.RightToLeft
 
     ClockWidget {

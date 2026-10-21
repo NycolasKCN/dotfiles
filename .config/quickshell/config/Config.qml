@@ -9,8 +9,9 @@ QtObject {
         readonly property string secondary: "#B9C8DA"
         readonly property string terciary: "#C8B7DD"
         readonly property string error: "#FFB4AB"
-        readonly property string background: "#070808"
-        readonly property string foreground: "#FAFAFA"
+        readonly property string muted: "#727B86"
+        readonly property string bg: "#070808"
+        readonly property string fg: "#FAFAFA"
     }
 
     readonly property QtObject fonts: QtObject {
@@ -29,12 +30,14 @@ QtObject {
     }
 
     readonly property QtObject sizes: QtObject {
+        readonly property int border: 2
         readonly property QtObject radius: QtObject {
             readonly property int small: 4
             readonly property int medium: 6
             readonly property int normal: 8
+            readonly property int big: 16
         }
-        readonly property QtObject margin: QtObject {
+        readonly property QtObject margins: QtObject {
             readonly property int none: 0
             readonly property int small: 4
             readonly property int normal: 6
@@ -82,12 +85,6 @@ QtObject {
                 readonly property string muted: ""
             }
         }
-        readonly property QtObject notification: QtObject {
-            readonly property string def: "󰂚"
-            readonly property string notification: "󱅫"
-            readonly property string danger: "󰵙"
-            readonly property string dnd: "󰂛"
-        }
         readonly property string controlCenter: ""
 
         function workspace(name, fallback) {
@@ -133,6 +130,17 @@ QtObject {
         readonly property QtObject corners: QtObject {
             readonly property bool top: true
             readonly property bool bottom: false
+        }
+    }
+    readonly property QtObject notifications: QtObject {
+        readonly property int width: 280
+        readonly property int centerWidth: 340
+        readonly property int timeout: 5000
+        readonly property QtObject icons: QtObject {
+            readonly property string def: "󰂚"
+            readonly property string notification: "󱅫"
+            readonly property string danger: "󰵙"
+            readonly property string dnd: "󰂛"
         }
     }
 }

@@ -49,7 +49,7 @@ Rectangle {
     RowLayout {
         id: row
         anchors.right: parent.right
-        spacing: Config.sizes.margin.small
+        spacing: Config.sizes.margins.small
         anchors.verticalCenter: parent.verticalCenter
         layoutDirection: Qt.RightToLeft
 
@@ -61,7 +61,7 @@ Rectangle {
             Layout.preferredWidth: FontsMetrics.normal.advanceWidth(root.percent)
             horizontalAlignment: Text.AlignRight
 
-            color: Config.colors.foreground
+            color: Config.colors.fg
             font: FontsMetrics.normal.font
         }
 
@@ -70,7 +70,7 @@ Rectangle {
             text: root.getIcon(root.percent, root.muted)
             horizontalAlignment: Text.AlignLeft
 
-            color: Config.colors.foreground
+            color: Config.colors.fg
             font: FontsMetrics.normal.font
         }
     }

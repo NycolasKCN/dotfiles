@@ -44,7 +44,7 @@ Variants {
                 right: parent.right
             }
             height: Config.bar.height
-            color: Config.colors.background
+            color: Config.colors.bg
 
             // Bar Widgets
             Item {

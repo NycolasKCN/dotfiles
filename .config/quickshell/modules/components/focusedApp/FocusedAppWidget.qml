@@ -29,7 +29,7 @@ Text {
     elide: Text.ElideRight
     verticalAlignment: Text.AlignVCenter
 
-    color: Config.colors.foreground
+    color: Config.colors.fg
     font.family: Config.fonts.primary
     font.pointSize: Config.fonts.size.small
     font.weight: Config.fonts.weight.medium
