@@ -5,6 +5,7 @@ import qs.modules
 import qs.modules.components
 import qs.modules.components.clock
 import qs.modules.components.pipewire
+import qs.modules.components.notifications
 
 RowLayout {
     spacing: Config.sizes.margins.large
@@ -12,6 +13,12 @@ RowLayout {
 
     ClockWidget {
         Layout.alignment: Qt.AlignVCenter
+    }
+
+    NotificationWidget {
+        Layout.alignment: Qt.AlignCenter
+        Layout.leftMargin: -2
+        Layout.rightMargin: -2
     }
 
     LineSeparator {

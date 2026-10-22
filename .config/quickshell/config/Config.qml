@@ -135,7 +135,9 @@ QtObject {
     readonly property QtObject notifications: QtObject {
         readonly property int width: 280
         readonly property int centerWidth: 340
+        readonly property int centerHeight: 800
         readonly property int timeout: 5000
+        readonly property int imageSize: 24
         readonly property QtObject icons: QtObject {
             readonly property string def: "󰂚"
             readonly property string notification: "󱅫"

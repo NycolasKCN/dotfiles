@@ -219,12 +219,26 @@ hl.layer_rule({
 })
 
 hl.layer_rule({
-	name = "waybar",
-	match = { namespace = [[bar]] },
+	name = "quickshell-status-bar",
+	match = { namespace = [[quickshell:bar]] },
 
 	blur = true,
 	ignore_alpha = 0.4,
 	animation = "slide top",
+})
+
+hl.layer_rule({
+	name = "quickshell-notification-area",
+	match = { namespace = [[quickshell:notification_area]] },
+
+	animation = "slide right",
+})
+
+hl.layer_rule({
+	name = "quickshell-notification-center",
+	match = { namespace = [[quickshell:notification_center]] },
+
+	animation = "slide right",
 })
 
 hl.layer_rule({

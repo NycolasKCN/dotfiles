@@ -7,15 +7,8 @@ import qs.config
 Rectangle {
     id: root
 
-    required property var n
-    property string highlightColor: n.urgency === NotificationUrgency.Critical ? Config.colors.error : Config.colors.primary
-    property bool isNotificationObject: isNotification(n)
-
-    function isNotification(n) {
-        return n !== null && n !== undefined
-            && typeof n.summary === "string"
-            && typeof n.dismiss === "function"
-    }
+    required property NotificationData n
+    property string highlightColor: n.urgency == NotificationUrgency.Critical ? Config.colors.error : Config.colors.primary
 
     implicitHeight: content.implicitHeight + Config.sizes.margins.medium * 2
     radius: Config.sizes.radius.normal
@@ -55,8 +48,7 @@ Rectangle {
             }
 
             Text {
-                visible: root.isNotificationObject
-                text: root.n.timestamp
+                text: Qt.formatDateTime(n.time, "HH:mm")
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 color: Config.colors.muted
                 font: FontsMetrics.title.small
@@ -78,12 +70,12 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: root.n.dismiss()
-    }
-
-    Timer {
-        running: n.urgency !== NotificationUrgency.Critical
-        interval: Config.notifications.timeout
-        onTriggered: root.n.expire()
+        onClicked: {
+            if (root.n.isPopupOpen) {
+                root.n.closePopup()
+            } else {
+                root.n.close()
+            }
+        }
     }
 }

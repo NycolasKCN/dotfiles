@@ -10,7 +10,7 @@ Variants {
     PanelWindow {
         required property var modelData
         screen: modelData
-        WlrLayershell.namespace: "bar"
+        WlrLayershell.namespace: "quickshell:bar"
 
         anchors {
             top: true

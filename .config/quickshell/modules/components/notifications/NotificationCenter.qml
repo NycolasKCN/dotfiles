@@ -8,7 +8,7 @@ import qs.config
 
 PanelWindow {
     id: root
-    required property var notifications
+    required property list<NotificationData> notifications
 
     anchors {
         right: true
@@ -20,9 +20,9 @@ PanelWindow {
     }
 
     implicitWidth: Config.notifications.centerWidth
-    implicitHeight: column.implicitHeight + 20
-    visible: root.notifications.values.length > 0
+    implicitHeight: Math.min(column.implicitHeight + 20, Config.notifications.centerHeight)
     exclusionMode: ExclusionMode.Auto
+    visible: root.notifications.values.length > 0
     color: "transparent"
     WlrLayershell.namespace: "quickshell:notification_center"
 
@@ -64,7 +64,7 @@ PanelWindow {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: () => {
-                        console.log('clear all notifications');
+                        NotificationState.clearHistory();
                     }
                 }
             }
@@ -90,9 +90,10 @@ PanelWindow {
             model: root.notifications
 
             NotificationCard {
-                Layout.margins: Config.sizes.margins.big
+                Layout.leftMargin: Config.sizes.margins.big
+                Layout.rightMargin: Config.sizes.margins.big
                 Layout.fillWidth: true
-                required property var modelData
+                required property NotificationData modelData
                 n: modelData
             }
         }

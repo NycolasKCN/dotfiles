@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.modules.components
+import qs.modules.components.notifications
 import qs.config
 
 RowLayout {
@@ -43,5 +44,12 @@ RowLayout {
         font.family: Config.fonts.primary
         font.pointSize: Config.fonts.size.normal
         text: root.time
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            NotificationState.toggle_center();
+        }
     }
 }

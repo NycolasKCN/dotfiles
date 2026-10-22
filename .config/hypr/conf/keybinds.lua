@@ -17,6 +17,10 @@ local toggleAudio = "$HOME/Dotfiles/scripts/toggle-desktop-source.sh toggle"
 local recordScreen = "$HOME/Dotfiles/scripts/recordscreen.sh"
 local brightness = "$HOME/Dotfiles/scripts/brightness.sh"
 
+-- quickshell
+local notificationCenter = "qs ipc call notifications toggle"
+local toggleDnd = "qs ipc call notifications toggleDnd"
+
 -- AUXILLIARY FUNCIONS
 
 local function bindm(keys, dispatcher, flags)
@@ -45,7 +49,7 @@ bindm_exec("COMMA", changeWallpaper)
 bindm_exec("E", fileManager)
 bindm_exec("T", terminal)
 bindm_exec("B", browser)
-bindm_exec("N", "swaync-client -t -sw")
+bindm_exec("N", notificationCenter)
 bindm_exec("R", recordScreen)
 bindm_exec("SEMICOLON", logout)
 
@@ -53,7 +57,7 @@ bindm_exec("SEMICOLON", logout)
 bindm("C", hl.dsp.window.close())
 bindm("F", hl.dsp.window.float())
 bindm("RETURN", hl.dsp.window.fullscreen())
-bindm_exec("SHIFT+N", "swaync-client -d")
+bindm_exec("SHIFT+N", toggleDnd)
 bindm_exec("SHIFT+L", "pidof hyprlock || hyprlock")
 bindm("SHIFT+PERIOD", function()
   hl.exec_cmd("pkill waybar || waybar")

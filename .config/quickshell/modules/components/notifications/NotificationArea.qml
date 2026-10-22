@@ -6,7 +6,7 @@ import qs.config
 
 PanelWindow {
     id: root
-    required property var notifications
+    required property list<NotificationData> notifications
 
     anchors {
         right: true
@@ -19,7 +19,7 @@ PanelWindow {
 
     implicitWidth: Config.notifications.width
     implicitHeight: column.implicitHeight
-    visible: root.notifications.values.length > 0
+    visible: root.notifications.length > 0
     color: "transparent"
     exclusionMode: ExclusionMode.Auto
     WlrLayershell.namespace: "quickshell:notification_area"
@@ -34,7 +34,7 @@ PanelWindow {
 
             NotificationCard {
                 Layout.fillWidth: true
-                required property var modelData
+                required property NotificationData modelData
                 n: modelData
             }
         }

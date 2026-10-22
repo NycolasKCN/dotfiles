@@ -11,55 +11,43 @@ import QtQuick
 Scope {
     id: root
 
-    property bool centerOpened: true
-    // {
-    //    id,
-    //    summary,
-    //    appIcon,
-    //    timestamp,
-    //    urgency,
-    //    body
-    // }
-    property list<JsonObject> history: []
-
     NotificationServer {
         id: server
 
         // Capabilities
-        actionsSupported: true
         bodySupported: true
         imageSupported: true
         bodyMarkupSupported: true
+        actionsSupported: true
         inlineReplySupported: false
 
-        onNotification: n => {
-            let notificationJson = {
-                summary: n.summary,
-                body: n.body,
-                appName: n.appName,
-                appIcon: n.appIcon,
-                urgency: n.urgency,
-                timestamp: Qt.formatDateTime(new Date(), "HH:mm")
-            };
-            root.history = [notificationJson, ...root.history];
-            n.tracked = true;
-        }
-    }
+        onNotification: notif => {
+            notif.tracked = true;
 
-    IpcHandler {
-        target: "notifications"
+            const comp = notifComp.createObject(root, {
+                isPopupOpen: NotificationState.shouldShowPopup(),
+                notification: notif
+            });
+            NotificationState.add(comp);
 
-        function toggle(): void {
-            root.centerOpened = !root.centerOpened;
+            console.log(comp);
+            console.log("Lista: ", NotificationState.list);
+            console.log("Popup: ", NotificationState.popups);
         }
     }
 
     NotificationArea {
-        notifications: server.trackedNotifications
+        notifications: NotificationState.popups
+        visible: !NotificationState.isCenterOpen
     }
 
     NotificationCenter {
-        notifications: root.history
-        visible: root.centerOpened
+        notifications: NotificationState.notClosed
+        visible: NotificationState.isCenterOpen
+    }
+
+    Component {
+        id: notifComp
+        NotificationData {}
     }
 }
