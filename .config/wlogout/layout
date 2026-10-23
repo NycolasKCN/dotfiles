@@ -18,13 +18,13 @@
 }
 {
     "label" : "reboot",
-    "action" : "sleep 0.5 & hyprshutdown -t 'Rebooting now...' --post-cmd 'systemctl reboot'",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Rebooting now...' --post-cmd 'reboot'",
     "text" : "Reboot",
     "keybind" : "r"
 }
 {
     "label" : "shutdown",
-    "action" : "sleep 0.5 & hyprshutdown -t 'Shutting down...' --post-cmd 'systemctl shutdown'",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
     "text" : "Shutdown",
     "keybind" : "s"
 }
