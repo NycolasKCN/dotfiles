@@ -1,94 +1,124 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
+import qs.modules.utils
 import qs.config
 
-// TODO: Update Tray
 WrapperRectangle {
     id: root
     resizeChild: false
     color: Config.colors.bg
-    // leftMargin: Config.sizes.margins.medium
-    // rightMargin: Config.sizes.margins.medium
-    opacity: SystemTray.items.values.length > 0 ? 1 : 0
-    visible: opacity > 0
-    Behavior on opacity {
-        NumberAnimation {
-            duration: 130
-            easing.type: Easing.Linear
-        }
+
+    property bool isOpen: false
+    property bool menuOpen: false
+    property string trayIcon: SystemTray.items.values.length > 0 ? Config.icons.tray.full : Config.icons.tray.empty
+
+    function toggleTray(): void {
+        isOpen = !isOpen;
     }
 
-    RowLayout {
-        spacing: Config.sizes.margins.large
-        Repeater {
-            model: SystemTray.items
+    // ---- bar icon ----
+    Text {
+        id: icon
+        text: root.trayIcon
+        font: FontsMetrics.title.font
+        color: Config.colors.fg
 
-            WrapperMouseArea {
-                id: delegate
-                required property SystemTrayItem modelData
+        MouseArea {
+            anchors.fill: parent
 
-                Item {
-                    implicitWidth: trayIcon.implicitWidth
-                    implicitHeight: trayIcon.implicitHeight
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onClicked: root.toggleTray()
+        }
 
-                    IconImage {
-                        id: trayIcon
-                        source: delegate.modelData.icon
-                        implicitSize: 16
-                        // visible: !C.Config.settings.tray.monochromeIcons
-                    }
+        // ---- drawer ----
+        PopupWindow {
+            id: drawer
+            // continua visível durante a animação de fechar
+            visible: root.isOpen || card.opacity > 0
+            color: "transparent"
 
-                    // MonoCrhome icons
-                    // Loader {
-                    // // active: C.Config.settings.tray.monochromeIcons
-                    //     anchors.fill: trayIcon
-                    //     sourceComponent: Item {
-                    //         Desaturate {
-                    //             id: desaturatedIcon
-                    //             visible: false // There's already color overlay
-                    //             anchors.fill: parent
-                    //             source: trayIcon
-                    //             desaturation: 1 // 1.0 means fully grayscale
-                    //         }
-                    //         ColorOverlay {
-                    //             anchors.fill: desaturatedIcon
-                    //             source: desaturatedIcon
-                    //             color: C.Config.theme.on_surface
-                    //         }
-                    //     }
-                    // }
-                }
+            anchor.item: root
+            anchor.edges: Edges.Bottom      // use Edges.Top se a barra estiver embaixo
+            anchor.gravity: Edges.Bottom    // idem
 
-                acceptedButtons: Qt.RightButton | Qt.LeftButton
+            implicitWidth: card.implicitWidth
+            implicitHeight: card.implicitHeight + 6
 
-                onClicked: event => {
-                    switch (event.button) {
-                    case Qt.LeftButton:
-                        modelData.activate();
-                        break;
-                    case Qt.RightButton:
-                        if (modelData.hasMenu)
-                            menu.open();
-                        break;
-                    }
-                    event.accepted = true;
-                }
+            WrapperRectangle {
+                id: card
+                y: root.isOpen ? 6 : 0      // desliza um pouco para baixo ao abrir
+                opacity: root.isOpen ? 1 : 0
+                margin: Config.sizes.margins.small * 2
 
-                QsMenuAnchor {
-                    id: menu
-                    menu: delegate.modelData.menu
-                    onVisibleChanged: QsWindow.window.inhibitGrab = visible
+                color: Config.colors.bg
+                radius: 6
+                border.width: 1
+                border.color: Qt.alpha(Config.colors.fg, 0.15)
 
-                    anchor {
-                        item: trayIcon
-                        edges: Edges.Left | Edges.Bottom
-                        gravity: Edges.Right | Edges.Bottom
-                        adjustment: PopupAdjustment.FlipX
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 130
+                        easing.type: Easing.OutCubic
                     }
                 }
+                Behavior on y {
+                    NumberAnimation {
+                        duration: 130
+                        easing.type: Easing.OutCubic
+                    }
+                }
+
+                Row {
+                    spacing: Config.sizes.margins.large
+
+                    Repeater {
+                        model: SystemTray.items
+
+                        WrapperMouseArea {
+                            id: delegate
+                            required property SystemTrayItem modelData
+
+                            acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+                            onClicked: event => {
+                                if (event.button === Qt.LeftButton)
+                                    modelData.activate();
+                                else if (event.button === Qt.RightButton && modelData.hasMenu)
+                                    menu.open();
+                                event.accepted = true;
+                            }
+
+                            IconImage {
+                                id: itemIcon
+                                source: delegate.modelData.icon
+                                implicitSize: 18
+                            }
+
+                            QsMenuAnchor {
+                                id: menu
+                                menu: delegate.modelData.menu
+                                onVisibleChanged: {
+                                    root.menuOpen = visible;
+                                    // QsWindow.window.inhibitGrab = visible;
+                                }
+                                anchor {
+                                    item: itemIcon
+                                    edges: Edges.Left | Edges.Bottom
+                                    gravity: Edges.Right | Edges.Bottom
+                                    adjustment: PopupAdjustment.FlipX
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            HyprlandFocusGrab {
+                windows: [drawer]
+                active: root.isOpen && !root.menuOpen
+                onCleared: root.isOpen = false
             }
         }
     }

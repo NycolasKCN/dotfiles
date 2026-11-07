@@ -34,10 +34,6 @@ RowLayout {
         Layout.alignment: Qt.AlignVCenter
     }
 
-    LineSeparator {
-        Layout.alignment: Qt.AlignVCenter
-    }
-
     Tray {
         Layout.alignment: Qt.AlignVCenter
     }

@@ -72,6 +72,11 @@ QtObject {
                 "special:magic2": ""
             })
 
+        readonly property var tray: QtObject {
+            readonly property string empty: "󱊔"
+            readonly property string full: "󱊖"
+        }
+
         readonly property QtObject pipewire: QtObject {
             readonly property QtObject volume: QtObject {
                 readonly property string off: ""
