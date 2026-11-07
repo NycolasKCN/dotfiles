@@ -93,16 +93,16 @@ hl.window_rule({
 
 	opacity = "1 override",
 })
-hl.window_rule({
-	name = "Open on workspace 2",
-	match = { class = [[jetbrains-webstorm]] },
-	workspace = "2 silent",
-})
-hl.window_rule({
-	name = "Open on workspace 3",
-	match = { class = [[jetbrains-idea]] },
-	workspace = "3 silent",
-})
+-- hl.window_rule({
+-- 	name = "Open on workspace 2",
+-- 	match = { class = [[jetbrains-webstorm]] },
+-- 	workspace = "2 silent",
+-- })
+-- hl.window_rule({
+-- 	name = "Open on workspace 3",
+-- 	match = { class = [[jetbrains-idea]] },
+-- 	workspace = "3 silent",
+-- })
 -- Jetbrains editors
 
 -- Other apps
@@ -132,7 +132,7 @@ hl.window_rule({
 	center = false,
 	no_blur = true,
 	opacity = "1 override",
-  min_size = "0 0"
+	min_size = "0 0",
 })
 -- Other apps
 
@@ -150,9 +150,47 @@ floatCenterWindow("Bitwarden", { class = "Bitwarden" }, "900 800")
 floatCenterWindow("CopyQ", { class = "com.github.hluk.copyq" }, "900 800")
 floatCenterWindow("Pavucontrol", { class = "org.pulseaudio.pavucontrol" }, "800 650")
 
--- Float bitwarden popup on firefox
--- setFloatWindow([[[Ee]xtension.*[Bb]itwarden.*]], {x = 800, y = 600})
-setFloatWindow("Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser", { x = 800, y = 600 })
+-- Float browser popups
+hl.on("window.open", function(w)
+	if w.class ~= "zen" then
+		return
+	end
+	if w.initial_title ~= "Zen Browser" then
+		return
+	end
+
+	local ff_windows = hl.get_windows({ class = "zen" })
+	if #ff_windows <= 1 then
+		return
+	end
+
+	hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+
+	local sub
+	sub = hl.on("window.title", function(tw)
+		if tw.address ~= w.address then
+			return
+		end
+		if
+			tw.title == ""
+			or tw.title == "Zen Browser"
+			or tw.title == "about:blank"
+			or tw.title:match("^about:.*Zen Browser$")
+		then
+			return
+		end
+
+		sub:remove()
+
+		if tw.title:match("^Extension:") then
+			hl.dispatch(hl.dsp.window.resize({ x = 800, y = 600, window = tw }))
+			hl.dispatch(hl.dsp.window.center({ window = tw }))
+			hl.dispatch(hl.dsp.focus({ window = tw }))
+		else
+			hl.dispatch(hl.dsp.window.float({ action = "unset", window = tw }))
+		end
+	end)
+end)
 
 hl.window_rule({
 	name = "xdg-portals",
@@ -160,7 +198,7 @@ hl.window_rule({
 	border_size = 0,
 	float = true,
 	size = "650 600",
-  opacity = "1 override",
+	opacity = "1 override",
 })
 
 hl.window_rule({
@@ -279,14 +317,36 @@ end
 -- WORKSPACES RULES
 -- ------------------------------------------------
 
-hl.workspace_rule({
-	workspace = "special:terminal",
-	on_created_empty = "kitty",
-})
+local workspace_programs = {
+	-- ["special:notes"] = { "obsidian" },
+	["special:terminal"] = { "kitty" },
+}
 
--- hl.workspace_rule({
---   workspace = "special:notes", on_created_empty = "obsidian",
--- })
+hl.on("workspace.created", function(ws)
+	if not ws.is_empty then
+		return
+	end
+
+	-- use programs associated with window id by default
+	local program = ws.id and workspace_programs[tostring(ws.id)] or workspace_programs[ws.name]
+	if program == nil then
+		return
+	end
+
+	local cmd, provided_rules = table.unpack(program)
+	-- shallow-copy the rules table so we can add the workspace to it
+	local rules = {}
+	if provided_rules ~= nil then
+		for k, v in provided_rules do
+			rules[k] = v
+		end
+	end
+	-- force program to open on desired workspace, even if focus is moved to another
+	-- workspace before the program window appears
+	rules.workspace = (ws.id and tostring(ws.id) or ws.name) .. " silent"
+	-- run it!
+	hl.exec_cmd(cmd, rules)
+end)
 
 -- No border when alone in screen
 hl.window_rule({

@@ -1,6 +1,6 @@
 local ale = require("conf.launch.ale-pessoa-wp")
 
-local mainMod = "SUPER"
+local mainMod = "Super_L"
 local screenshotOut = "$HOME/Images/Screenshots"
 
 -- APPS AND SCRIPTS
@@ -21,26 +21,33 @@ local brightness = "$HOME/Dotfiles/scripts/brightness.sh"
 local notificationCenter = "qs ipc call notifications toggle"
 local toggleDnd = "qs ipc call notifications toggleDnd"
 
+-- Devices
+local fizz_kbd = { inclusive = true, list = { "by-tech-gaming-keyboard" } }
+
 -- AUXILLIARY FUNCIONS
 
 local function bindm(keys, dispatcher, flags)
-  keys = mainMod .. "+" .. keys
-  hl.bind(keys, dispatcher, flags)
+	keys = mainMod .. "+" .. keys
+	flags = flags or {}
+
+	hl.bind(keys, dispatcher, flags)
 end
 
 local function bindm_exec(keys, command, flags)
-  bindm(keys, hl.dsp.exec_cmd(command), flags)
+	bindm(keys, hl.dsp.exec_cmd(command), flags)
 end
 
 local function bind_exec(keys, command, flags)
-  hl.bind(keys, hl.dsp.exec_cmd(command), flags)
+	flags = flags or {}
+
+	hl.bind(keys, hl.dsp.exec_cmd(command), flags)
 end
 
 -- LAUNCH APPS
-bindm_exec("SUPER_L", menu)
-bindm_exec("SHIFT+SUPER_L", menuBack)
+bindm_exec("", menu, { release = true })
+bindm_exec("SHIFT", menuBack, { release = true })
 bind_exec("ALT+TAB", "vicinae vicinae://launch/wm/switch-windows")
-bindm_exec("ALT+SPACE", menu)
+bind_exec("ALT+SPACE", menu)
 bindm_exec("SHIFT+B", "bitwarden-desktop")
 bindm_exec("CONTROL+V", "pkill pavucontrol || pavucontrol -t 3")
 bindm_exec("SHIFT+V", "vicinae vicinae://launch/clipboard/history")
@@ -60,27 +67,27 @@ bindm("RETURN", hl.dsp.window.fullscreen())
 bindm_exec("SHIFT+N", toggleDnd)
 bindm_exec("SHIFT+L", "pidof hyprlock || hyprlock")
 bindm("SHIFT+PERIOD", function()
-  hl.exec_cmd("pkill waybar || waybar")
-  hl.exec_cmd("pkill swaync || swaync")
+	hl.exec_cmd("pkill waybar || waybar")
+	hl.exec_cmd("pkill swaync || swaync")
 end)
 
 bindm("SEMICOLON", function()
-  local x = hl.get_monitor_at_cursor().width * 0.5
-  local y = hl.get_monitor_at_cursor().height * 0.5
-  hl.dispatch(hl.dsp.cursor.move({ x = x, y = y }))
+	local x = hl.get_monitor_at_cursor().width * 0.5
+	local y = hl.get_monitor_at_cursor().height * 0.5
+	hl.dispatch(hl.dsp.cursor.move({ x = x, y = y }))
 end)
 
 -- LAUNCH WORKSPACES
 bindm("PERIOD", hl.dsp.submap("Launch Workspace"))
 hl.define_submap("Launch Workspace", function()
-  hl.bind("A", function()
-    ale.start()
-  end)
-  hl.bind("CONTROL+A", function()
-    ale.stop()
-  end)
+	hl.bind("A", function()
+		ale.start()
+	end)
+	hl.bind("CONTROL+A", function()
+		ale.stop()
+	end)
 
-  hl.bind("ESCAPE", hl.dsp.submap("reset"))
+	hl.bind("ESCAPE", hl.dsp.submap("reset"))
 end)
 
 -- MOTIONS
@@ -135,7 +142,7 @@ bindm("P", hl.dsp.layout("togglesplit"))
 -- MOVE | RESIZE | TOGGLE FLOATING WINDOWS
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
-bindm("mouse:273", hl.dsp.window.float(), { mouse = true, click = true })
+bindm("mouse:273", hl.dsp.window.float(), { click = true })
 bindm("ALT+H", hl.dsp.window.resize({ x = -12, y = 0, relative = true }), { repeating = true })
 bindm("ALT+J", hl.dsp.window.resize({ x = 0, y = 12, relative = true }), { repeating = true })
 bindm("ALT+K", hl.dsp.window.resize({ x = 0, y = -12, relative = true }), { repeating = true })
@@ -144,6 +151,9 @@ bindm("ALT+L", hl.dsp.window.resize({ x = 12, y = 0, relative = true }), { repea
 -- OUTPUT VOLUME CONTROL
 bind_exec("XF86AudioLowerVolume", volume .. " --dec --notify", { repeating = true })
 bind_exec("XF86AudioRaiseVolume", volume .. " --inc --notify", { repeating = true })
+-- output just for FizzKeyboard
+bind_exec("F11", volume .. " --dec --notify", { repeating = true, device = fizz_kbd })
+bind_exec("F12", volume .. " --inc --notify", { repeating = true, device = fizz_kbd })
 
 -- INPUT VOLUME CONTROL
 bind_exec("SHIFT+XF86AudioLowerVolume", volume .. " --dec-mic --notify", { repeating = true })
@@ -175,24 +185,35 @@ local ZOOM_TOGGLE_FACTOR = 1.5
 ---@param offset number
 ---@return nil
 local function zoom(offset)
-  local current = hl.get_config("cursor.zoom_factor")
-  if offset ~= nil then
-    current = current + offset
-  elseif current ~= MIN_ZOOM then
-    current = MIN_ZOOM
-  else
-    current = ZOOM_TOGGLE_FACTOR
-  end
-  current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
-  hl.config({ cursor = { zoom_factor = current } })
+	local current = hl.get_config("cursor.zoom_factor")
+	if offset ~= nil then
+		current = current + offset
+	elseif current ~= MIN_ZOOM then
+		current = MIN_ZOOM
+	else
+		current = ZOOM_TOGGLE_FACTOR
+	end
+	current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+	hl.config({ cursor = { zoom_factor = current } })
 end
 
 bindm("mouse_up", function()
-  zoom(0.25)
+	zoom(0.25)
 end, { mouse = true })
 bindm("mouse_down", function()
-  zoom(-0.25)
+	zoom(-0.25)
 end, { mouse = true })
 
 -- SCREENSHOT
 bindm_exec("SHIFT+s", "hyprshot -z -m region -o " .. screenshotOut)
+
+bindm("space", function()
+	local window = hl.get_active_window()
+	if not window then
+		return
+	end
+	hl.dispatch(hl.dsp.window.cycle_next({
+		floating = not window.floating,
+		tiled = window.floating,
+	}))
+end, { description = "Switch focus between tiled and floating windows" })

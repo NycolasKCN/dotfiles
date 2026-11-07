@@ -1,5 +1,5 @@
 # pywall colors
-(cat ~/.cache/wal/sequences &)
+# (cat ~/.cache/wal/sequences &)
 
 # Performance optimizations
 DISABLE_AUTO_UPDATE="false"

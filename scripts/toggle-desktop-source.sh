@@ -15,9 +15,8 @@
 set -euo pipefail
 
 # --- Definições dos dispositivos ---------------------------------------
-
-SINK_PCI="alsa_output.pci-0000_00_1f.3.analog-stereo"
-SOURCE_PCI="alsa_input.pci-0000_00_1f.3.analog-stereo"
+SINK_PCI="alsa_output.usb-KTMicro_KT_USB_Audio_2021-06-07-0000-0000-0000--00.analog-stereo"
+SOURCE_PCI="alsa_input.usb-KTMicro_KT_USB_Audio_2021-06-07-0000-0000-0000--00.mono-fallback"
 
 SINK_USB="alsa_output.usb-Jieli_Technology_USB_Composite_Device_4250315736303607-00.analog-stereo"
 SOURCE_USB="alsa_input.usb-Jieli_Technology_USB_Composite_Device_4250315736303607-00.mono-fallback"
