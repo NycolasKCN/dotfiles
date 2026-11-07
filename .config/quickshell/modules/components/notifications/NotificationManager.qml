@@ -1,4 +1,5 @@
 import Quickshell.Services.Notifications
+import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell
 import QtQuick
@@ -42,8 +43,17 @@ Scope {
     }
 
     NotificationCenter {
+        id: notificationCenter
+
         notifications: NotificationState.notClosed
         visible: NotificationState.isCenterOpen
+        HyprlandFocusGrab {
+            windows: [notificationCenter]
+            active: NotificationState.isCenterOpen
+            onCleared: {
+                NotificationState.toggle_center();
+            }
+        }
     }
 
     Component {

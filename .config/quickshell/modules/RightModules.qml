@@ -4,6 +4,7 @@ import qs.config
 import qs.modules
 import qs.modules.components
 import qs.modules.components.clock
+import qs.modules.components.tray
 import qs.modules.components.pipewire
 import qs.modules.components.notifications
 
@@ -30,6 +31,14 @@ RowLayout {
     }
 
     AudioSource {
+        Layout.alignment: Qt.AlignVCenter
+    }
+
+    LineSeparator {
+        Layout.alignment: Qt.AlignVCenter
+    }
+
+    Tray {
         Layout.alignment: Qt.AlignVCenter
     }
 }

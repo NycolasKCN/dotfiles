@@ -1,5 +1,6 @@
 import Quickshell
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Services.Pipewire
 import qs.config
@@ -22,8 +23,18 @@ Rectangle {
     readonly property bool muted: ready ? node.audio.muted : false
     readonly property int percent: Math.round(level * 100)
 
+    // Tooltip
+    property bool tooltipVisible: false
+    readonly property string nodeName: node !== null ? (node.nickname || node.description || node.name) : ""
+
     PwObjectTracker {
         objects: root.node !== null ? [root.node] : []
+    }
+
+    Timer {
+        id: showTimer
+        interval: 400
+        onTriggered: root.tooltipVisible = true
     }
 
     function setVolume(v: real): void {
@@ -75,9 +86,88 @@ Rectangle {
         }
     }
 
+    // Linha reutilizável do tooltip: ícone + texto
+    component InfoRow: RowLayout {
+        property string glyph
+        property string label
+        property color glyphColor: Config.colors.fg
+
+        spacing: Config.sizes.margins.small
+
+        Text {
+            text: parent.glyph
+            color: parent.glyphColor
+            font: FontsMetrics.normal.font
+            horizontalAlignment: Text.AlignHCenter
+            Layout.preferredWidth: 20
+        }
+
+        Text {
+            text: parent.label
+            color: Config.colors.fg
+            font: FontsMetrics.normal.font
+            elide: Text.ElideRight
+            Layout.maximumWidth: 260
+        }
+    }
+
+    PopupWindow {
+        id: tooltip
+        visible: root.tooltipVisible && root.ready
+        color: "transparent"
+
+        anchor.item: root
+        anchor.edges: Edges.Bottom      // use Edges.Top se a barra estiver embaixo
+        anchor.gravity: Edges.Bottom    // idem
+
+        implicitWidth: card.implicitWidth
+        implicitHeight: card.implicitHeight + 6
+
+        Rectangle {
+            id: card
+            y: 6    // pequeno respiro entre a barra e o tooltip
+            color: Config.colors.bg     // ajuste para o nome da sua cor de fundo
+            radius: 6
+            border.width: 1
+            border.color: Qt.alpha(Config.colors.fg, 0.15)
+
+            implicitWidth: col.implicitWidth + Config.sizes.margins.small * 4
+            implicitHeight: col.implicitHeight + Config.sizes.margins.small * 4
+
+            ColumnLayout {
+                id: col
+                anchors.centerIn: parent
+                spacing: Config.sizes.margins.small
+
+                // 1) Nome do dispositivo (alto-falante p/ saída, microfone p/ entrada)
+                InfoRow {
+                    glyph: root.node.isSink ? Config.icons.pipewire.volume.medium : Config.icons.pipewire.mic.unmuted
+                    label: root.nodeName
+                }
+
+                // 2) Volume atual
+                InfoRow {
+                    glyph: root.getIcon(root.percent, root.muted)
+                    label: root.percent + "%"
+                }
+            }
+        }
+    }
+
     MouseArea {
+        id: mouse
         anchors.fill: parent
+        hoverEnabled: true
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+        onContainsMouseChanged: {
+            if (containsMouse) {
+                showTimer.restart();
+            } else {
+                showTimer.stop();
+                root.tooltipVisible = false;
+            }
+        }
 
         onClicked: event => {
             switch (event.button) {

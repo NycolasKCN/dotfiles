@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick.Layouts
 import QtQuick
+import QtQuick.Controls
 import qs.modules.utils
 import qs.modules.components
 import qs.config
@@ -22,7 +23,6 @@ PanelWindow {
     implicitWidth: Config.notifications.centerWidth
     implicitHeight: Math.min(column.implicitHeight + 20, Config.notifications.centerHeight)
     exclusionMode: ExclusionMode.Auto
-    visible: root.notifications.values.length > 0
     color: "transparent"
     WlrLayershell.namespace: "quickshell:notification_center"
 
@@ -35,7 +35,7 @@ PanelWindow {
 
     ColumnLayout {
         id: column
-        width: parent.width
+        anchors.fill: parent
         spacing: Config.sizes.margins.normal
 
         // 'Notifications' text and Clear all button
@@ -77,7 +77,9 @@ PanelWindow {
         }
 
         Text {
-            Layout.margins: Config.sizes.margins.big
+            Layout.leftMargin: Config.sizes.margins.big
+            Layout.rightMargin: Config.sizes.margins.big
+            Layout.bottomMargin: Config.sizes.margins.big
             Layout.alignment: Qt.AlignCenter
             font: FontsMetrics.title.font
             color: Config.colors.muted
@@ -86,14 +88,25 @@ PanelWindow {
             visible: root.notifications.length === 0
         }
 
-        Repeater {
+        // Content
+        ListView {
+            id: list
+            visible: root.notifications.length > 0
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.preferredHeight: contentHeight
+            Layout.leftMargin: Config.sizes.margins.big
+            Layout.rightMargin: Config.sizes.margins.big
+            // Layout.bottomMargin: Config.sizes.margins.big
+
+            clip: true
+            spacing: Config.sizes.margins.normal
+            boundsBehavior: Flickable.StopAtBounds
             model: root.notifications
 
-            NotificationCard {
-                Layout.leftMargin: Config.sizes.margins.big
-                Layout.rightMargin: Config.sizes.margins.big
-                Layout.fillWidth: true
+            delegate: NotificationCard {
                 required property NotificationData modelData
+                width: ListView.view.width
                 n: modelData
             }
         }
