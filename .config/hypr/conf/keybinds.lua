@@ -1,9 +1,13 @@
 local ale = require("conf.launch.ale-pessoa-wp")
+local functions = require("conf.keybinds-functions")
 
-local mainMod = "Super_L"
-local screenshotOut = "$HOME/Images/Screenshots"
+local bindm, bindm_exec, bind_exec = functions.bindm, functions.bindm_exec, functions.bind_exec
+local zoom =  functions.zoom
+local toggle_float_focus, toggle_pin_nofocus, toggle_pin =
+	functions.toggle_float_focus, functions.toggle_pin_nofocus, functions.toggle_pin
 
--- APPS AND SCRIPTS
+
+-- APPS, SCRIPTS and PATHS
 local terminal = "kitty"
 local fileManager = "nautilus"
 local browser = "zen-browser"
@@ -17,6 +21,8 @@ local toggleAudio = "$HOME/Dotfiles/scripts/toggle-desktop-source.sh toggle"
 local recordScreen = "$HOME/Dotfiles/scripts/recordscreen.sh"
 local brightness = "$HOME/Dotfiles/scripts/brightness.sh"
 
+local screenshotOut = "$HOME/Images/Screenshots"
+
 -- quickshell
 local notificationCenter = "qs ipc call notifications toggle"
 local toggleDnd = "qs ipc call notifications toggleDnd"
@@ -25,24 +31,6 @@ local toggleDnd = "qs ipc call notifications toggleDnd"
 local fizz_kbd = { inclusive = true, list = { "by-tech-gaming-keyboard" } }
 
 -- AUXILLIARY FUNCIONS
-
-local function bindm(keys, dispatcher, flags)
-	keys = mainMod .. "+" .. keys
-	flags = flags or {}
-
-	hl.bind(keys, dispatcher, flags)
-end
-
-local function bindm_exec(keys, command, flags)
-	bindm(keys, hl.dsp.exec_cmd(command), flags)
-end
-
-local function bind_exec(keys, command, flags)
-	flags = flags or {}
-
-	hl.bind(keys, hl.dsp.exec_cmd(command), flags)
-end
-
 -- LAUNCH APPS
 bindm_exec("", menu, { release = true })
 bindm_exec("SHIFT", menuBack, { release = true })
@@ -139,7 +127,9 @@ bindm("D", hl.dsp.workspace.toggle_special("magic2"))
 -- Layouts
 bindm("P", hl.dsp.layout("togglesplit"))
 
--- MOVE | RESIZE | TOGGLE FLOATING WINDOWS
+-- MOVE | RESIZE | TOGGLE FLOATING WINDOWS | TOGGLE PIN WINDOW
+bindm("mouse:276", toggle_pin_nofocus, { mouse = true })
+bindm("mouse:275", toggle_pin, { mouse = true })
 bindm("mouse:272", hl.dsp.window.drag(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.resize(), { mouse = true })
 bindm("mouse:273", hl.dsp.window.float(), { click = true })
@@ -178,25 +168,6 @@ bind_exec("XF86MonBrightnessUp", brightness .. " up")
 bind_exec("XF86MonBrightnessDown", brightness .. " down")
 
 -- ZOOM IN AND OUT
-local MAX_ZOOM = 3.5
-local MIN_ZOOM = 1
-local ZOOM_TOGGLE_FACTOR = 1.5
-
----@param offset number
----@return nil
-local function zoom(offset)
-	local current = hl.get_config("cursor.zoom_factor")
-	if offset ~= nil then
-		current = current + offset
-	elseif current ~= MIN_ZOOM then
-		current = MIN_ZOOM
-	else
-		current = ZOOM_TOGGLE_FACTOR
-	end
-	current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
-	hl.config({ cursor = { zoom_factor = current } })
-end
-
 bindm("mouse_up", function()
 	zoom(0.25)
 end, { mouse = true })
@@ -206,14 +177,4 @@ end, { mouse = true })
 
 -- SCREENSHOT
 bindm_exec("SHIFT+s", "hyprshot -z -m region -o " .. screenshotOut)
-
-bindm("space", function()
-	local window = hl.get_active_window()
-	if not window then
-		return
-	end
-	hl.dispatch(hl.dsp.window.cycle_next({
-		floating = not window.floating,
-		tiled = window.floating,
-	}))
-end, { description = "Switch focus between tiled and floating windows" })
+bindm("SPACE", toggle_float_focus, { description = "Switch focus between tiled and floating windows" })
