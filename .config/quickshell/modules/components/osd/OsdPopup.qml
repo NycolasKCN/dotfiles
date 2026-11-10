@@ -21,7 +21,7 @@ Scope {
     property int iconSize: 20
     property int paddingX: 14
     property int gap: 10
-    property real borderSize: 0.5
+    property real borderSize: Config.sizes.border
     property real cornerRadius: barHeight / 2
 
     property bool atTop: false

@@ -55,8 +55,8 @@ WrapperRectangle {
 
                 color: Config.colors.bg
                 radius: 6
-                border.width: 1
-                border.color: Qt.alpha(Config.colors.fg, 0.15)
+                border.width: Config.sizes.border 
+                border.color: Qt.lighter(Config.colors.bg, 3)
 
                 Behavior on opacity {
                     NumberAnimation {

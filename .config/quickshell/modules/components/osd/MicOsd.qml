@@ -17,12 +17,12 @@ Scope {
 		target: root.audio
 
 		function onVolumeChanged() {
-			osd.showBar = true;
+            osd.showBar = true
 			osd.show();
 		}
 
 		function onMutedChanged() {
-			osd.showBar = false;
+            osd.showBar = false
 			osd.show();
 		}
 	}
