@@ -31,6 +31,10 @@ PanelWindow {
         anchors.fill: parent
         color: Config.colors.bg
         radius: Config.sizes.radius.big
+        border {
+            color: Qt.lighter(Config.colors.bg, 3)
+            width: 0.5
+        }
     }
 
     ColumnLayout {

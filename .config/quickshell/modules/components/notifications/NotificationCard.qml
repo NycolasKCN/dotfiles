@@ -15,7 +15,7 @@ Rectangle {
     color: Config.colors.bg
     border {
         width: Config.sizes.border
-        color: highlightColor
+        color: Qt.darker(highlightColor, 2)
     }
 
     ColumnLayout {

@@ -30,7 +30,7 @@ QtObject {
     }
 
     readonly property QtObject sizes: QtObject {
-        readonly property int border: 2
+        readonly property real border: 1
         readonly property QtObject radius: QtObject {
             readonly property int small: 4
             readonly property int medium: 6
