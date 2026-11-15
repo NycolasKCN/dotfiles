@@ -68,7 +68,7 @@ hl.window_rule({
 	name = "Pinned opacity tag",
 	match = { tag = "pin_opacity" },
 
-	opacity = "0.4 override",
+	opacity = "0.6 override",
 })
 
 hl.window_rule({

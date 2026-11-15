@@ -77,7 +77,7 @@ MODE="${1:-toggle}"
 
 case "$MODE" in
     pci)
-        set_device "$SINK_PCI" "$SOURCE_PCI" "PCI (analógico onboard)"
+        set_device "$SINK_PCI" "$SOURCE_PCI" "KT USB"
         ;;
     usb)
         set_device "$SINK_USB" "$SOURCE_USB" "USB (Jieli Technology)"
@@ -90,7 +90,7 @@ case "$MODE" in
         if [[ "$current_sink" == "$SINK_PCI" ]]; then
             set_device "$SINK_USB" "$SOURCE_USB" "USB (Jieli Technology)"
         else
-            set_device "$SINK_PCI" "$SOURCE_PCI" "PCI (analógico onboard)"
+            set_device "$SINK_PCI" "$SOURCE_PCI" "KT USB"
         fi
         ;;
     *)

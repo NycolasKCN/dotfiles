@@ -26,17 +26,40 @@ Rectangle {
         }
         spacing: 2
 
+
+        // AppIcon + appname + close button
         RowLayout {
             Layout.fillWidth: true
+            Layout.bottomMargin: 1
 
             Image {
-                Layout.preferredHeight: 24
-                Layout.preferredWidth: 24
+                Layout.preferredHeight: 18
+                Layout.preferredWidth: 18 
                 Layout.alignment: Qt.AlignLeft
                 fillMode: Image.PreserveAspectFit
                 visible: source.toString() !== ""
                 source: root.n.image || root.n.appIcon || ""
             }
+
+            Text {
+                text: root.n.appName
+                Layout.horizontalStretchFactor: 1
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+                color: Config.colors.muted
+                font: FontsMetrics.title.small
+            }
+
+            Text {
+                text: Qt.formatDateTime(n.time, "HH:mm")
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                color: Config.colors.muted
+                font: FontsMetrics.title.small
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
 
             Text {
                 text: root.n.summary
@@ -45,13 +68,6 @@ Rectangle {
                 elide: Text.ElideRight
                 color: root.highlightColor
                 font: FontsMetrics.title.font
-            }
-
-            Text {
-                text: Qt.formatDateTime(n.time, "HH:mm")
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                color: Config.colors.muted
-                font: FontsMetrics.title.small
             }
         }
 
