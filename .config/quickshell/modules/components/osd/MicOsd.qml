@@ -10,19 +10,34 @@ Scope {
 	readonly property real volume: audio?.volume ?? 0
 	readonly property bool muted: audio?.muted ?? false
 
-	// Sem o tracker o volume/mute do source não é atualizado
+    property bool ready: false
+
+	onAudioChanged: {
+		ready = false;
+		settleTimer.restart();
+	}
+
+	Timer {
+		id: settleTimer
+		interval: 500
+		running: true
+		onTriggered: root.ready = true
+	}
+
 	PwObjectTracker { objects: [Pipewire.defaultAudioSource] }
 
 	Connections {
 		target: root.audio
 
 		function onVolumeChanged() {
-            osd.showBar = true
+			if (!root.ready) return;
+			osd.showBar = true;
 			osd.show();
 		}
 
 		function onMutedChanged() {
-            osd.showBar = false
+			if (!root.ready) return;
+			osd.showBar = false;
 			osd.show();
 		}
 	}

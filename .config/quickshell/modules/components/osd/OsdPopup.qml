@@ -16,9 +16,9 @@ Scope {
     property bool overflowWrap: true
 
     property int barWidth: 380
-    property int barHeight: 32
+    property int barHeight: 38
     property int innerBarHeight: 18
-    property int iconSize: 20
+    property int iconSize: 24
     property int paddingX: 14
     property int gap: 10
     property real borderSize: Config.sizes.border
@@ -84,7 +84,7 @@ Scope {
             }
             exclusiveZone: 0
 
-            implicitWidth: root.showBar ? root.barWidth : root.barHeight
+            implicitWidth: root.showBar ? root.barWidth : root.barHeight + 8
             implicitHeight: root.barHeight
             color: "transparent"
             mask: Region {}
