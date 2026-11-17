@@ -69,6 +69,7 @@ hl.window_rule({
 	match = { tag = "pin_opacity" },
 
 	opacity = "0.6 override",
+  no_blur = true
 })
 
 hl.window_rule({
@@ -198,6 +199,36 @@ hl.on("window.open", function(w)
 		end
 	end)
 end)
+
+-- float all qbittorrent windows except the main one
+-- hl.on("window.open", function(w)
+-- 	if w.class ~= "org.qbittorrent.qBittorrent" then
+-- 		return
+-- 	end
+--
+-- 	if w.initial_title:find("qBittorrent v%d") then
+--     return
+--   end
+--
+-- 	hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+--
+-- 	local sub
+-- 	sub = hl.on("window.title", function(tw)
+-- 		if tw.address ~= w.address then
+-- 			return
+-- 		end
+--
+-- 		sub:remove()
+--
+-- 		if tw.title:find("qBittorrent v%d") then
+-- 			hl.dispatch(hl.dsp.window.float({ action = "unset", window = tw }))
+-- 		else
+-- 			hl.dispatch(hl.dsp.window.resize({ x = 1280, y = 720, window = tw }))
+--       hl.dispatch(hl.dsp.window.center({ window = tw }))
+-- 			hl.dispatch(hl.dsp.focus({ window = tw }))
+-- 		end
+-- 	end)
+-- end)
 
 hl.window_rule({
 	name = "xdg-portals",
