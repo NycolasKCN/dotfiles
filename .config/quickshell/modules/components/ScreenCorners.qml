@@ -16,6 +16,7 @@ PanelWindow {
     color: "transparent"
     exclusionMode: ExclusionMode.Ignore
     WlrLayershell.layer: WlrLayer.Top
+    WlrLayershell.namespace: "quickshell:screen_corners"
     mask: Region {}
 
     // top left
@@ -39,6 +40,7 @@ PanelWindow {
     }
     // bottom left
     RoundCorner {
+        visible: false
         corner: 3
         anchors {
             bottom: parent.bottom
@@ -48,6 +50,7 @@ PanelWindow {
 
     // bottom right
     RoundCorner {
+        visible: false
         corner: 2
         anchors {
             bottom: parent.bottom

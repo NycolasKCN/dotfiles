@@ -45,3 +45,5 @@
 **/colors.toml
 /.config/qt6ct
 /.config/quickshell/.qmlls.ini
+/.config/zsh/.zcompdump-laptop-5.9.2.zwc
+/.config/zsh/.zcompdump-laptop-5.9.2
