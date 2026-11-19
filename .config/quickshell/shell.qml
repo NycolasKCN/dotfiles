@@ -2,15 +2,26 @@
 
 import QtQuick
 import Quickshell
-import "./modules/bar"
+import qs.modules
+import qs.modules.components.notifications
+import qs.modules.components.osd
 
 ShellRoot {
-  id: shellRoot
+    id: shellRoot
 
-  // Status Bar
-  Loader {
-    active: true
-    sourceComponent: Bar {}
-  }
-  
+    // Status Bar
+    Loader {
+        active: true
+        sourceComponent: Bar {}
+    }
+
+    Loader {
+        active: true
+        sourceComponent: NotificationManager {}
+    }
+
+    Loader {
+        active: true
+        sourceComponent: Osd {}
+    }
 }

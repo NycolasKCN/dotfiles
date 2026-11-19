@@ -1,1 +1,3 @@
+module qs.modules.utils
 singleton FontsMetrics 1.0 FontsMetrics.qml
+Wrapper 1.0 Wrapper.qml

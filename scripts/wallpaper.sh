@@ -86,28 +86,29 @@ main() {
     choice=$(menu | wofi -c ~/.config/wofi/wallpaper -s ~/.config/wofi/style-wallpaper.css --show dmenu --prompt "Select Wallpaper:" -n)
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
 
-    wal --cols16 darken --saturate 0.2 --contrast 5 -i "$selected_wallpaper"
+    # wal --cols16 darken --saturate 0.2 --contrast 5 -i "$selected_wallpaper"
+    #
+    # if [ $? -ne 0 ]; then
+    #   echo "[INFO] Trying with colorz"
+    #   wal --backend colorz --cols16 darken --saturate 0.2 --contrast 4 -i "$selected_wallpaper"
+    # fi
+    #
+    # if [ $? -ne 0 ]; then
+    #   echo "[INFO] Trying with fast_colorthief"
+    #   wal --backend fast_colorthief --cols16 darken --saturate 0.2 --contrast 4 -i "$selected_wallpaper"
+    # fi
 
-    if [ $? -ne 0 ]; then
-      echo "[INFO] Trying with colorz"
-      wal --backend colorz --cols16 darken --saturate 0.2 --contrast 4 -i "$selected_wallpaper"
-    fi
+    # swaync-client --reload-css
+    # source ~/.cache/wal/colors.sh
+    #
+    # changeKittyColor
+    # changeCavaColor
+    # changeHyprColor
+    # changeYcalColors 
 
-    if [ $? -ne 0 ]; then
-      echo "[INFO] Trying with fast_colorthief"
-      wal --backend fast_colorthief --cols16 darken --saturate 0.2 --contrast 4 -i "$selected_wallpaper"
-    fi
-
-    swaync-client --reload-css
-    source ~/.cache/wal/colors.sh
-
-    changeKittyColor
-    changeCavaColor
-    changeHyprColor
-    changeYcalColors 
-
-    systemctl --user restart waybar-ycal.service
+    # systemctl --user restart waybar-ycal.service
     cp "$selected_wallpaper" ~/Images/wallpaper/pywallpaper.jpg
+    hyprctl hyprpaper wallpaper ",$selected_wallpaper,fit"
 }
 
 main

@@ -1,16 +1,25 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.config
+import qs.modules
 import qs.modules.components
-import qs.modules.bar.components.clock
-import qs.modules.bar.components.pipewire
+import qs.modules.components.clock
+import qs.modules.components.tray
+import qs.modules.components.pipewire
+import qs.modules.components.notifications
 
 RowLayout {
-    spacing: Config.sizes.margin.large
+    spacing: Config.sizes.margins.large
     layoutDirection: Qt.RightToLeft
 
     ClockWidget {
         Layout.alignment: Qt.AlignVCenter
+    }
+
+    NotificationWidget {
+        Layout.alignment: Qt.AlignCenter
+        Layout.leftMargin: -2
+        Layout.rightMargin: -2
     }
 
     LineSeparator {
@@ -22,6 +31,10 @@ RowLayout {
     }
 
     AudioSource {
+        Layout.alignment: Qt.AlignVCenter
+    }
+
+    Tray {
         Layout.alignment: Qt.AlignVCenter
     }
 }

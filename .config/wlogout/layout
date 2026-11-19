@@ -24,7 +24,7 @@
 }
 {
     "label" : "shutdown",
-    "action" : "sleep 0.5 & hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown'",
+    "action" : "sleep 0.5 & hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
     "text" : "Shutdown",
     "keybind" : "s"
 }

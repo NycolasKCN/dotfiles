@@ -25,7 +25,7 @@ get_icon() {
 
 notify() {
   local brightness_value="$1"
-  echo "$brightness_value" br > $XDG_RUNTIME_DIR/wob.sock
+  qs ipc call brightness set "$brightness_value"
 }
 
 # Get monitor name - either from argument, env var, or focused monitor

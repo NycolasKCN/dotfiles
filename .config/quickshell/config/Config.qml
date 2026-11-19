@@ -9,8 +9,9 @@ QtObject {
         readonly property string secondary: "#B9C8DA"
         readonly property string terciary: "#C8B7DD"
         readonly property string error: "#FFB4AB"
-        readonly property string background: "#070808"
-        readonly property string foreground: "#FAFAFA"
+        readonly property string muted: "#727B86"
+        readonly property string bg: "#070808"
+        readonly property string fg: "#FAFAFA"
     }
 
     readonly property QtObject fonts: QtObject {
@@ -29,18 +30,14 @@ QtObject {
     }
 
     readonly property QtObject sizes: QtObject {
-        readonly property QtObject bar: QtObject {
-            readonly property int height: 28
-            readonly property int width: 1000
-            readonly property int leftMargin: 24
-            readonly property int rightMargin: 24
-        }
+        readonly property real border: 1
         readonly property QtObject radius: QtObject {
             readonly property int small: 4
             readonly property int medium: 6
             readonly property int normal: 8
+            readonly property int big: 16
         }
-        readonly property QtObject margin: QtObject {
+        readonly property QtObject margins: QtObject {
             readonly property int none: 0
             readonly property int small: 4
             readonly property int normal: 6
@@ -75,6 +72,11 @@ QtObject {
                 "special:magic2": ""
             })
 
+        readonly property var tray: QtObject {
+            readonly property string empty: "󱊔"
+            readonly property string full: "󱊖"
+        }
+
         readonly property QtObject pipewire: QtObject {
             readonly property QtObject volume: QtObject {
                 readonly property string off: ""
@@ -87,12 +89,6 @@ QtObject {
                 readonly property string unmuted: ""
                 readonly property string muted: ""
             }
-        }
-        readonly property QtObject notification: QtObject {
-            readonly property string def: "󰂚"
-            readonly property string notification: "󱅫"
-            readonly property string danger: "󰵙"
-            readonly property string dnd: "󰂛"
         }
         readonly property string controlCenter: ""
 
@@ -127,6 +123,31 @@ QtObject {
         readonly property QtObject commands: QtObject {
             readonly property string openSinkControl: "pavucontrol -t 3"
             readonly property string openSourceControl: "pavucontrol -t 4"
+        }
+    }
+
+    readonly property QtObject bar: QtObject {
+        readonly property int height: 28
+        readonly property int width: 1000
+        readonly property int leftMargin: 24
+        readonly property int rightMargin: 24
+
+        readonly property QtObject corners: QtObject {
+            readonly property bool top: true
+            readonly property bool bottom: false
+        }
+    }
+    readonly property QtObject notifications: QtObject {
+        readonly property int width: 280
+        readonly property int centerWidth: 340
+        readonly property int centerHeight: 800
+        readonly property int timeout: 5000
+        readonly property int imageSize: 24
+        readonly property QtObject icons: QtObject {
+            readonly property string def: "󰂚"
+            readonly property string notification: "󱅫"
+            readonly property string danger: "󰵙"
+            readonly property string dnd: "󰂛"
         }
     }
 }

@@ -15,9 +15,8 @@
 set -euo pipefail
 
 # --- Definições dos dispositivos ---------------------------------------
-
-SINK_PCI="alsa_output.pci-0000_00_1f.3.analog-stereo"
-SOURCE_PCI="alsa_input.pci-0000_00_1f.3.analog-stereo"
+SINK_PCI="alsa_output.usb-KTMicro_KT_USB_Audio_2021-06-07-0000-0000-0000--00.analog-stereo"
+SOURCE_PCI="alsa_input.usb-KTMicro_KT_USB_Audio_2021-06-07-0000-0000-0000--00.mono-fallback"
 
 SINK_USB="alsa_output.usb-Jieli_Technology_USB_Composite_Device_4250315736303607-00.analog-stereo"
 SOURCE_USB="alsa_input.usb-Jieli_Technology_USB_Composite_Device_4250315736303607-00.mono-fallback"
@@ -78,7 +77,7 @@ MODE="${1:-toggle}"
 
 case "$MODE" in
     pci)
-        set_device "$SINK_PCI" "$SOURCE_PCI" "PCI (analógico onboard)"
+        set_device "$SINK_PCI" "$SOURCE_PCI" "KT USB"
         ;;
     usb)
         set_device "$SINK_USB" "$SOURCE_USB" "USB (Jieli Technology)"
@@ -91,7 +90,7 @@ case "$MODE" in
         if [[ "$current_sink" == "$SINK_PCI" ]]; then
             set_device "$SINK_USB" "$SOURCE_USB" "USB (Jieli Technology)"
         else
-            set_device "$SINK_PCI" "$SOURCE_PCI" "PCI (analógico onboard)"
+            set_device "$SINK_PCI" "$SOURCE_PCI" "KT USB"
         fi
         ;;
     *)
