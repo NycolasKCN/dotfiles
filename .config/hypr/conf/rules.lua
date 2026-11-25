@@ -69,7 +69,7 @@ hl.window_rule({
 	match = { tag = "pin_opacity" },
 
 	opacity = "0.6 override",
-  no_blur = true
+	no_blur = true,
 })
 
 hl.window_rule({
@@ -190,8 +190,8 @@ hl.on("window.open", function(w)
 
 		sub:remove()
 
-		if tw.title:match("^Extension:") then
-			hl.dispatch(hl.dsp.window.resize({ x = 800, y = 600, window = tw }))
+		if tw.title:match("^Extension:") or tw.title:match("^Fazer login") then
+			hl.dispatch(hl.dsp.window.resize({ x = 1280, y = 720, window = tw }))
 			hl.dispatch(hl.dsp.window.center({ window = tw }))
 			hl.dispatch(hl.dsp.focus({ window = tw }))
 		else
